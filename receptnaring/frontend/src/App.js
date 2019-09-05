@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CreateRecipe from './views/CreateRecipe';
 
 function App() {
   return (
