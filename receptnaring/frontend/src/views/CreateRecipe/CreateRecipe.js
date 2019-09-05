@@ -6,12 +6,12 @@ const CreateRecipe = () => {
   return (
     <Container>
       <Row>
-        <Col md="6">HELLO</Col>
-        <Col md="6">HELLO</Col>
+        <Col md="6" sm="12">HELLO</Col>
+        <Col md="6" sm="12">HELLO</Col>
       </Row>
       <Row>
-        <Col md="6">HELLO</Col>
-        <Col md="6">HELLO</Col>
+        <Col md="6" sm="12">HELLO</Col>
+        <Col md="6" sm="12">HELLO</Col>
       </Row>
     </Container>
   )
