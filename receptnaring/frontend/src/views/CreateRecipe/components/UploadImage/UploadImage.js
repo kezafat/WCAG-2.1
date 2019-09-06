@@ -7,10 +7,15 @@ import {
 import image from '../../../../assets/images/upload-image.png';
 
 const UploadImage = () => {
+
+  const log = e => {
+    console.log(e.target.files);
+  }
+
   return (
     <StyledUploadContainer>
       <img src={image} alt="Bild på en vit kamera med blå bakgrund" />
-      <StyledUploadInput type="file" name="upload" id="upload" />
+      <StyledUploadInput onChange={log} type="file" name="upload" id="upload" />
       <StyledUploadLabel htmlFor="upload">
         Lägg upp ett foto
       </StyledUploadLabel>
