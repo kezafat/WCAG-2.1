@@ -3,13 +3,12 @@ import { StyledContainer, StyledInputGroup, StyledH2, StyledTitleInput, StyledH3
 import { sliderInputsData } from '../../../../staticData';
 
 const TitlePersonTime = () => {
-  const [sliderValues, setSliderValues] = useState({
-    people: 0,
+  const [inputValues, setInputValues] = useState({
+    title: '',
+    people: 2,
     hours: 0,
     minutes: 0
   });
-  /* const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0); */
 
   const renderSliders = () => sliderInputsData.map(({ title, name, min, max, id }) =>
     <StyledInputGroup key={id}>
@@ -17,18 +16,15 @@ const TitlePersonTime = () => {
         {title}
       </StyledH3>
       <StyledSliderInputContainer>
-        <StyledSliderInput type="range" name={name} min={min} max={max} defaultValue={sliderValues[name]} onChange={onSliderChange} />
+        <StyledSliderInput type="range" name={name} min={min} max={max} defaultValue={inputValues[name]} onChange={onInputChange} />
       </StyledSliderInputContainer>
+      <StyledInput type="number" min={min} value={inputValues[name]} readOnly />
     </StyledInputGroup>
   );
 
-  // const onSliderChange = e => this.setState({ [e.target.name]: e.target.value });
-
-  const onSliderChange = e => {
+  const onInputChange = e => {
     e.persist();
-    console.log(e.target.getAttribute('name'));
-    console.log(e.target.value);
-    setSliderValues(sliderValues => ({ ...sliderValues, [e.target.getAttribute('name')]: e.target.value }));
+    setInputValues(inputValues => ({ ...inputValues, [e.target.getAttribute('name')]: e.target.value }));
   }
 
   return (
@@ -37,13 +33,9 @@ const TitlePersonTime = () => {
         <StyledH2>
           Titel
         </StyledH2>
-        <StyledTitleInput />
+        <StyledTitleInput type="text" name="title" placeholder="Skriv titel här..." onChange={onInputChange} />
       </StyledInputGroup>
       {renderSliders()}
-      <StyledInputGroup>
-        <StyledInput type="number" placeholder="h" min="0" value={sliderValues.hours} readOnly primary />
-        <StyledInput type="number" placeholder="min" min="0" />
-      </StyledInputGroup>
     </StyledContainer>
   )
 }

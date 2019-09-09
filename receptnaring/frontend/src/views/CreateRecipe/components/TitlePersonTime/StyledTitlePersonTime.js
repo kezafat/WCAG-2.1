@@ -31,12 +31,14 @@ export const StyledH3 = styled.h3`
 `;
 
 export const StyledSliderInputContainer = styled.div`
-  width: 13rem;
+  width: 11rem;
+  margin-left: auto;
+  align-self: flex-end;
 `;
 
 export const StyledSliderInput = styled.input`
   appearance: none;
-  background: lightgrey;
+  background: #eee;
   height: 1rem;
   width: 100%;
   border-radius: 3px;
@@ -51,7 +53,12 @@ export const StyledSliderInput = styled.input`
 `;
 
 export const StyledInput = styled.input`
-  width: 3rem;
+  width: 2rem;
   text-align: center;
-  margin: ${props => props.primary ? '0 1rem 0 auto ' : '0 auto 0 0'}; 
+  margin-left: 0.5rem;
+  &::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
 `;
