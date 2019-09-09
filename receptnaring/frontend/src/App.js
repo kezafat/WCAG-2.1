@@ -6,12 +6,13 @@ import {
 } from "react-router-dom";
 import CreateRecipe from './views/CreateRecipe';
 import StartPage from './views/Startpage';
+import Navbar from '../../frontend/src/components/Navbar';
 
 const App = props => {
   return (
     <Router>
       <header>
-        Navbar här
+      <Navbar />
       </header>
       <main>
         <Switch>

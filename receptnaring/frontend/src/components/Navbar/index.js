@@ -1,27 +1,26 @@
 import React from "react";
-import {Container} from "reactstrap"
+import { Container } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import {
   StyledNavbar,
-  StyledNavbarBrand,
   StyledLogo,
   StyledButton,
   StyledNavItem,
   StyledNav,
-  StyledContainer
 } from "./StyleNavbar";
 
 const NavbarComponent = () => {
   return (
     <Container>
       <StyledNavbar>
-        <StyledNavbarBrand href="/">
+        <StyledNav>
           <StyledLogo src={"./images/LogoRN.png"} />
-        </StyledNavbarBrand>
+        </StyledNav>
         <StyledNav navbar>
           <StyledNavItem>
-            <a href="path">
+            <Link to="/skapa-recept">
               <StyledButton>Skapa recept</StyledButton>
-            </a>
+            </Link>
           </StyledNavItem>
         </StyledNav>
       </StyledNavbar>

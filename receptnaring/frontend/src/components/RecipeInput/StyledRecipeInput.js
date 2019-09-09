@@ -8,7 +8,6 @@ export const RecipeWrapper = styled.div`
   background-image: url(/images/sallad0.jpg);
   background-size: cover;
   background-position: center;
-  width: 80%;
 `
 
 export const RecipeSearch = styled.input`
