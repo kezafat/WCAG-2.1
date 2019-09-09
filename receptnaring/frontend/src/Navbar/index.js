@@ -1,34 +1,32 @@
-import React from 'react';
-
+import React from "react";
+import {Container} from "reactstrap"
 import {
-StyledNavbar, 
-StyledNavbarBrand, 
-StyledLogo,
-StyledButton, 
-StyledNavItem, 
-StyledNav
-} from "./StyleNavbar"
-
-
+  StyledNavbar,
+  StyledNavbarBrand,
+  StyledLogo,
+  StyledButton,
+  StyledNavItem,
+  StyledNav,
+  StyledContainer
+} from "./StyleNavbar";
 
 const NavbarComponent = () => {
-    return (
+  return (
+    <Container>
+      <StyledNavbar>
+        <StyledNavbarBrand href="/">
+          <StyledLogo src={"./images/LogoRN.png"} />
+        </StyledNavbarBrand>
+        <StyledNav navbar>
+          <StyledNavItem>
+            <a href="path">
+              <StyledButton>Skapa recept</StyledButton>
+            </a>
+          </StyledNavItem>
+        </StyledNav>
+      </StyledNavbar>
+    </Container>
+  );
+};
 
-        <StyledNavbar>
-            <StyledNavbarBrand href="/"  >
-                <StyledLogo src={'./images/svart_skugga.png'}/>
-                </StyledNavbarBrand>
-            <StyledNav navbar>
-                <StyledNavItem>
-                    <a href="path">
-                    <StyledButton>Skapa recept</StyledButton></a>
-                </StyledNavItem>
-            </StyledNav>
-        </StyledNavbar>
-
-
-    );
-}
-
-
-export default NavbarComponent
+export default NavbarComponent;

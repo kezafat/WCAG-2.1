@@ -2,11 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import NavbarComponent from "./Navbar/index"
+import {Container}from "reactstrap"
 
 function App() {
   return (
     <div className="App">
-      <NavbarComponent/>
+        <NavbarComponent/>
+    
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
