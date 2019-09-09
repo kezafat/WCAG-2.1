@@ -3,7 +3,8 @@ import RecipeInput from '../../components/RecipeInput';
 import { Container } from 'reactstrap';
 import {
   RecipeWrapper,
-  TextBanner
+  TextBanner,
+  TextInfo
 } from './StyledStartPage';
 
 
@@ -13,7 +14,9 @@ const StartPage = () => {
       <RecipeInput />
       <RecipeWrapper>
         <TextBanner>
-          
+          <TextInfo>
+            Recept
+          </TextInfo>
         </TextBanner>
       </RecipeWrapper>
     </Container>

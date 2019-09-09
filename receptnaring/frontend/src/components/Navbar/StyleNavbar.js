@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { 
-  Button, 
-  Navbar, 
-  Nav,  
+import {
+  Button,
+  Navbar,
+  Nav,
   NavItem
- } from 'reactstrap';
+} from 'reactstrap';
 
 export const StyledLogo = styled.img`
   width: 300px;
