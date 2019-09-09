@@ -3,8 +3,10 @@ import { Row, Col } from 'reactstrap'
 
 export const FooterRow = styled(Row)`
     background-color: #EFE9E6;
-    height: 270px;
     align-items: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid #eadad2;
 `;
 
 export const IconText = styled.p`
@@ -30,5 +32,5 @@ export const StyledImage = styled.img`
 
 export const ContactText = styled.p`
     font-size: 24px;
-    margin-bottom: 40px;
+    margin: 20px 20px;
 `;

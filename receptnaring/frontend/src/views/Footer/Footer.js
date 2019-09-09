@@ -28,7 +28,7 @@ class Footer extends Component {
           </StyledCol>
           <ContactCol lg="12">
             <ContactText>
-              Email: info@receptnaring.se
+              <a href="mailto:info@receptnaring.se">info@receptnaring.se</a>
             </ContactText>
           </ContactCol>
         </FooterRow>
