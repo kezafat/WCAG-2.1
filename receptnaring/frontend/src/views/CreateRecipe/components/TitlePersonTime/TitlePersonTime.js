@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
-import { StyledContainer, StyledInputGroup, StyledH2, StyledTitleInput, StyledH3, StyledSliderInputContainer, StyledSliderInput, StyledInput } from './StyledTitlePersonTime';
 import { sliderInputsData } from '../../../../staticData';
+import {
+  StyledContainer,
+  StyledInputGroup,
+  StyledH2,
+  StyledTitleInput,
+  StyledH3,
+  StyledSliderInputContainer,
+  StyledSliderInput,
+  StyledInput
+} from './StyledTitlePersonTime';
 
 const TitlePersonTime = () => {
   const [inputValues, setInputValues] = useState({
@@ -16,9 +25,21 @@ const TitlePersonTime = () => {
         {title}
       </StyledH3>
       <StyledSliderInputContainer>
-        <StyledSliderInput type="range" name={name} min={min} max={max} defaultValue={inputValues[name]} onChange={onInputChange} />
+        <StyledSliderInput
+          type="range"
+          name={name}
+          min={min}
+          max={max}
+          defaultValue={inputValues[name]}
+          onChange={onInputChange}
+        />
       </StyledSliderInputContainer>
-      <StyledInput type="number" min={min} value={inputValues[name]} readOnly />
+      <StyledInput
+        type="number"
+        min={min}
+        value={inputValues[name]}
+        readOnly
+      />
     </StyledInputGroup>
   );
 
@@ -33,7 +54,12 @@ const TitlePersonTime = () => {
         <StyledH2>
           Titel
         </StyledH2>
-        <StyledTitleInput type="text" name="title" placeholder="Skriv titel här..." onChange={onInputChange} />
+        <StyledTitleInput
+          type="text"
+          name="title"
+          placeholder="Skriv titel här..."
+          onChange={onInputChange}
+        />
       </StyledInputGroup>
       {renderSliders()}
     </StyledContainer>
