@@ -59,8 +59,6 @@ router.post('/api/recipe', async (req, res) => {
   let error;
   await save.save().catch(err => error = err)
   res.json(save || error);
-  console.log(save)
-  console.log(error)
 });
 
 
