@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { StyledRow } from './StyledCreateRecipe';
 import TitlePersonTime from './components/TitlePersonTime';
+import IngredientInput from './components/IngredientInput';
 
 class CreateRecipe extends Component {
 
@@ -15,7 +16,9 @@ class CreateRecipe extends Component {
           </Col>
         </StyledRow>
         <Row className="text-center">
-          <Col md="6" sm="12">HELLO</Col>
+          <Col md="6" sm="12">
+            <IngredientInput />
+          </Col>
           <Col md="6" sm="12">HELLO</Col>
         </Row>
       </Container>
