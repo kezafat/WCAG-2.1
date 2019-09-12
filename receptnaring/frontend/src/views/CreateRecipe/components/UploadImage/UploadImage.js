@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyledUploadContainer,
   StyledUploadInput,
@@ -7,15 +7,14 @@ import {
 import image from '../../../../assets/images/upload-image.png';
 
 const UploadImage = () => {
+  const [uploadedImage, setUploadedImage] = useState({});
 
-  const log = e => {
-    console.log(e.target.files);
-  }
+  const addImage = e => setUploadedImage(e.target.files[0]);
 
   return (
     <StyledUploadContainer>
       <img src={image} alt="Bild på en vit kamera med blå bakgrund" />
-      <StyledUploadInput onChange={log} type="file" name="upload" id="upload" />
+      <StyledUploadInput onChange={addImage} type="file" name="upload" id="upload" />
       <StyledUploadLabel htmlFor="upload">
         Lägg upp ett foto
       </StyledUploadLabel>
