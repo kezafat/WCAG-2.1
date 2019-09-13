@@ -25,6 +25,9 @@ const sliderInputsData = [
   },
 ];
 
+const units = ['kg', 'g', 'st', 'liter', 'dl', 'msk', 'tsk'];
+
 export {
-  sliderInputsData
+  sliderInputsData,
+  units
 }

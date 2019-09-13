@@ -10,6 +10,8 @@ import {
   StyledIngredientText,
   StyledRemoveButton
 } from './StyledIngredientInput';
+import ingredientsList from '../../../../ingredientsList';
+import { units } from '../../../../staticData';
 import plus from '../../../../assets/images/plus.svg';
 import remove from '../../../../assets/images/remove.svg';
 
@@ -21,14 +23,12 @@ const IngredientInput = () => {
     unit: 'kg'
   });
 
-  /**
-   * Both of these are for testing purpose only
-     Data should ofc come from an API call
-     Which we loop over to create the <option>
-   */
-  const ingredientList = ['ägg', 'mjölk', 'mjöl'];
-  const renderIngredients = () => ingredientList.map(ingredient =>
-    <option key={ingredient} value={ingredient}></option>
+  const renderIngredients = () => ingredientsList.map(({ Namn }) =>
+    <option key={Namn} value={Namn}></option>
+  );
+
+  const renderUnits = () => units.map((unit, i) =>
+    <option key={i} value={unit}>{unit}</option>
   );
 
   const addIngredient = () => {
@@ -64,7 +64,7 @@ const IngredientInput = () => {
           name="ingredient"
           defaultValue={ingredient.ingredient}
           list="ingredients"
-          placeholder="Ingredienser..."
+          placeholder="Ingredienser"
           primary
           onChange={handleInput}
         />
@@ -75,13 +75,11 @@ const IngredientInput = () => {
           type="number"
           name="amount"
           defaultValue={ingredient.amount}
-          placeholder="Antal..."
+          placeholder="Antal"
           onChange={handleInput}
         />
         <StyledSelectUnit name="unit" defaultValue={ingredient.unit} onChange={handleInput}>
-          <option value="kg">kg</option>
-          <option value="dl">dl</option>
-          <option value="st">st</option>
+          {renderUnits()}
         </StyledSelectUnit>
         <StyledAddButton onClick={addIngredient}>
           <StyledImage src={plus} alt="add" />

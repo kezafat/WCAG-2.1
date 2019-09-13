@@ -27,7 +27,7 @@ const StyledInput = styled.input`
   border: 1px solid #DDDDDD;
   grid-area: ${props => props.primary ? 'ingredient' : 'amount'};
   height: 2rem;
-  padding: 0 0.5rem;
+  padding: 0 0.25rem;
 `;
 
 const StyledSelectUnit = styled.select`
