@@ -8,7 +8,7 @@ let receptSchema = new Schema({
   img: { type: String, required: true },
   title: { type: String, required: true },
   time: { type: Number, required: true },
-  portion: { type: Number, required: true },
+  portion: { type: Number, required: true, default: 2 },
   ingredient: [Ingredients.schema],
   instruction: [{ type: Array, required: true }],
   nutrition: [Nutritions.schema],
