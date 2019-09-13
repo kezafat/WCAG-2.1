@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Card, CardImg, CardBody, CardTitle} from 'reactstrap';
+import {Card, CardImg, CardBody, CardTitle, Spinner } from 'reactstrap';
 
 export const SortedRecipesWrapper = styled.div`
 
@@ -17,5 +17,10 @@ export const StyledCardImg = styled(CardImg)`
 `
 
 export const StyledCardTitle = styled(CardTitle)`
+
+`
+
+export const StyledSpinner = styled(Spinner)`
+color:green;
 
 `

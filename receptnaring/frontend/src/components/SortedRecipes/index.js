@@ -1,5 +1,5 @@
-import React, { useEffect, useState  } from 'react'
-import { SortedRecipesWrapper, StyledCard, StyledCardBody, StyledCardTitle, StyledCardImg } from './StyleSortedRecipes'
+import React, { useEffect, useState } from 'react'
+import { SortedRecipesWrapper, StyledCard, StyledCardBody, StyledCardTitle, StyledCardImg, StyledSpinner } from './StyleSortedRecipes'
 
 
 function SortedRecipes() {
@@ -12,24 +12,31 @@ function SortedRecipes() {
             const fetchData = async () => {
                 const respons = await fetch(url);
                 const data = await respons.json();
-                const [items] = data;
-                setData(items);
+                const items = data;
+                const slicedData = items.slice(-3);
+                setData(slicedData);
                 setLoading(false);
             };
             fetchData();
         }, [url]);
-        return {data, loading};
+        return { data, loading };
     }
-    const {data, loading} = useFetch('http://localhost:3001/api/recipes');
+    const { data, loading } = useFetch('http://localhost:3001/api/recipes');
+
+    const renderRecipe = (data, index) => <StyledCard key={index} >
+        <StyledCardBody>
+            <StyledCardImg src={`/images/${data.img}`}></StyledCardImg>
+            <StyledCardTitle>{data.title}</StyledCardTitle>
+        </StyledCardBody>
+    </StyledCard>
+
+    const renderRecipes = () => data.map((simon, index) => renderRecipe(simon, index))
 
     return (
         <SortedRecipesWrapper>
-            <StyledCard>
-                <StyledCardBody>
-                    <StyledCardImg></StyledCardImg>
-                    <StyledCardTitle></StyledCardTitle>
-                </StyledCardBody>
-            </StyledCard>
+            { loading ? (<StyledSpinner/>) :
+            (renderRecipes(data))
+        }
         </SortedRecipesWrapper>
     );
 };
