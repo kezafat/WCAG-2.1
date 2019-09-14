@@ -4,6 +4,7 @@ import { StyledRow } from './StyledCreateRecipe';
 import UploadImage from './components/UploadImage';
 import TitlePersonTime from './components/TitlePersonTime';
 import IngredientInput from './components/IngredientInput';
+import AddStep from './components/AddStep';
 
 class CreateRecipe extends Component {
 
@@ -22,7 +23,9 @@ class CreateRecipe extends Component {
           <Col md="6" sm="12">
             <IngredientInput />
           </Col>
-          <Col md="6" sm="12">HELLO</Col>
+          <Col md="6" sm="12">
+            <AddStep />
+          </Col>
         </Row>
       </Container>
     )

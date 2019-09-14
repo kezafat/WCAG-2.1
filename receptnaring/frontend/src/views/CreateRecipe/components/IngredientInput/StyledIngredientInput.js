@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const StyledIngredientContainer = styled.section`
-  text-align: left;
   max-width: 300px;
   margin: 0 auto;
 `;
@@ -52,6 +51,7 @@ const StyledImage = styled.img`
 `;
 
 const StyledIngredientText = styled.p`
+  text-align: left;
   margin-top: 0.5rem;
 `;
 
