@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import { StyledUploadContainer, StyledUploadInput, StyledUploadLabel } from './StyledUploadImage';
 
 const axios = require("axios");

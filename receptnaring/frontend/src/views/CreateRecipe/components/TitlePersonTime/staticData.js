@@ -7,19 +7,19 @@ const sliderInputsData = [
     defaultValue: '2',
     id: 1
   },
-  {
-    title: 'Timmar',
-    name: 'hours',
-    min: '0',
-    max: '24',
-    defaultValue: '0',
-    id: 2
-  },
+  // {
+  //   title: 'Timmar',
+  //   name: 'hours',
+  //   min: '0',
+  //   max: '24',
+  //   defaultValue: '0',
+  //   id: 2
+  // },
   {
     title: 'Minuter',
-    name: 'minutes',
+    name: 'time',
     min: '0',
-    max: '60',
+    max: '300',
     defaultValue: '0',
     id: 3
   },
