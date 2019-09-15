@@ -23,7 +23,7 @@ const AddStep = () => {
   const renderList = () => steps.map((step, i) =>
     <StyledListItem key={i}>
       <StyledParagraph primary>
-        1
+        {i + 1}
       </StyledParagraph>
       <StyledParagraph>
         {step}

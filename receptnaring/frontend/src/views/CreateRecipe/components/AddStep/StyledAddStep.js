@@ -16,21 +16,32 @@ const StyledH2 = styled.h2`
 
 const StyledInput = styled.input`
   grid-area: input;
+  height: 2rem;
+  padding: 0 0.25rem;
+  border: 1px solid #DDDDDD;
 `;
 
 const StyledAddButton = styled.button`
   grid-area: add;
+  display: flex;
+  justify-content: center;
+  background: #72C554;
+  border: 1px solid #DDDDDD;
 `;
 
 const StyledImage = styled.img`
-
+  width: 1.1rem;
+  height: auto;
 `;
 
 const StyledOrderedList = styled.ol`
-
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: column;
 `;
 
 const StyledListItem = styled.li`
+  width: 100%;
   margin-top: 1rem;
 `;
 
