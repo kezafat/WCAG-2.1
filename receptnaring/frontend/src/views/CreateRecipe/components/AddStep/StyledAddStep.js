@@ -22,6 +22,10 @@ const StyledAddButton = styled.button`
   grid-area: add;
 `;
 
+const StyledImage = styled.img`
+
+`;
+
 const StyledOrderedList = styled.ol`
 
 `;
@@ -41,6 +45,7 @@ export {
   StyledAddStepContainer,
   StyledInput,
   StyledAddButton,
+  StyledImage,
   StyledOrderedList,
   StyledListItem,
   StyledParagraph

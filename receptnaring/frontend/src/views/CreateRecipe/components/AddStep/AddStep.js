@@ -4,6 +4,7 @@ import {
   StyledAddStepContainer,
   StyledInput,
   StyledAddButton,
+  StyledImage,
   StyledOrderedList,
   StyledListItem,
   StyledParagraph
@@ -34,7 +35,9 @@ const AddStep = () => {
     <StyledAddStepContainer>
       <StyledH2>Instruktioner</StyledH2>
       <StyledInput type="text" defaultValue={step} onChange={handleInput} />
-      <StyledAddButton onClick={addStep}>Add</StyledAddButton>
+      <StyledAddButton onClick={addStep}>
+        <StyledImage src="/images/uploaded/plus.svg" alt="Add" />
+      </StyledAddButton>
       <StyledOrderedList>
         {renderList()}
       </StyledOrderedList>
