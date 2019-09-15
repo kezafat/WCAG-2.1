@@ -12,8 +12,6 @@ import {
 } from './StyledIngredientInput';
 import ingredientsList from '../../../../ingredientsList';
 import { units } from './staticData';
-import plus from '../../../../assets/images/plus.svg';
-import remove from '../../../../assets/images/remove.svg';
 
 const IngredientInput = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -50,7 +48,7 @@ const IngredientInput = () => {
     <StyledIngredientText key={i}>
       {`${amount} ${unit} ${ingredient}`}
       <StyledRemoveButton onClick={removeIngredient}>
-        <StyledImage src={remove} />
+        <StyledImage src="images/uploaded/remove.svg" />
       </StyledRemoveButton>
     </StyledIngredientText>
   );
@@ -82,7 +80,7 @@ const IngredientInput = () => {
           {renderUnits()}
         </StyledSelectUnit>
         <StyledAddButton onClick={addIngredient}>
-          <StyledImage src={plus} alt="add" />
+          <StyledImage src="images/uploaded/plus.svg" alt="add" />
         </StyledAddButton>
       </StyledInputContainer>
       {renderIngredientParagraph()}

@@ -26,7 +26,9 @@ const CreateRecipe = () => {
         </Col>
       </StyledRow>
       <Row className="text-center">
-        <Col md="6" sm="12">HELLO</Col>
+        <Col md="6" sm="12">
+          <IngredientInput />
+        </Col>
         <Col md="6" sm="12">HELLO</Col>
       </Row>
       <Row className="text-center d-flex justify-content-around mt-4">
