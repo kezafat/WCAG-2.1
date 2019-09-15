@@ -4,28 +4,45 @@ const express = require('express');
 const DBing = require('../schemas/DBingredients');
 const router = express.Router();
 const parser = require('xml2json');
+const formidable = require('formidable');
+const path = require('path');
 
-// !!!!! ings = short for ingredients :D
+router.post('/api/uploadimg', async (req, res) => {
+  let savePath = path.join(__dirname, '../../frontend/public/images/uploaded/');
+  let form = new formidable.IncomingForm();
+  form.parse(req);
 
-// Get all ings
-// EX: localhost:3001/db/readings
-router.get('/db/readings', async (req, res) => {
+  form.on('fileBegin', function (name, file) {
+    let ext = file.name.split('.').pop();
+    file.name = name + '.' + ext;
+    file.path = savePath + file.name;
+    file = file.name;
+  });
+
+  form.on('file', function (name, file) {
+    res.json({ "filename": file.name })
+  });
+})
+
+// Get all ingredients
+// EX: localhost:3001/api/ingredients
+router.get('/api/ingredients', async (req, res) => {
   DBing.find({}).exec().then(data => {
     res.status(200).json(data)
   })
 })
 
-// Get specific ing by ID
-// EX: localhost:3001/db/ingid/5d7a151fd8053c2e53086ccf
-router.get('/db/ingid/:id', (req, res) => {
+// Get specific ingredient by ID
+// EX: localhost:3001/api/ingredient/id/5d7a151fd8053c2e53086ccf
+router.get('/db/ingredient/id/:id', (req, res) => {
   DBing.findById(req.params.id).exec().then(data => {
     res.status(200).send(data)
   })
 });
 
-// Get textual stringmatch of ing
-// EX: localhost:3001/db/ingstring/olja
-router.get('/db/ingstring/namn/:name', (req, res) => {
+// Get textual stringmatch of ingredient
+// EX: localhost:3001/api/ingredient/search/olja
+router.get('/api/ingredient/search/:name', (req, res) => {
   DBing.find({ "Namn": new RegExp(req.params.name, 'i') },
     function (err, result) {
       res.json(err || result)
@@ -33,9 +50,9 @@ router.get('/db/ingstring/namn/:name', (req, res) => {
   );
 });
 
-// Load ings to DB (TAKES TIME!)
+// Load ingredients to DB (TAKES TIME!)
 // EX: localhost:3001/db/loadings
-router.get('/db/loadings', async (req, res) => {
+router.get('/api/load-ingredients', async (req, res) => {
   req.setTimeout(0);
   await DBing.deleteMany({}, () => console.log("Truncate DB, check!"));
 
