@@ -3,9 +3,24 @@ import { Container, Row, Col } from 'reactstrap';
 import { RecipeRow, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox } from './StyledRecipe';
 import foodImage from './kottbullar.jpg'
 
+let recipe = {};
+
 class Recipe extends Component {
 
+  test() {
+    fetch('http://localhost:3001/api/recipe/id/5d7761435f95393a8c211ad3')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (res) {
+        console.log(res)
+        this.recipe = res
+      });
+  }
+
   render() {
+    this.test();
+    console.log(this.recipe)
     return (
       <Container>
         <RecipeRow>
@@ -16,7 +31,7 @@ class Recipe extends Component {
               </PortionButton>
           </Col>
           <Col>
-            <h1>Köttbullar & potatismos med lingon</h1>
+            <h1>{}</h1>
             <p>Gör ditt eget potatismos, enkelt och gott med potatis, mjölk, smör och kryddor.
               Du smaksätter den mosade potatisen med salt, peppar för att få den där riktigt äkta smaken.
               </p>
