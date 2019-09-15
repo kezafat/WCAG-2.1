@@ -4,12 +4,13 @@ const connectToDb = require('./config/db');
 const config = require('./config/config');
 const recipeRoutes = require('./API/recipeRoutes');
 const dbIngRoute = require('./API/dbIngRoute');
-const settings = require('./config/settings.json');
+const cors = require('cors')
 
 connectToDb();
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.get('/', (req, res) => res.send('Välkommen till Recept & Närings super server'));
 
