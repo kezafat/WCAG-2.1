@@ -4,6 +4,7 @@ import { Container, Row, Col, Button } from 'reactstrap';
 import { StyledRow } from './StyledCreateRecipe';
 import UploadImage from './components/UploadImage';
 import TitlePersonTime from './components/TitlePersonTime';
+import IngredientInput from './components/IngredientInput';
 
 const CreateRecipe = () => {
   const initState = { 'img': 'upload-image.png' }
@@ -12,7 +13,6 @@ const CreateRecipe = () => {
   const clearForms = () => {
     setState({ ...initState, go: "/" });
   }
-
 
   return (
     <Container>
@@ -26,7 +26,9 @@ const CreateRecipe = () => {
         </Col>
       </StyledRow>
       <Row className="text-center">
-        <Col md="6" sm="12">HELLO</Col>
+        <Col md="6" sm="12">
+          <IngredientInput />
+        </Col>
         <Col md="6" sm="12">HELLO</Col>
       </Row>
       <Row className="text-center d-flex justify-content-around mt-4">

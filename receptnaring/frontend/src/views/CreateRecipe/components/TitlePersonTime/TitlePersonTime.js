@@ -60,6 +60,7 @@ const TitlePersonTime = (ctx) => {
           type="text"
           name="title"
           placeholder="Skriv titel här..."
+          defaultValue={inputValues.title}
           onChange={onInputChange}
         />
       </StyledInputGroup>
