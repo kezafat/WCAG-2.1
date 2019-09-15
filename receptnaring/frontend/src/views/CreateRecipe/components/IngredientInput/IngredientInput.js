@@ -11,7 +11,7 @@ import {
   StyledRemoveButton
 } from './StyledIngredientInput';
 import ingredientsList from '../../../../ingredientsList';
-import { units } from '../../../../staticData';
+import { units } from './staticData';
 import plus from '../../../../assets/images/plus.svg';
 import remove from '../../../../assets/images/remove.svg';
 
