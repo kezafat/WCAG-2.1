@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Footer from './views/Footer';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from "react-router-dom";
+import CreateRecipe from './views/CreateRecipe';
+import StartPage from './views/Startpage';
+import Navbar from '../../frontend/src/components/Navbar';
+import {
+  Header,
+  Main
+} from './StyledApp';
 
-function App() {
+const App = props => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Router>
+      <Header>
+        <Navbar />
+      </Header>
+      <Main>
+        <Switch>
+          <Route exact path="/" component={StartPage} />
+          <Route exact path="/skapa-recept" component={CreateRecipe} />
+        </Switch>
+      </Main>
+      <Footer>
+        Footer här
+      </Footer>
+    </Router>
+  )
+};
 
 export default App;
