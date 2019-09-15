@@ -27,10 +27,10 @@ function SortedRecipes() {
 
   const renderRecipe = (data, index) => <Col lg="4" key={index}><StyledCard >
     <StyledLink to={"/recept/" + data._id}>
-    <StyledCardBody>
-      <StyledCardImg src={`/images/${data.img}`}></StyledCardImg>
-      <StyledCardTitle>{trimString(data.title, 24)}</StyledCardTitle>
-    </StyledCardBody>
+      <StyledCardBody>
+        <StyledCardImg src={`/images/${data.img}`}></StyledCardImg>
+        <StyledCardTitle>{trimString(data.title, 24)}</StyledCardTitle>
+      </StyledCardBody>
     </StyledLink>
   </StyledCard>
   </Col>
@@ -38,9 +38,9 @@ function SortedRecipes() {
   const renderRecipes = () => data.map((item, index) => renderRecipe(item, index));
 
   const trimString = function (string, length) {
-    return string.length > length ? 
-           string.substring(0, length) + '...' :
-           string;
+    return string.length > length ?
+      string.substring(0, length) + '...' :
+      string;
   };
 
   return (
