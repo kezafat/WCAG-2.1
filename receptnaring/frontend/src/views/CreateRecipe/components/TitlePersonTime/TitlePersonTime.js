@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { sliderInputsData } from '../../../../staticData';
+import { sliderInputsData } from './staticData';
 import {
   StyledContainer,
   StyledInputGroup,
@@ -11,12 +11,13 @@ import {
   StyledInput
 } from './StyledTitlePersonTime';
 
-const TitlePersonTime = () => {
+const TitlePersonTime = (ctx) => {
+  const [get, set] = ctx.s;
   const [inputValues, setInputValues] = useState({
     title: '',
     people: 2,
-    hours: 0,
-    minutes: 0
+    // hours: 0,
+    time: 0
   });
 
   const renderSliders = () => sliderInputsData.map(({ title, name, min, max, id }) =>
@@ -46,6 +47,7 @@ const TitlePersonTime = () => {
   const onInputChange = e => {
     e.persist();
     setInputValues(inputValues => ({ ...inputValues, [e.target.getAttribute('name')]: e.target.value }));
+    set(prev => ({ ...prev, [e.target.getAttribute('name')]: e.target.value }))
   }
 
   return (
