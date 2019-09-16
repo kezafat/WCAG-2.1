@@ -26,12 +26,12 @@ function SortedRecipes() {
   const { data, loading } = useFetch('http://localhost:3001/api/recipes');
 
   const renderRecipe = (data, index) => <Col lg="4" key={index}><StyledCard >
-    <StyledLink to={"/recept/" + data._id}>
-      <StyledCardBody>
+    <StyledCardBody>
+      <StyledLink to={"/recept/" + data._id}>
         <StyledCardImg src={`/images/${data.img}`}></StyledCardImg>
         <StyledCardTitle>{trimString(data.title, 24)}</StyledCardTitle>
-      </StyledCardBody>
-    </StyledLink>
+      </StyledLink>
+    </StyledCardBody>
   </StyledCard>
   </Col>
 

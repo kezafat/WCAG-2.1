@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom'
 export const SortedRecipesWrapper = styled.div`
 `
 export const StyledCard = styled(Card)`
+ a:hover {
+        text-decoration: underline !important;
+    }
 `
 
 export const StyledCardBody = styled(CardBody)`
@@ -16,7 +19,7 @@ export const StyledCardImg = styled(CardImg)`
 
 `
 
-export const StyledCardTitle = styled(CardTitle)`
+export const StyledCardTitle = styled.p`
  position:absolute;
  bottom: 1px;
  left: 4px;
@@ -26,9 +29,6 @@ export const StyledCardTitle = styled(CardTitle)`
  margin-bottom: 0px !important;
  color:#fff;
  text-shadow: 1px 1px 2px black;
- &:hover{
-        text-decoration: underline;
-    }
 `
 
 export const StyledSpinner = styled(Spinner)`
@@ -37,10 +37,7 @@ justify-content: center;
 color:green;
 `
 export const StyledLink = styled(Link)`
-text-decoration:none;
- &:focus, &:hover, &:visited, &:link, &:active {
-        text-decoration: underline !important;
-    }
+
 `
 
 export const StyledH3 = styled.h3`
