@@ -7,7 +7,6 @@ import {
   StyledImage,
   StyledOrderedList,
   StyledListItem,
-  StyledListItemContainer,
   StyledListNumberContainer,
   StyledParagraph
 } from './StyledAddStep';
@@ -27,16 +26,14 @@ const AddStep = () => {
 
   const renderList = () => steps.map((step, i) =>
     <StyledListItem key={i}>
-      <StyledListItemContainer>
-        <StyledListNumberContainer>
-          <StyledParagraph primary>
-            {i + 1}
-          </StyledParagraph>
-        </StyledListNumberContainer>
-        <StyledParagraph className="text-break">
-          {step}
+      <StyledListNumberContainer>
+        <StyledParagraph primary>
+          {i + 1}
         </StyledParagraph>
-      </StyledListItemContainer>
+      </StyledListNumberContainer>
+      <StyledParagraph className="text-break">
+        {step}
+      </StyledParagraph>
     </StyledListItem>
   );
 

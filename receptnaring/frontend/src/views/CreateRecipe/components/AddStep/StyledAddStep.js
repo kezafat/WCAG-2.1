@@ -40,9 +40,6 @@ const StyledOrderedList = styled.ol`
 
 const StyledListItem = styled.li`
   margin-top: 1rem;
-`;
-
-const StyledListItemContainer = styled.div`
   text-align: left;
   overflow-wrap: break-word;
   display: flex;
@@ -52,6 +49,7 @@ const StyledListItemContainer = styled.div`
 const StyledListNumberContainer = styled.div`
   display: flex;
   align-items: center;
+  background: #ECEEEF;
 `;
 
 const StyledParagraph = styled.p`
@@ -69,7 +67,6 @@ export {
   StyledImage,
   StyledOrderedList,
   StyledListItem,
-  StyledListItemContainer,
   StyledListNumberContainer,
   StyledParagraph
 }
