@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import {
   StyledIngredientContainer,
   StyledH2,
@@ -10,10 +11,10 @@ import {
   StyledIngredientText,
   StyledRemoveButton
 } from './StyledIngredientInput';
-import ingredientsList from '../../../../ingredientsList';
 import { units } from './staticData';
 
 const IngredientInput = () => {
+  const [ingredientsList, setIngredientsList] = useState({ 'loading': 1, data: [] });
   const [ingredients, setIngredients] = useState([]);
   const [ingredient, setIngredient] = useState({
     ingredient: '',
@@ -21,7 +22,16 @@ const IngredientInput = () => {
     unit: 'kg'
   });
 
-  const renderIngredients = () => ingredientsList.map(({ Namn }) =>
+  useEffect(() => {
+    async function fetchIngredientsWithYourBelovedAxios() {
+      let res = await axios.get('http://localhost:3001/api/ingredients');
+      setIngredientsList(prev => ({ ...prev, loading: 0, data: res.data }))
+    }
+
+    fetchIngredientsWithYourBelovedAxios()
+  }, []);
+
+  const renderIngredients = () => ingredientsList.data.map(({ Namn }) =>
     <option key={Namn} value={Namn}></option>
   );
 
@@ -62,9 +72,10 @@ const IngredientInput = () => {
           name="ingredient"
           defaultValue={ingredient.ingredient}
           list="ingredients"
-          placeholder="Ingredienser"
+          placeholder={ingredientsList.loading ? '' : 'Ingredienser'}
           primary
           onChange={handleInput}
+          className={ingredientsList.loading ? 'spinner-border' : ''}
         />
         <datalist id="ingredients">
           {renderIngredients()}
