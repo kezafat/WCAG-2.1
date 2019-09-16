@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipeInput from '../../components/RecipeInput';
+import SortedRecipes from '../../components/SortedRecipes'
 import { Container } from 'reactstrap';
 import {
   RecipeWrapper,
@@ -18,6 +19,7 @@ const StartPage = () => {
             Recept
           </TextInfo>
         </TextBanner>
+        <SortedRecipes />
       </RecipeWrapper>
     </Container>
   )
