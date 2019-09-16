@@ -11,7 +11,8 @@ import {
   StyledParagraph
 } from './StyledAddStep';
 
-const AddStep = () => {
+const AddStep = (ctx) => {
+  const [get, set] = ctx.s;
   const [steps, setSteps] = useState([]);
   const [step, setStep] = useState('');
   const inputRef = useRef(null);
@@ -19,6 +20,7 @@ const AddStep = () => {
   const addStep = e => {
     e.preventDefault();
     setSteps([...steps, step]);
+    set(prev => ({...prev, 'instructions':[...steps, step]}))
     inputRef.current.focus();
   }
 
@@ -42,7 +44,7 @@ const AddStep = () => {
       <StyledH2>Instruktioner</StyledH2>
       <StyledInput type="text" ref={inputRef} defaultValue={step} onChange={handleInput} />
       <StyledAddButton onClick={addStep}>
-        <StyledImage src="/images/uploaded/plus.svg" alt="Add" />
+        <StyledImage src="/images/plus.svg" alt="Add" />
       </StyledAddButton>
       <StyledOrderedList>
         {renderList()}
