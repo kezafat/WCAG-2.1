@@ -13,13 +13,14 @@ import {
 } from './StyledIngredientInput';
 import { units } from './staticData';
 
-const IngredientInput = () => {
+const IngredientInput = (ctx) => {
+  const [get, set] = ctx.s;
   const [ingredientsList, setIngredientsList] = useState({ 'loading': 1, data: [] });
   const [ingredients, setIngredients] = useState([]);
   const [ingredient, setIngredient] = useState({
-    ingredient: '',
-    amount: '',
-    unit: 'kg'
+    name: '',
+    qty: '',
+    type: 'kg'
   });
 
   useEffect(() => {
@@ -40,8 +41,9 @@ const IngredientInput = () => {
   );
 
   const addIngredient = () => {
-    if (!ingredient.ingredient || !ingredient.amount) { return };
+    if (!ingredient.name || !ingredient.qty) { return };
     setIngredients([...ingredients, ingredient]);
+    set(prev => ({ ...prev, 'ingredients': [...ingredients, ingredient] }))
   };
 
   const removeIngredient = e => {
@@ -54,11 +56,11 @@ const IngredientInput = () => {
     setIngredient({ ...ingredient, [e.target.getAttribute('name')]: e.target.value });
   };
 
-  const renderIngredientParagraph = () => ingredients.map(({ ingredient, amount, unit }, i) =>
+  const renderIngredientParagraph = () => ingredients.map(({ name, qty, type }, i) =>
     <StyledIngredientText key={i}>
-      {`${amount} ${unit} ${ingredient}`}
+      {`${qty} ${type} ${name}`}
       <StyledRemoveButton onClick={removeIngredient}>
-        <StyledImage src="images/uploaded/remove.svg" />
+        <StyledImage src="images/remove.svg" />
       </StyledRemoveButton>
     </StyledIngredientText>
   );
@@ -69,8 +71,8 @@ const IngredientInput = () => {
       <StyledInputContainer>
         <StyledInput
           type="text"
-          name="ingredient"
-          defaultValue={ingredient.ingredient}
+          name="name"
+          defaultValue={ingredient.name}
           list="ingredients"
           placeholder={ingredientsList.loading ? '' : 'Ingredienser'}
           primary
@@ -82,16 +84,16 @@ const IngredientInput = () => {
         </datalist>
         <StyledInput
           type="number"
-          name="amount"
-          defaultValue={ingredient.amount}
+          name="qty"
+          defaultValue={ingredient.qty}
           placeholder="Antal"
           onChange={handleInput}
         />
-        <StyledSelectUnit name="unit" defaultValue={ingredient.unit} onChange={handleInput}>
+        <StyledSelectUnit name="type" defaultValue={ingredient.type} onChange={handleInput}>
           {renderUnits()}
         </StyledSelectUnit>
         <StyledAddButton onClick={addIngredient}>
-          <StyledImage src="images/uploaded/plus.svg" alt="add" />
+          <StyledImage src="images/plus.svg" alt="add" />
         </StyledAddButton>
       </StyledInputContainer>
       {renderIngredientParagraph()}
