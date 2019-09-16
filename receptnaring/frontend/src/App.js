@@ -8,6 +8,7 @@ import {
 import CreateRecipe from './views/CreateRecipe';
 import StartPage from './views/Startpage';
 import Navbar from '../../frontend/src/components/Navbar';
+import ChartComponent from '../../frontend/src/components/Chart'
 import {
   Header,
   Main
