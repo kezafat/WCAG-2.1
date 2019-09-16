@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { SortedRecipesWrapper, StyledCard, StyledCardBody, StyledCardTitle, StyledCardImg, StyledSpinner, StyledH3, StyledLink } from './StyleSortedRecipes';
-import { Col, Row } from 'reactstrap'
+import { SortedRecipesWrapper, StyledCard, StyledCardBody, StyledCardTitle, StyledCardImg, StyledSpinner, StyledH3, StyledLink, StyledCol } from './StyleSortedRecipes';
+import { Row } from 'reactstrap'
 
 
 function SortedRecipes() {
@@ -25,15 +25,17 @@ function SortedRecipes() {
   }
   const { data, loading } = useFetch('http://localhost:3001/api/recipes');
 
-  const renderRecipe = (data, index) => <Col lg="4" key={index}><StyledCard >
-    <StyledCardBody>
-      <StyledLink to={"/recept/" + data._id}>
-        <StyledCardImg src={`/images/${data.img}`}></StyledCardImg>
-        <StyledCardTitle>{trimString(data.title, 24)}</StyledCardTitle>
-      </StyledLink>
-    </StyledCardBody>
-  </StyledCard>
-  </Col>
+  const renderRecipe = (data, index) =>
+    <StyledCol lg="4" key={index}>
+      <StyledCard >
+        <StyledCardBody>
+          <StyledLink to={"/recept/" + data._id}>
+            <StyledCardImg src={`/images/${data.img}`}></StyledCardImg>
+            <StyledCardTitle>{trimString(data.title, 24)}</StyledCardTitle>
+          </StyledLink>
+        </StyledCardBody>
+      </StyledCard>
+    </StyledCol>
 
   const renderRecipes = () => data.map((item, index) => renderRecipe(item, index));
 

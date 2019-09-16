@@ -1,7 +1,12 @@
 import styled from 'styled-components';
-import { Card, CardImg, CardBody, CardTitle, Spinner } from 'reactstrap';
+import { Col, Card, CardImg, CardBody, CardTitle, Spinner } from 'reactstrap';
 import { Link } from 'react-router-dom'
 
+export const StyledCol = styled(Col)`
+    &:hover > div > div > a > p{
+        text-decoration: underline !important;
+    }
+`
 
 export const SortedRecipesWrapper = styled.div`
 `
