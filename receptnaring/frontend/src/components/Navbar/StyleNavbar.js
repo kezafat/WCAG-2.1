@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { 
-  Button, 
-  Navbar, 
-  Nav,  
+import {
+  Button,
+  Navbar,
+  Nav,
   NavItem
- } from 'reactstrap';
+} from 'reactstrap';
 
 export const StyledLogo = styled.img`
   width: 300px;
@@ -15,12 +15,14 @@ export const StyledNavbar = styled(Navbar)`
   background-color: white;
   height: auto;
   padding: 0px 15px 0px 15px;
+  background: #fff;
 `;
 
 export const StyledNav = styled(Nav)`
   color: black;
   flex:1;
   display: flex;
+  background: #fff;
 `;
 
 
@@ -28,7 +30,6 @@ export const StyledNavItem = styled(NavItem)`
   list-style-type:none;
   margin:0;
   align-self: flex-end;
-
 `;
 
 export const StyledButton = styled(Button)`

@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './views/Footer';
 import {
   BrowserRouter as Router,
   Route,
@@ -7,24 +8,27 @@ import {
 import CreateRecipe from './views/CreateRecipe';
 import StartPage from './views/Startpage';
 import Navbar from '../../frontend/src/components/Navbar';
-import ChartComponent from "../../frontend/src/components/Chart"
+import {
+  Header,
+  Main
+} from './StyledApp';
 
 const App = props => {
   return (
     <Router>
-      <header>
-      <Navbar />
-      </header>
-      <main>
+      <Header>
+        <Navbar />
+      </Header>
+      <Main>
         <Switch>
           <Route exact path="/" component={StartPage} />
           <Route exact path="/skapa-recept" component={CreateRecipe} />
           <Route path="/chart" component={ChartComponent} />
         </Switch>
-      </main>
-      <footer>
+      </Main>
+      <Footer>
         Footer här
-      </footer>
+      </Footer>
     </Router>
   )
 };

@@ -11,7 +11,7 @@ export const RecipeWrapper = styled.div`
 `
 
 export const RecipeSearch = styled.input`
-  width: 25%;
+  width: 40%;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
