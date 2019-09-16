@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { SortedRecipesWrapper, StyledCard, StyledCardBody, StyledCardTitle, StyledCardImg, StyledSpinner, StyledH3, StyledLink, StyledCol } from './StyleSortedRecipes';
-import { Row } from 'reactstrap'
+import { StyledCardBody, StyledCardTitle, StyledSpinner, StyledH3, StyledCol } from './StyleSortedRecipes';
+import { Row, CardImg, Card } from 'reactstrap'
+import { Link } from 'react-router-dom'
+
 
 
 function SortedRecipes() {
@@ -27,14 +29,14 @@ function SortedRecipes() {
 
   const renderRecipe = (data, index) =>
     <StyledCol lg="4" key={index}>
-      <StyledCard >
+      <Card >
         <StyledCardBody>
-          <StyledLink to={"/recept/" + data._id}>
-            <StyledCardImg src={`/images/${data.img}`}></StyledCardImg>
+          <Link to={"/recept/" + data.url}>
+            <CardImg src={`/images/${data.img}`} alt={data.title}></CardImg>
             <StyledCardTitle>{trimString(data.title, 24)}</StyledCardTitle>
-          </StyledLink>
+          </Link>
         </StyledCardBody>
-      </StyledCard>
+      </Card>
     </StyledCol>
 
   const renderRecipes = () => data.map((item, index) => renderRecipe(item, index));
@@ -46,14 +48,14 @@ function SortedRecipes() {
   };
 
   return (
-    <SortedRecipesWrapper>
+    <div>
       <StyledH3>Senaste Recept</StyledH3>
       <Row>
         {loading ? (<StyledSpinner />) :
           (renderRecipes(data))
         }
       </Row>
-    </SortedRecipesWrapper>
+    </div>
   );
 };
 
