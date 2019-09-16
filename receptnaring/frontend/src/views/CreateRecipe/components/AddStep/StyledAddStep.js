@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledAddStepContainer = styled.section`
+const StyledAddStepContainer = styled.form`
   display: grid;
   grid-template-areas: 
   "title title"
@@ -36,19 +36,29 @@ const StyledImage = styled.img`
 
 const StyledOrderedList = styled.ol`
   grid-column: 1 / 3;
-  display: flex;
-  flex-direction: column;
 `;
 
 const StyledListItem = styled.li`
-  width: 100%;
   margin-top: 1rem;
+`;
+
+const StyledListItemContainer = styled.div`
+  text-align: left;
+  overflow-wrap: break-word;
+  display: flex;
+  align-items: stretch;
+`;
+
+const StyledListNumberContainer = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const StyledParagraph = styled.p`
   display: inline-block;
   background: ${props => props.primary ? '#ECEEEF' : '#fff'};
   padding: 0.5rem;
+  flex-grow: ${props => !props.primary ? '1' : '0'};
 `;
 
 export {
@@ -59,5 +69,7 @@ export {
   StyledImage,
   StyledOrderedList,
   StyledListItem,
+  StyledListItemContainer,
+  StyledListNumberContainer,
   StyledParagraph
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   StyledH2,
   StyledAddStepContainer,
@@ -7,34 +7,43 @@ import {
   StyledImage,
   StyledOrderedList,
   StyledListItem,
+  StyledListItemContainer,
+  StyledListNumberContainer,
   StyledParagraph
 } from './StyledAddStep';
 
 const AddStep = () => {
   const [steps, setSteps] = useState([]);
   const [step, setStep] = useState('');
+  const inputRef = useRef(null);
 
-  const addStep = () => {
+  const addStep = e => {
+    e.preventDefault();
     setSteps([...steps, step]);
+    inputRef.current.focus();
   }
 
   const handleInput = e => setStep(e.target.value);
 
   const renderList = () => steps.map((step, i) =>
     <StyledListItem key={i}>
-      <StyledParagraph primary>
-        {i + 1}
-      </StyledParagraph>
-      <StyledParagraph>
-        {step}
-      </StyledParagraph>
+      <StyledListItemContainer>
+        <StyledListNumberContainer>
+          <StyledParagraph primary>
+            {i + 1}
+          </StyledParagraph>
+        </StyledListNumberContainer>
+        <StyledParagraph className="text-break">
+          {step}
+        </StyledParagraph>
+      </StyledListItemContainer>
     </StyledListItem>
   );
 
   return (
-    <StyledAddStepContainer>
+    <StyledAddStepContainer onSubmit={addStep}>
       <StyledH2>Instruktioner</StyledH2>
-      <StyledInput type="text" defaultValue={step} onChange={handleInput} />
+      <StyledInput type="text" ref={inputRef} defaultValue={step} onChange={handleInput} />
       <StyledAddButton onClick={addStep}>
         <StyledImage src="/images/uploaded/plus.svg" alt="Add" />
       </StyledAddButton>
