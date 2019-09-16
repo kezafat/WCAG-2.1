@@ -26,7 +26,7 @@ const CreateRecipe = () => {
           <TitlePersonTime s={[state, setState]} />
         </Col>
       </StyledRow>
-      <Row className="text-center" style={{background: '#fff'}}>
+      <Row className="text-center">
         <Col md="6" sm="12">
           <IngredientInput />
         </Col>
