@@ -5,8 +5,13 @@ import { Link } from 'react-router-dom';
 export const StyledCol = styled(Col)`
   margin-top: 30px;
   text-align: center;
+  max-width: 100% !important;
   &:nth-child(even) > div > div > a div {
     order: -1;
+  }
+  &:first-child:nth-last-child(1){
+    max-width: 100% !important;
+    flex: 1 !important;
   }
 `
 

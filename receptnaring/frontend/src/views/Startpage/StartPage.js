@@ -12,34 +12,38 @@ import {
 
 const StartPage = () => {
 
+  const [searchResult, setSearchResult] = useState(null);
   const useFetch = (url) => {
     const [allRecipes, setAllRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
       const fetchData = async () => {
         const respons = await fetch(url);
-        const allRecipes = await respons.json();
-        const items = allRecipes;
-        setAllRecipes(items);
+        setAllRecipes(await respons.json())
         setLoading(false);
       };
       fetchData();
     }, [url]);
     return { allRecipes, loading };
   }
-
-  const { allRecipes, loading } = useFetch('http://localhost:3001/api/recipes/six');
   
+  const { allRecipes, loading } = useFetch('http://localhost:3001/api/recipes');
+
+  const searchRecipe = (searchTerm) => {
+    const resultOfSearch = allRecipes.filter(recipe => {
+      return recipe.title.toLowerCase().includes(searchTerm)
+    })
+    setSearchResult(renderAllFuckingRecipes(resultOfSearch))
+  }
   const renderRecipe = (allRecipes, index) => <RandomRecipes key={index} img={`/images/${allRecipes.img} `} title={allRecipes.title} />
 
-  const renderAllFuckingRecipes = () =>
-    allRecipes ? allRecipes.map((randomRecipes, index) => renderRecipe(randomRecipes, index))
+  const renderAllFuckingRecipes = (recipes = allRecipes) =>
+    recipes ? recipes.map((randomRecipes, index) => renderRecipe(randomRecipes, index))
       : null;
-
 
   return (
     <StartPageContainer>
-      <RecipeInput />
+      <RecipeInput callback={searchRecipe} />
       <TextBanner>
         <TextInfo>
           Recept
@@ -47,9 +51,7 @@ const StartPage = () => {
       </TextBanner>
       <RecipeWrapper>
         <Row>
-          {loading ? (<StyledSpinner />) :
-            (renderAllFuckingRecipes(allRecipes))
-          }
+          {loading ? (<StyledSpinner />) : (searchResult ||  renderAllFuckingRecipes())}
         </Row>
       </RecipeWrapper>
     </StartPageContainer>

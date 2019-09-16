@@ -4,10 +4,11 @@ import {
   RecipeSearch
 } from './StyledRecipeInput';
 
-const RecipeInput = () => {
+const RecipeInput = ({ callback, searchTerm }) => {
+  const getSearchValue = e => callback(e.target.value);
   return(
     <RecipeWrapper>
-      <RecipeSearch placeholder="Sök recept.. t.ex kyckling"/>
+      <RecipeSearch placeholder="Sök recept.. t.ex kyckling" onChange={getSearchValue} value={searchTerm} />
     </RecipeWrapper>
   )
 }
