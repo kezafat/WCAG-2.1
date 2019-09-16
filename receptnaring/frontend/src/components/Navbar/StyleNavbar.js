@@ -3,8 +3,13 @@ import {
   Button,
   Navbar,
   Nav,
-  NavItem
+  NavItem,
+  Container
 } from 'reactstrap';
+
+export const NavbarContainer = styled(Container)`
+  padding: 0px !important;
+`
 
 export const StyledLogo = styled.img`
   width: 300px;
