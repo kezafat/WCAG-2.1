@@ -8,6 +8,27 @@ export const RecipeRow = styled(Row)`
 
 `;
 
+export const RecipeTitle = styled.h1`
+
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet');
+font-family: 'Cabin Sketch', cursive;
+
+`;
+
+export const RecipeImage = styled.img`
+
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+
+`;
+
+export const Text = styled.p`
+
+  color: #212529;
+
+`;
+
 export const PortionButton = styled.span`
   
   background-color: #fff;
@@ -29,6 +50,7 @@ export const ListItem = styled.li`
 
   border-bottom: 1px solid lightgray;
   padding-bottom: 5px;
+  padding: 7px;
 
 
 `;
@@ -44,6 +66,10 @@ export const Instructions = styled(Col)`
 
   background-color: white;
   padding: 20px;
+  
+  .row{
+    padding: 10px;
+  }
 
 `;
 

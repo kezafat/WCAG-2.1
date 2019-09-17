@@ -1,79 +1,93 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import { RecipeRow, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox } from './StyledRecipe';
-import foodImage from './kottbullar.jpg'
+import { RecipeRow, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text } from './StyledRecipe';
 
-let recipe = {};
+
 
 class Recipe extends Component {
+  constructor() {
+    super();
+    this.state = { recipe: {}, apiData: false };
+  }
 
-  test() {
-    fetch('http://localhost:3001/api/recipe/id/5d7761435f95393a8c211ad3')
+
+  async componentDidMount() {
+    let data = {}
+    await fetch('http://localhost:3001/api/recipe/id/5d7762fd5f95393a8c211ae5')
       .then(function (response) {
         return response.json();
       })
-      .then(function (res) {
-        console.log(res)
-        this.recipe = res
+      .then(function (response) {
+        data = response
       });
+
+    await this.setState({
+      recipe: data,
+      apiData: true
+    })
+
+    let instructions = document.getElementsByClassName('instructions')
+
+    for(let instruction of instructions){
+      instruction.style.color = 'rgb(33, 37, 41)'
+    }
   }
 
+  chekedCheckbox(val) {
+
+    let step = document.getElementsByClassName(`step${val}`);
+
+    if (step[0].style.color === 'rgb(33, 37, 41)') {
+      step[0].style.color = 'lightgrey'
+    } else {
+      step[0].style.color = 'rgb(33, 37, 41)'
+    }
+
+  }
+
+  renderInstructions = () => this.state.recipe.instruction.map((item, i) =>
+    <Row key={i}>
+      <Col lg="1">
+        <RoundCheckbox className="round">
+          <input tabiIndex="0" type="checkbox" id={'checkbox' + i} />
+          <label tabIndex="0" for={'checkbox' + i} onClick={() => this.chekedCheckbox(i)}></label>
+        </RoundCheckbox>
+      </Col>
+      <Col lg="11">
+        <Text className={`step${i} instructions`}>{item}</Text>
+      </Col>
+    </Row>
+  );
+
+  renderIngredients = () => this.state.recipe.ingredient.map((item, i) =>
+    <ListItem key={i}>{item.qty} {item.type} {item.name}</ListItem>
+  );
+
+
   render() {
-    this.test();
-    console.log(this.recipe)
     return (
       <Container>
         <RecipeRow>
-          <Col>
-            <img src={foodImage} style={{ width: 400 }}></img>
+          <Col lg="5">
+            {this.state.apiData ? <RecipeImage src={`/images/${this.state.recipe.img}`} alt={this.state.recipe.title}></RecipeImage> : console.log('data not loaded')}
             <PortionButton>
               +
               </PortionButton>
           </Col>
-          <Col>
-            <h1>{}</h1>
-            <p>Gör ditt eget potatismos, enkelt och gott med potatis, mjölk, smör och kryddor.
-              Du smaksätter den mosade potatisen med salt, peppar för att få den där riktigt äkta smaken.
-              </p>
+          <Col lg="7">
+            <RecipeTitle>{this.state.recipe.title}</RecipeTitle>
           </Col>
         </RecipeRow>
         <Row>
           <Ingredient lg="4">
             <h2>Ingredienser</h2>
             <List>
-              <ListItem>1kg potatis (mjölig sort)</ListItem>
-              <ListItem>ca 2 dl mjölk</ListItem>
-              <ListItem>25 g smör</ListItem>
-              <ListItem>1 tsk salt</ListItem>
-              <ListItem>2 krm nymalen vitpeppar</ListItem>
-              <ListItem>1 påse djupfrysta kötbullar</ListItem>
-              <ListItem>1 msk margarin</ListItem>
+              {this.state.apiData ? this.renderIngredients() : console.log('data not loaded')}
             </List>
           </Ingredient>
           <Instructions>
             <h2>Gör så här</h2>
-            <Row>
-              <Col lg="1">
-                <RoundCheckbox className="round">
-                  <input type="checkbox" id="checkbox1" />
-                  <label for="checkbox1"></label>
-                </RoundCheckbox>
-              </Col>
-              <Col lg="11">
-                <p>Koka upp vatten i en kastrull. Skala potatisen och dela den i jämnstora mindre bitar. Lägg i potatisen och låt småkoka under lock till potatisen är precis mjuk. Häll av vattnet och låt potatisen ånga av utan lock.</p>
-              </Col>
-            </Row>
-            <Row>
-              <Col lg="1">
-                <RoundCheckbox className="round">
-                  <input type="checkbox" id="checkbox2" />
-                  <label for="checkbox2"></label>
-                </RoundCheckbox>
-              </Col>
-              <Col lg="11">
-                <p>Koka upp mjölk och smör i en kastrull.</p>
-              </Col>
-            </Row>
+            {this.state.apiData ? this.renderInstructions() : console.log('data not loaded')}
           </Instructions>
         </Row>
       </Container>
