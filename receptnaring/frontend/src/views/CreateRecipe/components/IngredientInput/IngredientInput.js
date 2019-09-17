@@ -33,8 +33,8 @@ const IngredientInput = (ctx) => {
     fetchIngredientsWithYourBelovedAxios()
   }, []);
 
-  const renderIngredients = () => ingredientsList.data.map(({ Namn }) =>
-    <option key={Namn} value={Namn}></option>
+  const renderIngredients = () => ingredientsList.data.map(({ Namn }, i) =>
+    <option key={i} value={Namn}></option>
   );
 
   const renderUnits = () => units.map((unit, i) =>
@@ -43,21 +43,21 @@ const IngredientInput = (ctx) => {
 
   const addIngredient = () => {
     if (!ingredient.name || !ingredient.qty) { return };
-    setIngredients([...ingredients, ingredient]);
-    set(prev => ({ ...prev, 'ingredients': [...ingredients, ingredient] }))
+    set(prev => ({ ...prev, 'ingredients': [...get.ingredients, ingredient] }))
   };
 
   const removeIngredient = e => {
     const { id } = e.target.parentElement;
-    ingredients.splice(id, 1);
-    setIngredients([...ingredients]);
+    get.ingredients.splice(id, 1);
+    // setIngredients([...ingredients]);
+    set(prev => ({ ...prev, 'ingredients': [...get.ingredients] }))
   }
 
   const handleInput = e => {
     setIngredient({ ...ingredient, [e.target.getAttribute('name')]: e.target.value });
   };
 
-  const renderIngredientParagraph = () => ingredients.map(({ name, qty, type }, i) =>
+  const renderIngredientParagraph = () => get.ingredients.map(({ name, qty, type }, i) =>
     <StyledIngredientText key={i}>
       {`${qty} ${type} ${name}`}
       <StyledRemoveButton onClick={removeIngredient}>

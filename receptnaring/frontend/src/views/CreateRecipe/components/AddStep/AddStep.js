@@ -46,7 +46,7 @@ const AddStep = (ctx) => {
     let key = e.target.getAttribute('data-ref');
     let val = e.target.value;
     steps[key] = val;
-    set({ 'instructions': [...steps] })
+    set(prev => ({ ...prev, 'instructions': [...steps] }))
   }
 
   const renderList = () => steps.map((step, i) =>
