@@ -14,7 +14,7 @@ function friendlyUrl(str) {
 let receptSchema = new Schema({
   img: { type: String, required: true },
   title: { type: String, required: true },
-  url: { type: String, required: true },
+  url: { type: String },
   time: { type: Number, required: true },
   portion: { type: Number, required: true, default: 2 },
   ingredient: [Ingredients.schema],
