@@ -25,10 +25,11 @@ const IngredientInput = (ctx) => {
 
   useEffect(() => {
     async function fetchIngredientsWithYourBelovedAxios() {
-      let res = await axios.get('http://localhost:3001/api/ingredients');
+      let res = await axios.get('http://localhost:3001/api/ingredients').catch(error => {
+        //No error handling atm
+      });
       setIngredientsList(prev => ({ ...prev, loading: 0, data: res.data }))
     }
-
     fetchIngredientsWithYourBelovedAxios()
   }, []);
 

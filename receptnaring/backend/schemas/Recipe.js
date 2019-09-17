@@ -17,8 +17,8 @@ let receptSchema = new Schema({
   url: { type: String },
   time: { type: Number, required: true },
   portion: { type: Number, required: true, default: 2 },
-  ingredient: [Ingredients.schema],
-  instruction: [{ type: Array, required: true }],
+  ingredients: [Ingredients.schema],
+  instructions: [{ type: Array, required: true }],
   nutrition: [Nutritions.schema],
   date: { type: Date, default: Date.now }
 });

@@ -20,7 +20,7 @@ const AddStep = (ctx) => {
   const addStep = e => {
     e.preventDefault();
     // Do not allow blank instructions
-    if (step.length == 0) {
+    if (step.length === 0) {
       return;
     }
     set(prev => ({ ...prev, 'instructions': [...steps, step] }))
@@ -33,8 +33,8 @@ const AddStep = (ctx) => {
   };
 
   const handleKeyPress = e => {
-    if (e.key == 'Enter') {
-      if (step.length == 0) {
+    if (e.key === 'Enter') {
+      if (step.length === 0) {
         return;
       }
       set(prev => ({ ...prev, 'instructions': [...steps, step] }))
