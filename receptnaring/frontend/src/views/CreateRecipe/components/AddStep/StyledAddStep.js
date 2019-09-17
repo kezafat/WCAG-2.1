@@ -57,6 +57,9 @@ const StyledParagraph = styled.p`
   background: ${props => props.primary ? '#ECEEEF' : '#fff'};
   padding: 0.5rem;
   flex-grow: ${props => !props.primary ? '1' : '0'};
+  & > input{
+    width:100%;
+  }
 `;
 
 export {

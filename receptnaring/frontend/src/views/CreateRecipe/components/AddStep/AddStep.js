@@ -13,18 +13,41 @@ import {
 
 const AddStep = (ctx) => {
   const [get, set] = ctx.s;
-  const [steps, setSteps] = useState([]);
+  let steps = get['instructions'];
   const [step, setStep] = useState('');
   const inputRef = useRef(null);
 
   const addStep = e => {
     e.preventDefault();
-    setSteps([...steps, step]);
-    set(prev => ({...prev, 'instructions':[...steps, step]}))
+    // Do not allow blank instructions
+    if (step.length == 0) {
+      return;
+    }
+    set(prev => ({ ...prev, 'instructions': [...steps, step] }))
+    setStep('')
     inputRef.current.focus();
   }
 
-  const handleInput = e => setStep(e.target.value);
+  const handleInput = e => {
+    setStep(e.target.value)
+  };
+
+  const handleKeyPress = e => {
+    if (e.key == 'Enter') {
+      if (step.length == 0) {
+        return;
+      }
+      set(prev => ({ ...prev, 'instructions': [...steps, step] }))
+      setStep('')
+    }
+  };
+
+  const handleUpdateInstruction = e => {
+    let key = e.target.getAttribute('data-ref');
+    let val = e.target.value;
+    steps[key] = val;
+    set({ 'instructions': [...steps] })
+  }
 
   const renderList = () => steps.map((step, i) =>
     <StyledListItem key={i}>
@@ -34,15 +57,15 @@ const AddStep = (ctx) => {
         </StyledParagraph>
       </StyledListNumberContainer>
       <StyledParagraph className="text-break">
-        {step}
+        <input type="text" data-ref={i} value={steps[i]} onChange={handleUpdateInstruction}></input>
       </StyledParagraph>
     </StyledListItem>
   );
 
   return (
-    <StyledAddStepContainer onSubmit={addStep}>
+    <StyledAddStepContainer>
       <StyledH2>Instruktioner</StyledH2>
-      <StyledInput type="text" ref={inputRef} defaultValue={step} onChange={handleInput} />
+      <StyledInput type="text" ref={inputRef} value={step} onChange={handleInput} onKeyPress={handleKeyPress} />
       <StyledAddButton onClick={addStep}>
         <StyledImage src="/images/plus.svg" alt="Add" />
       </StyledAddButton>
