@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import { RecipeRow, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text } from './StyledRecipe';
+import { RecipeRow, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Text } from './StyledRecipe';
 
 
 
@@ -13,7 +13,7 @@ class Recipe extends Component {
 
   async componentDidMount() {
     let data = {}
-    await fetch('http://localhost:3001/api/recipe/id/5d7762fd5f95393a8c211ae5')
+    await fetch('http://localhost:3001/api/recipe/id/5d7761435f95393a8c211ad3')
       .then(function (response) {
         return response.json();
       })
@@ -47,13 +47,13 @@ class Recipe extends Component {
 
   renderInstructions = () => this.state.recipe.instruction.map((item, i) =>
     <Row key={i}>
-      <Col lg="1">
+      <Col sm="1">
         <RoundCheckbox className="round">
           <input tabiIndex="0" type="checkbox" id={'checkbox' + i} />
           <label tabIndex="0" for={'checkbox' + i} onClick={() => this.chekedCheckbox(i)}></label>
         </RoundCheckbox>
       </Col>
-      <Col lg="11">
+      <Col sm="11">
         <Text className={`step${i} instructions`}>{item}</Text>
       </Col>
     </Row>
@@ -80,13 +80,13 @@ class Recipe extends Component {
         </RecipeRow>
         <Row>
           <Ingredient lg="4">
-            <h2>Ingredienser</h2>
+            <H2Text>Ingredienser</H2Text>
             <List>
               {this.state.apiData ? this.renderIngredients() : console.log('data not loaded')}
             </List>
           </Ingredient>
           <Instructions>
-            <h2>Gör så här</h2>
+            <H2Text>Gör så här</H2Text>
             {this.state.apiData ? this.renderInstructions() : console.log('data not loaded')}
           </Instructions>
         </Row>

@@ -25,7 +25,11 @@ export const RecipeImage = styled.img`
 
 export const Text = styled.p`
 
-  color: #212529;
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  max-width: 600px;
 
 `;
 
@@ -43,6 +47,14 @@ export const PortionButton = styled.span`
   
 `;
 
+export const H2Text = styled.h2`
+
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+  font-family: 'Open Sans', sans-serif;
+  padding-bottom: 20px;
+
+`;
+
 export const List = styled.ul`
 `;
 
@@ -51,7 +63,10 @@ export const ListItem = styled.li`
   border-bottom: 1px solid lightgray;
   padding-bottom: 5px;
   padding: 7px;
-
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
 
 `;
 
@@ -68,7 +83,7 @@ export const Instructions = styled(Col)`
   padding: 20px;
   
   .row{
-    padding: 10px;
+    padding: 15px;
   }
 
 `;
@@ -77,6 +92,7 @@ export const RoundCheckbox = styled.div`
   
 position: relative;
 margin: auto;
+margin-top: 2px;
 
 label {
   background-color: #fff;
@@ -88,6 +104,11 @@ label {
   position: absolute;
   top: 0;
   width: 28px;
+  -webkit-transition: border 0.02s;
+  transition: border 0.02s;
+  &:hover{
+    border: 2px solid #5CB85C;
+  }
 }
 
 label:after {
