@@ -7,7 +7,9 @@ import {
 } from "react-router-dom";
 import CreateRecipe from './views/CreateRecipe';
 import StartPage from './views/Startpage';
+import Recipe from './views/Recipe';
 import Navbar from '../../frontend/src/components/Navbar';
+
 import {
   Header,
   Main
@@ -23,6 +25,7 @@ const App = props => {
         <Switch>
           <Route exact path="/" component={StartPage} />
           <Route exact path="/skapa-recept" component={CreateRecipe} />
+          <Route exact path="/recept/:url" component={Recipe} />
         </Switch>
       </Main>
       <Footer>
