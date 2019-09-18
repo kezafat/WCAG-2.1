@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import { Col } from 'reactstrap'
 
-
+export const TommyStyle = styled.span`
+  color: #fff;
+`
 export const FooterRow = styled.footer`
     background-color: #000;
     padding-top: 30px;

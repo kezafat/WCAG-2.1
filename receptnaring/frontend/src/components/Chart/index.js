@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import data from "./staticData";
 import {
   StyledChart,

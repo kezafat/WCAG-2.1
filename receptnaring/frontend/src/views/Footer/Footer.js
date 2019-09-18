@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FooterRow, IconText, StyledCol, StyledImage, ContactText } from './StyledFooter';
+import { FooterRow, IconText, StyledCol, StyledImage, ContactText, TommyStyle } from './StyledFooter';
 import { footerIconList } from '../../staticData';
 import { Row } from 'reactstrap'
 
@@ -9,7 +9,7 @@ class Footer extends Component {
     <StyledCol key={id} lg="4">
       <IconText href="/">
         <StyledImage src={src} /><br />
-        <span className="text-muted">{name}</span>
+        <TommyStyle>{name}</TommyStyle>
       </IconText>
     </StyledCol>
   );
