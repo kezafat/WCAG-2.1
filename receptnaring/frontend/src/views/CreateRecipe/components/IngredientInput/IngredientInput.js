@@ -16,7 +16,6 @@ import { units } from './staticData';
 const IngredientInput = (ctx) => {
   const [get, set] = ctx.s;
   const [ingredientsList, setIngredientsList] = useState({ 'loading': 1, data: [] });
-  const [ingredients, setIngredients] = useState([]);
   const [ingredient, setIngredient] = useState({
     name: '',
     qty: '',
