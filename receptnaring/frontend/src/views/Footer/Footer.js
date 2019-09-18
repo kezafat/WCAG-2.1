@@ -7,8 +7,8 @@ class Footer extends Component {
 
   renderIcons = () => footerIconList.map(({ name, src, id }) =>
     <StyledCol key={id} lg="4">
-      <StyledImage src= {src} />
-      <IconText>
+      <IconText href="/">
+      <StyledImage src= {src}/>
         {name}
     </IconText>
     </StyledCol>
