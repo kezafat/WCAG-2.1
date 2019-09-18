@@ -33,18 +33,23 @@ export const Text = styled.p`
 
 `;
 
+export const Portions = styled(Col)`
+
+`;
+
 export const PortionButton = styled.span`
   
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #5CB85C;
+  padding: 7px;
   border-radius: 50%;
   cursor: pointer;
-  height: 28px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 28px;
   
+`;
+
+export const PortionText = styled.h2`
+
+  display: inline-block;
+
 `;
 
 export const H2Text = styled.h2`

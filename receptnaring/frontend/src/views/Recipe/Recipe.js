@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import { RecipeRow, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Text } from './StyledRecipe';
+import { RecipeRow, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Text, PortionText,Portions } from './StyledRecipe';
 
 
 
 class Recipe extends Component {
   constructor() {
     super();
-    this.state = { recipe: {}, apiData: false };
+    this.state = { recipe: {}, apiData: false, portions: 2, };
   }
 
 
   async componentDidMount() {
     let data = {}
-    await fetch('http://localhost:3001/api/recipe/id/5d7761435f95393a8c211ad3')
+    await fetch('http://localhost:3001/api/recipe/id/5d80ea4eb0bb2c1616158cf6')
       .then(function (response) {
         return response.json();
       })
@@ -23,12 +23,15 @@ class Recipe extends Component {
 
     await this.setState({
       recipe: data,
-      apiData: true
+      apiData: true,
+      portions: data.portion
     })
+
+    console.log(data)
 
     let instructions = document.getElementsByClassName('instructions')
 
-    for(let instruction of instructions){
+    for (let instruction of instructions) {
       instruction.style.color = 'rgb(33, 37, 41)'
     }
   }
@@ -45,11 +48,11 @@ class Recipe extends Component {
 
   }
 
-  renderInstructions = () => this.state.recipe.instruction.map((item, i) =>
+  renderInstructions = () => this.state.recipe.instructions.map((item, i) =>
     <Row key={i}>
       <Col sm="1">
         <RoundCheckbox className="round">
-          <input tabiIndex="0" type="checkbox" id={'checkbox' + i} />
+          <input tabIndex="0" type="checkbox" id={'checkbox' + i} />
           <label tabIndex="0" for={'checkbox' + i} onClick={() => this.chekedCheckbox(i)}></label>
         </RoundCheckbox>
       </Col>
@@ -59,7 +62,7 @@ class Recipe extends Component {
     </Row>
   );
 
-  renderIngredients = () => this.state.recipe.ingredient.map((item, i) =>
+  renderIngredients = () => this.state.recipe.ingredients.map((item, i) =>
     <ListItem key={i}>{item.qty} {item.type} {item.name}</ListItem>
   );
 
@@ -70,9 +73,13 @@ class Recipe extends Component {
         <RecipeRow>
           <Col lg="5">
             {this.state.apiData ? <RecipeImage src={`/images/${this.state.recipe.img}`} alt={this.state.recipe.title}></RecipeImage> : console.log('data not loaded')}
-            <PortionButton>
-              +
-              </PortionButton>
+            <Row>
+              <Portions>
+                <PortionButton>-</PortionButton>
+                <PortionText>{this.state.portions}</PortionText>
+                <PortionButton>+</PortionButton>
+              </Portions>
+            </Row>
           </Col>
           <Col lg="7">
             <RecipeTitle>{this.state.recipe.title}</RecipeTitle>
