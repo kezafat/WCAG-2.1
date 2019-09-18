@@ -20,12 +20,14 @@ export const StyledNavbar = styled(Navbar)`
   background-color: white;
   height: auto;
   padding: 0px 15px 0px 15px;
+  background: #fff;
 `;
 
 export const StyledNav = styled(Nav)`
   color: black;
   flex:1;
   display: flex;
+  background: #fff;
 `;
 
 
@@ -33,7 +35,6 @@ export const StyledNavItem = styled(NavItem)`
   list-style-type:none;
   margin:0;
   align-self: flex-end;
-
 `;
 
 export const StyledButton = styled(Button)`

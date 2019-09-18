@@ -56,6 +56,7 @@ export const StyledInput = styled.input`
   width: 2rem;
   text-align: center;
   margin-left: 0.5rem;
+  -moz-appearance:textfield;
   &::-webkit-inner-spin-button,
   ::-webkit-outer-spin-button {
     appearance: none;

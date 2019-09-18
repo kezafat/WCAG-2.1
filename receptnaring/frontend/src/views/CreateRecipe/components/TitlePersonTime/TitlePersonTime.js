@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { sliderInputsData } from '../../../../staticData';
+import { sliderInputsData } from './staticData';
 import {
   StyledContainer,
   StyledInputGroup,
@@ -11,12 +11,12 @@ import {
   StyledInput
 } from './StyledTitlePersonTime';
 
-const TitlePersonTime = () => {
+const TitlePersonTime = (ctx) => {
+  const [get, set] = ctx.s;
   const [inputValues, setInputValues] = useState({
-    title: '',
-    people: 2,
-    hours: 0,
-    minutes: 0
+    title: get.title,
+    portion: 2,
+    time: 0
   });
 
   const renderSliders = () => sliderInputsData.map(({ title, name, min, max, id }) =>
@@ -31,7 +31,7 @@ const TitlePersonTime = () => {
           min={min}
           max={max}
           defaultValue={inputValues[name]}
-          onChange={onInputChange}
+          onChange={onSliderChange}
         />
       </StyledSliderInputContainer>
       <StyledInput
@@ -43,9 +43,15 @@ const TitlePersonTime = () => {
     </StyledInputGroup>
   );
 
-  const onInputChange = e => {
+  const onSliderChange = e => {
     e.persist();
     setInputValues(inputValues => ({ ...inputValues, [e.target.getAttribute('name')]: e.target.value }));
+    set(prev => ({ ...prev, [e.target.getAttribute('name')]: e.target.value }))
+  }
+
+  const onInputChange = e => {
+    e.persist();
+    set(prev => ({ ...prev, 'title': e.target.value }))
   }
 
   return (
@@ -58,6 +64,7 @@ const TitlePersonTime = () => {
           type="text"
           name="title"
           placeholder="Skriv titel här..."
+          value={get.title}
           onChange={onInputChange}
         />
       </StyledInputGroup>

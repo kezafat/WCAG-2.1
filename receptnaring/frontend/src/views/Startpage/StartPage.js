@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import RecipeInput from '../../components/RecipeInput';
 import RandomRecipes from './RandomRecipes/RandomRecipes'
-import { Row } from 'reactstrap';
+import SortedRecipes from '../../components/SortedRecipes'
+import { Container, RoW } from 'reactstrap';
 import {
   RecipeWrapper,
   TextBanner,
@@ -53,6 +54,8 @@ const StartPage = () => {
         <Row>
           {loading ? (<StyledSpinner />) : (searchResult ||  renderAllRecipes())}
         </Row>
+        </TextBanner>
+        <SortedRecipes />
       </RecipeWrapper>
     </StartPageContainer>
   )
