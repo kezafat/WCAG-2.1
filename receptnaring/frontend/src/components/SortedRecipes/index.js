@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { StyledCardBody, StyledCardTitle, StyledSpinner, StyledH3, StyledCol } from './StyleSortedRecipes';
-import { Row, Card, CardImg } from 'reactstrap'
+import { StyledCardBody, StyledCardTitle, StyledSpinner, StyledH3, StyledCol, StyledCard } from './StyleSortedRecipes';
+import { Row, CardImg } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 
@@ -29,14 +29,14 @@ function SortedRecipes() {
 
   const renderRecipe = (data, index) =>
     <StyledCol lg="4" key={index}>
-      <Card >
+      <StyledCard>
         <StyledCardBody>
           <Link to={"/recept/" + data.url}>
             <CardImg src={`/images/uploaded/${data.img}`} alt={data.title}></CardImg>
             <StyledCardTitle>{trimString(data.title, 24)}</StyledCardTitle>
           </Link>
         </StyledCardBody>
-      </Card>
+      </StyledCard>
     </StyledCol>
 
   const renderRecipes = () => data.map((item, index) => renderRecipe(item, index));

@@ -1,10 +1,13 @@
 import styled from 'styled-components';
-import { Col, CardBody, Spinner } from 'reactstrap';
+import { Col, CardBody, Spinner, Card } from 'reactstrap';
 
 export const StyledCol = styled(Col)`
   &:hover > div > div > a > p{
     text-decoration: underline !important;
   }
+`
+export const StyledCard = styled(Card) `
+margin-bottom: 30px;
 `
 
 export const StyledCardBody = styled(CardBody)`
