@@ -3,8 +3,9 @@ const bodyParser = require('body-parser');
 const connectToDb = require('./config/db');
 const config = require('./config/config');
 const recipeRoutes = require('./API/recipeRoutes');
+const cors = require('cors');
 const dbIngRoute = require('./API/dbIngRoute');
-const cors = require('cors')
+
 
 connectToDb();
 
