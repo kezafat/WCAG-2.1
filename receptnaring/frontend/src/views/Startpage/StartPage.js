@@ -43,7 +43,7 @@ const StartPage = () => {
   const renderRecipe = (allRecipes, index) => <RandomRecipes key={index} img={`/images/uploaded/${allRecipes.img} `} title={allRecipes.title} data={allRecipes.url} />
 
   const renderAllRecipes = (recipes = allRecipes) =>
-    recipes ? recipes.map((randomRecipes, index) => renderRecipe(randomRecipes, index))
+    recipes ? recipes.slice(0,8).map((randomRecipes, index) => renderRecipe(randomRecipes, index))
       : null;
 
   return (
