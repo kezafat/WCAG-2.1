@@ -67,7 +67,7 @@ class Recipe extends Component {
       <Col sm="1">
         <RoundCheckbox className="round">
           <input tabIndex="0" type="checkbox" id={'checkbox' + i} />
-          <label tabIndex="0" for={'checkbox' + i} onClick={() => this.chekedCheckbox(i)}></label>
+          <label tabIndex="0" htmlFor={'checkbox' + i} onClick={() => this.chekedCheckbox(i)}></label>
         </RoundCheckbox>
       </Col>
       <Col sm="11">
