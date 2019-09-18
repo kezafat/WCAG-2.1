@@ -43,7 +43,9 @@ export const StyledSpinner = styled(Spinner)`
 export const StyledH3 = styled.h3`
   text-align:center;
   font-size: 3rem;
+  margin-top:30px;
   letter-spacing: -3px;
   padding-bottom: 15px;
-  font-family: 'Open Sans', sans-serif;
+  @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet');
+  font-family: 'Cabin Sketch', cursive;
 `
