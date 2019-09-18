@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import {
   StyledNavbar,
@@ -7,14 +6,17 @@ import {
   StyledButton,
   StyledNavItem,
   StyledNav,
+  NavbarContainer
 } from "./StyleNavbar";
 
 const NavbarComponent = () => {
   return (
-    <Container>
+    <NavbarContainer>
       <StyledNavbar>
         <StyledNav>
-          <StyledLogo src={"./images/LogoRN.png"} />
+          <a href="/">
+            <StyledLogo src={"./images/LogoRN.png"} />
+          </a>
         </StyledNav>
         <StyledNav navbar>
           <StyledNavItem>
@@ -24,7 +26,7 @@ const NavbarComponent = () => {
           </StyledNavItem>
         </StyledNav>
       </StyledNavbar>
-    </Container>
+    </NavbarContainer>
   );
 };
 

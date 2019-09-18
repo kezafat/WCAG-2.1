@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import {
   StyledIngredientContainer,
   StyledH2,
@@ -10,19 +11,29 @@ import {
   StyledIngredientText,
   StyledRemoveButton
 } from './StyledIngredientInput';
-import ingredientsList from '../../../../ingredientsList';
 import { units } from './staticData';
 
-const IngredientInput = () => {
-  const [ingredients, setIngredients] = useState([]);
+const IngredientInput = (ctx) => {
+  const [get, set] = ctx.s;
+  const [ingredientsList, setIngredientsList] = useState({ 'loading': 1, data: [] });
   const [ingredient, setIngredient] = useState({
-    ingredient: '',
-    amount: '',
-    unit: 'kg'
+    name: '',
+    qty: '',
+    type: 'kg'
   });
 
-  const renderIngredients = () => ingredientsList.map(({ Namn }) =>
-    <option key={Namn} value={Namn}></option>
+  useEffect(() => {
+    async function fetchIngredientsWithYourBelovedAxios() {
+      let res = await axios.get('http://localhost:3001/api/ingredients').catch(error => {
+        //No error handling atm
+      });
+      setIngredientsList(prev => ({ ...prev, loading: 0, data: res.data }))
+    }
+    fetchIngredientsWithYourBelovedAxios()
+  }, []);
+
+  const renderIngredients = () => ingredientsList.data.map(({ Namn }, i) =>
+    <option key={i} value={Namn}></option>
   );
 
   const renderUnits = () => units.map((unit, i) =>
@@ -30,25 +41,26 @@ const IngredientInput = () => {
   );
 
   const addIngredient = () => {
-    if (!ingredient.ingredient || !ingredient.amount) { return };
-    setIngredients([...ingredients, ingredient]);
+    if (!ingredient.name || !ingredient.qty) { return };
+    set(prev => ({ ...prev, 'ingredients': [...get.ingredients, ingredient] }))
   };
 
   const removeIngredient = e => {
     const { id } = e.target.parentElement;
-    ingredients.splice(id, 1);
-    setIngredients([...ingredients]);
+    get.ingredients.splice(id, 1);
+    // setIngredients([...ingredients]);
+    set(prev => ({ ...prev, 'ingredients': [...get.ingredients] }))
   }
 
   const handleInput = e => {
     setIngredient({ ...ingredient, [e.target.getAttribute('name')]: e.target.value });
   };
 
-  const renderIngredientParagraph = () => ingredients.map(({ ingredient, amount, unit }, i) =>
+  const renderIngredientParagraph = () => get.ingredients.map(({ name, qty, type }, i) =>
     <StyledIngredientText key={i}>
-      {`${amount} ${unit} ${ingredient}`}
+      {`${qty} ${type} ${name}`}
       <StyledRemoveButton onClick={removeIngredient}>
-        <StyledImage src="images/uploaded/remove.svg" />
+        <StyledImage src="images/remove.svg" />
       </StyledRemoveButton>
     </StyledIngredientText>
   );
@@ -59,28 +71,29 @@ const IngredientInput = () => {
       <StyledInputContainer>
         <StyledInput
           type="text"
-          name="ingredient"
-          defaultValue={ingredient.ingredient}
+          name="name"
+          defaultValue={ingredient.name}
           list="ingredients"
-          placeholder="Ingredienser"
+          placeholder={ingredientsList.loading ? '' : 'Ingredienser'}
           primary
           onChange={handleInput}
+          className={ingredientsList.loading ? 'spinner-border' : ''}
         />
         <datalist id="ingredients">
           {renderIngredients()}
         </datalist>
         <StyledInput
           type="number"
-          name="amount"
-          defaultValue={ingredient.amount}
+          name="qty"
+          defaultValue={ingredient.qty}
           placeholder="Antal"
           onChange={handleInput}
         />
-        <StyledSelectUnit name="unit" defaultValue={ingredient.unit} onChange={handleInput}>
+        <StyledSelectUnit name="type" defaultValue={ingredient.type} onChange={handleInput}>
           {renderUnits()}
         </StyledSelectUnit>
         <StyledAddButton onClick={addIngredient}>
-          <StyledImage src="images/uploaded/plus.svg" alt="add" />
+          <StyledImage src="images/plus.svg" alt="add" />
         </StyledAddButton>
       </StyledInputContainer>
       {renderIngredientParagraph()}

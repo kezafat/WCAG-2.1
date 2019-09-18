@@ -1,7 +1,21 @@
 import styled from 'styled-components';
+import { Spinner, Container } from 'reactstrap';
+
+export const StartPageContainer = styled(Container)`
+  background-color: #fff;
+`
+
+export const StyledSpinner = styled(Spinner)`
+  color: #72C554;
+  width: 150px !important;
+  height: 150px !important;
+  justify-content: center;
+`
 
 export const RecipeWrapper = styled.div`
   height: auto;
+  display: flex;
+  justify-content: center;
 `
 
 export const TextBanner = styled.div`
