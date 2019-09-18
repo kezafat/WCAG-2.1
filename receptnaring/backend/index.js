@@ -6,7 +6,6 @@ const recipeRoutes = require('./API/recipeRoutes');
 const cors = require('cors');
 const dbIngRoute = require('./API/dbIngRoute');
 
-
 connectToDb();
 
 const app = express();
