@@ -3,12 +3,9 @@ const bodyParser = require('body-parser');
 const connectToDb = require('./config/db');
 const config = require('./config/config');
 const recipeRoutes = require('./API/recipeRoutes');
-<<<<<<< HEAD
 const cors = require('cors');
-=======
 const dbIngRoute = require('./API/dbIngRoute');
-const cors = require('cors')
->>>>>>> dev
+
 
 connectToDb();
 
@@ -18,11 +15,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.get('/', (req, res) => res.send('Välkommen till Recept & Närings super server'));
 
-<<<<<<< HEAD
-app.use(cors())
-
-=======
->>>>>>> dev
 app.use(recipeRoutes);
 app.use(dbIngRoute);
 app.listen(config.PORT, () => console.log(`Gulligagruppens server is on port ${config.PORT}`));

@@ -32,7 +32,7 @@ function SortedRecipes() {
       <Card >
         <StyledCardBody>
           <Link to={"/recept/" + data.url}>
-            <CardImg src={`/public/images/${data.img}`} alt={data.title}></CardImg>
+            <CardImg src={`/images/uploaded/${data.img}`} alt={data.title}></CardImg>
             <StyledCardTitle>{trimString(data.title, 24)}</StyledCardTitle>
           </Link>
         </StyledCardBody>
