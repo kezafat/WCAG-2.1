@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import RecipeInput from '../../components/RecipeInput';
 import RandomRecipes from './RandomRecipes/RandomRecipes'
 import SortedRecipes from '../../components/SortedRecipes'
-import { Container, Row } from 'reactstrap';
+import { Row } from 'reactstrap';
 import {
   RecipeWrapper,
   TextBanner,
@@ -34,9 +34,13 @@ const StartPage = () => {
     const resultOfSearch = allRecipes.filter(recipe => {
       return recipe.title.toLowerCase().includes(searchTerm)
     })
+    if(searchTerm === ''){
+      setSearchResult(null)
+    } else {
     setSearchResult(renderAllRecipes(resultOfSearch))
+    }
   }
-  const renderRecipe = (allRecipes, index) => <RandomRecipes key={index} img={`/images/${allRecipes.img} `} title={allRecipes.title} data={allRecipes.url} />
+  const renderRecipe = (allRecipes, index) => <RandomRecipes key={index} img={`/images/uploaded/${allRecipes.img} `} title={allRecipes.title} data={allRecipes.url} />
 
   const renderAllRecipes = (recipes = allRecipes) =>
     recipes ? recipes.map((randomRecipes, index) => renderRecipe(randomRecipes, index))
@@ -55,7 +59,7 @@ const StartPage = () => {
           {loading ? (<StyledSpinner />) : (searchResult ||  renderAllRecipes())}
         </Row>
       </RecipeWrapper>
-      { searchResult ? null : <SortedRecipes />}
+        { searchResult === null ? <SortedRecipes /> : null}
     </StartPageContainer>
   )
 };
