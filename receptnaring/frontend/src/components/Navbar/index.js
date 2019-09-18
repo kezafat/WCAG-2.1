@@ -14,7 +14,9 @@ const NavbarComponent = () => {
     <Container>
       <StyledNavbar>
         <StyledNav>
+          <Link to="/">
           <StyledLogo src={"./images/LogoRN.png"} />
+          </Link>
         </StyledNav>
         <StyledNav navbar>
           <StyledNavItem>
