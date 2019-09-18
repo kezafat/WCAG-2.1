@@ -2,12 +2,10 @@ import styled from 'styled-components';
 
 export const RecipeWrapper = styled.div`
   display: flex;
-  height: 35vh;
+  height: 100px;
   justify-content: center;
   align-items: center;
-  background-image: url(/images/sallad0.jpg);
-  background-size: cover;
-  background-position: center;
+  width: 100%;
 `
 
 export const RecipeSearch = styled.input`
@@ -16,10 +14,12 @@ export const RecipeSearch = styled.input`
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555;
-  border: 1px solid #ccc;
+  color: black;
+  border: 1px solid black;
   border-radius: 4px;
-
+  &::placeholder {
+    color: black;
+  }
   @media (max-width: 576px){
     width: 60%;
   }
