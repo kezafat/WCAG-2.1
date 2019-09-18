@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyledCardBody, StyledCardTitle, StyledSpinner, StyledH3, StyledCol } from './StyleSortedRecipes';
-import { Row, CardImg, Card } from 'reactstrap'
+import { Row, Card, CardImg } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 
