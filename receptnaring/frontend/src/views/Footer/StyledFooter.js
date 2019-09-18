@@ -3,7 +3,7 @@ import { Col } from 'reactstrap'
 
 
 export const FooterRow = styled.footer`
-    background-color: #EFE9E6;
+    background-color: #000;
     padding-top: 30px;
     margin-top: 30px;
     border-top: 1px solid #eadad2;
