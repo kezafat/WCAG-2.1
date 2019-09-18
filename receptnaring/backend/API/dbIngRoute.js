@@ -3,7 +3,7 @@ const http = require('http');
 const express = require('express');
 const DBing = require('../schemas/DBingredients');
 const router = express.Router();
-// const parser = require('xml2json');
+const parser = require('xml2json');
 const formidable = require('formidable');
 const path = require('path');
 
@@ -52,7 +52,7 @@ router.get('/api/ingredient/search/:name', (req, res) => {
 
 // Load ingredients to DB (TAKES TIME!)
 // EX: localhost:3001/db/loadings
-/* router.get('/api/load-ingredients', async (req, res) => {
+router.get('/api/load-ingredients', async (req, res) => {
   req.setTimeout(0);
   await DBing.deleteMany({}, () => console.log("Truncate DB, check!"));
 
@@ -148,7 +148,7 @@ router.get('/api/ingredient/search/:name', (req, res) => {
     console.log("Error: " + err.message);
   });
 
-}); */
+});
 
 
 module.exports = router;
