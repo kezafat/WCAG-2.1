@@ -1,45 +1,35 @@
 import styled from 'styled-components';
-import {
-  Button,
-  Navbar,
-  Nav,
-  NavItem,
-  Container
-} from 'reactstrap';
+import { Button } from 'reactstrap';
 
-export const NavbarContainer = styled(Container)`
-  padding: 0px !important;
-`
-
-export const StyledLogo = styled.img`
-  width: 300px;
-`
-
-export const StyledNavbar = styled(Navbar)`
+export const StyledNavbar = styled.div`
   display: flex;
   background-color: white;
-  height: auto;
-  padding: 0px 15px 0px 15px;
-  background: #fff;
+  height: 55px;
+  background: black;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const StyledNav = styled(Nav)`
-  color: black;
-  flex:1;
+export const StyledLogo = styled.img`
+`
+export const StyledPositionDiv = styled.div`
+  flex: 1;
+  justify-content: flex-start;
+  margin-left: 10px;
+  align-items: center;
   display: flex;
-  background: #fff;
-`;
-
-
-export const StyledNavItem = styled(NavItem)`
-  list-style-type:none;
-  margin:0;
-  align-self: flex-end;
-`;
+`
+export const StyledButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 export const StyledButton = styled(Button)`
  font-family: 'Oswald', sans-serif;
- background-color: #72C554 !important;
+ margin-right: 10px;
+ background-color: black !important;
+ border: 1px solid #fff !important;
  font-size:1.5rem;
  color:white;
  text-decoration:none;
