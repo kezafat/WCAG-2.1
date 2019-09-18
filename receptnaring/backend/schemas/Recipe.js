@@ -18,7 +18,7 @@ let receptSchema = new Schema({
   time: { type: Number, required: true },
   portion: { type: Number, required: true, default: 2 },
   ingredients: [Ingredients.schema],
-  instructions: [{ type: Array, required: true }],
+  instructions: { type: Array, required: true },
   nutrition: [Nutritions.schema],
   date: { type: Date, default: Date.now }
 });
