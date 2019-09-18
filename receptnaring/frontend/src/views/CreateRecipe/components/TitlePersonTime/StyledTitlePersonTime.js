@@ -6,6 +6,7 @@ export const StyledContainer = styled.section`
 `;
 
 export const StyledInputGroup = styled.section`
+  font-family: 'Open Sans', sans-serif;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,12 +14,14 @@ export const StyledInputGroup = styled.section`
 `;
 
 export const StyledH2 = styled.h2`
+  font-family: 'Open Sans', sans-serif;
   color: #707070;
   font-size: 1.6rem;
   margin-right: 1rem;
 `;
 
 export const StyledTitleInput = styled.input`
+  font-family: 'Open Sans', sans-serif;
   border: none;
   border-bottom: 1px solid #707070;
   padding: 0 0.5rem;
@@ -26,8 +29,9 @@ export const StyledTitleInput = styled.input`
 `;
 
 export const StyledH3 = styled.h3`
-  color: #707070;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1.2rem;
+  color: #707070;
 `;
 
 export const StyledSliderInputContainer = styled.div`
@@ -37,6 +41,7 @@ export const StyledSliderInputContainer = styled.div`
 `;
 
 export const StyledSliderInput = styled.input`
+  font-family: 'Open Sans', sans-serif;
   appearance: none;
   background: #eee;
   height: 1rem;
@@ -53,6 +58,7 @@ export const StyledSliderInput = styled.input`
 `;
 
 export const StyledInput = styled.input`
+  font-family: 'Open Sans', sans-serif;
   width: 2rem;
   text-align: center;
   margin-left: 0.5rem;
