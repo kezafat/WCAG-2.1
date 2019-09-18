@@ -33,11 +33,11 @@ const StartPage = () => {
     const resultOfSearch = allRecipes.filter(recipe => {
       return recipe.title.toLowerCase().includes(searchTerm)
     })
-    setSearchResult(renderAllFuckingRecipes(resultOfSearch))
+    setSearchResult(renderAllRecipes(resultOfSearch))
   }
   const renderRecipe = (allRecipes, index) => <RandomRecipes key={index} img={`/images/${allRecipes.img} `} title={allRecipes.title} />
 
-  const renderAllFuckingRecipes = (recipes = allRecipes) =>
+  const renderAllRecipes = (recipes = allRecipes) =>
     recipes ? recipes.map((randomRecipes, index) => renderRecipe(randomRecipes, index))
       : null;
 
@@ -51,7 +51,7 @@ const StartPage = () => {
       </TextBanner>
       <RecipeWrapper>
         <Row>
-          {loading ? (<StyledSpinner />) : (searchResult ||  renderAllFuckingRecipes())}
+          {loading ? (<StyledSpinner />) : (searchResult ||  renderAllRecipes())}
         </Row>
       </RecipeWrapper>
     </StartPageContainer>
