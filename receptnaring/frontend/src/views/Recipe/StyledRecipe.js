@@ -17,7 +17,7 @@ font-family: 'Cabin Sketch', cursive;
 
 export const RecipeImage = styled.img`
 
-  width: 400px;
+  width: 100%;
   height: 300px;
   object-fit: cover;
 
@@ -34,6 +34,10 @@ export const Text = styled.p`
 `;
 
 export const Portions = styled(Col)`
+
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
 
 `;
 

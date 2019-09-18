@@ -89,7 +89,7 @@ class Recipe extends Component {
             <Row>
               <Portions>
                 <PortionButton>-</PortionButton>
-                <PortionText>{this.state.portions}</PortionText>
+                <PortionText>{this.state.portions} Portioner</PortionText>
                 <PortionButton>+</PortionButton>
               </Portions>
             </Row>
