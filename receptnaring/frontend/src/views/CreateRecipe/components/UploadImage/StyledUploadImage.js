@@ -15,6 +15,7 @@ export const StyledUploadInput = styled.input`
 `;
 
 export const StyledUploadLabel = styled.label`
+  font-family: 'Open Sans', sans-serif;
   min-width: 100%;
   margin-top: 1rem;
   padding: 0.2rem 0;
