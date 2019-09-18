@@ -9,12 +9,15 @@ export const StyledCol = styled(Col)`
 
 export const StyledCardBody = styled(CardBody)`
   padding: 0px !important;
+  display:flex;
 `
 
 export const StyledCardTitle = styled.p`
-  position:absolute;
   padding-bottom: 1px;
   padding-left: 4px;
+  height: 45px;
+  margin-top: -45px;
+  position: relative;
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
   font-family: 'Open Sans', sans-serif;
   font-size: 1.7em;
