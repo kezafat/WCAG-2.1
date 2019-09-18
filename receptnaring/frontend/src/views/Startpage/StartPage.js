@@ -55,7 +55,7 @@ const StartPage = () => {
           {loading ? (<StyledSpinner />) : (searchResult ||  renderAllRecipes())}
         </Row>
       </RecipeWrapper>
-      <SortedRecipes />
+      { searchResult ? null : <SortedRecipes />}
     </StartPageContainer>
   )
 };
