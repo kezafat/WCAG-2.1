@@ -54,11 +54,10 @@ router.delete('/api/recipe/id/:id/delete', async (req, res) => {
 /** Post an recipe */
 
 router.post('/api/recipe', async (req, res) => {
-  let result = await Recipe.find()
   let save = new Recipe(req.body)
   let error;
-  await save.save().catch(err => error = err)
-  res.json(save || error);
+  let result = await save.save().catch(err => error = err)
+  res.json(result || error);
 });
 
 
