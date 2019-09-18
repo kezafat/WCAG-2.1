@@ -38,6 +38,7 @@ const TitlePersonTime = (ctx) => {
         type="number"
         min={min}
         value={inputValues[name]}
+        tabIndex="-1"
         readOnly
       />
     </StyledInputGroup>

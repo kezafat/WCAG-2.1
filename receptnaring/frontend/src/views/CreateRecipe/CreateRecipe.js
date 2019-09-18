@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Button } from 'reactstrap';
-import { StyledRow } from './StyledCreateRecipe';
+import { Row, Col, Button } from 'reactstrap';
+import { StyledRow, StyledContainer } from './StyledCreateRecipe';
 import UploadImage from './components/UploadImage';
 import TitlePersonTime from './components/TitlePersonTime';
 import IngredientInput from './components/IngredientInput';
@@ -83,7 +83,7 @@ const CreateRecipe = () => {
   }
 
   return (
-    <Container>
+    <StyledContainer>
       {state.go === "/" && <Redirect to="/"></Redirect>}
       <StyledRow className="text-center">
         <Col md="6" sm="12">
@@ -106,11 +106,11 @@ const CreateRecipe = () => {
           {formStatus.status != null ? <CrudeFormValidationMessage /> : ''}
         </div>
       </Row>
-      <Row className="text-center d-flex justify-content-around mt-4">
+      <Row className="text-center d-flex justify-content-around mt-4 pb-4">
         <Button color="danger" size="lg" onClick={clearForms}>Avbryt</Button>
         <Button color="success" size="lg" onClick={sendForms}> {formStatus.sending ? <Spinner /> : 'Spara'}</Button>
       </Row>
-    </Container>
+    </StyledContainer>
   )
 };
 
