@@ -9,7 +9,7 @@ export const FooterRow = styled(Row)`
     border-top: 1px solid #eadad2;
 `;
 
-export const IconText = styled.p`
+export const IconText = styled.a`
     font-size: 26px;
     display: inline-block;
     margin: 0;
@@ -28,6 +28,7 @@ export const ContactCol = styled(Col)`
 
 export const StyledImage = styled.img`
     height: 36px;
+    padding-right: 15px;
 `;
 
 export const ContactText = styled.p`

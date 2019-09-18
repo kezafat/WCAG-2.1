@@ -16,9 +16,9 @@ const StyledInputContainer = styled.section`
     "ingredient ingredient ingredient" 
     "amount unit add";
   gap: 0.5rem;
-  @media (min-width: 540px) {
+  /* @media (min-width: 540px) {
     grid-template-areas: "ingredient ingredient amount unit add";
-  }
+  } */
 `;
 
 const StyledInput = styled.input`

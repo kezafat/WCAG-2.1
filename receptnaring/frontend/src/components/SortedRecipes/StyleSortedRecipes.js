@@ -1,20 +1,26 @@
 import styled from 'styled-components';
-import { Col, CardBody, Spinner } from 'reactstrap';
+import { Col, CardBody, Spinner, Card } from 'reactstrap';
 
 export const StyledCol = styled(Col)`
   &:hover > div > div > a > p{
     text-decoration: underline !important;
   }
 `
+export const StyledCard = styled(Card) `
+margin-bottom: 30px;
+`
 
 export const StyledCardBody = styled(CardBody)`
   padding: 0px !important;
+  display:flex;
 `
 
 export const StyledCardTitle = styled.p`
-  position:absolute;
   padding-bottom: 1px;
   padding-left: 4px;
+  height: 45px;
+  margin-top: -45px;
+  position: relative;
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
   font-family: 'Open Sans', sans-serif;
   font-size: 1.7em;
