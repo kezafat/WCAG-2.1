@@ -8,7 +8,8 @@ import {
   TextBanner,
   TextInfo,
   StyledSpinner,
-  StartPageContainer
+  StartPageContainer,
+  TextWrapper
 } from './StyledStartPage';
 
 const StartPage = () => {
@@ -43,17 +44,19 @@ const StartPage = () => {
   const renderRecipe = (allRecipes, index) => <RandomRecipes key={index} img={`/images/uploaded/${allRecipes.img} `} title={allRecipes.title} data={allRecipes.url} />
 
   const renderAllRecipes = (recipes = allRecipes) =>
-    recipes ? recipes.slice(0,8).map((randomRecipes, index) => renderRecipe(randomRecipes, index))
+    recipes ? recipes.slice(0,3).map((randomRecipes, index) => renderRecipe(randomRecipes, index))
       : null;
 
   return (
     <StartPageContainer>
       <RecipeInput callback={searchRecipe} />
+      <TextWrapper>
       <TextBanner>
         <TextInfo>
           Recept
           </TextInfo>
       </TextBanner>
+      </TextWrapper>
       <RecipeWrapper>
         <Row>
           {loading ? (<StyledSpinner />) : (searchResult ||  renderAllRecipes())}
