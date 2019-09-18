@@ -2,17 +2,12 @@ import styled from "styled-components";
 import { Doughnut } from "react-chartjs-2";
 
 export const StyledChart = styled(Doughnut)`
+display:flex;
+justify-content:center;
 `;
 
-export const StyledLabels = styled.div`
 
-`
 
-export const StyledList = styled.ul`
-display:flex;
-flex-direction:column;
-font-size:14px;
-`
 
 export const StyledSpan = styled.div`
 margin-right:5px;
