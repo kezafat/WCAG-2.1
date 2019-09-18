@@ -5,21 +5,34 @@ import { RecipeRow, PortionButton, Ingredient, List, ListItem, Instructions, Rou
 
 
 class Recipe extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { recipe: {}, apiData: false, portions: 2, };
+    this.recipeURL = this.props.match.params.url
   }
 
 
   async componentDidMount() {
     let data = {}
-    await fetch('http://localhost:3001/api/recipe/id/5d80ea4eb0bb2c1616158cf6')
+    await fetch('http://localhost:3001/api/recipes')
       .then(function (response) {
         return response.json();
       })
       .then(function (response) {
         data = response
       });
+
+      for(let recipe of data){
+        if(this.recipeURL === recipe.url){
+          await fetch(`http://localhost:3001/api/recipe/id/${recipe._id}`)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (response) {
+            data = response
+          });
+        }
+      }
 
     await this.setState({
       recipe: data,
@@ -72,7 +85,7 @@ class Recipe extends Component {
       <Container>
         <RecipeRow>
           <Col lg="5">
-            {this.state.apiData ? <RecipeImage src={`/images/${this.state.recipe.img}`} alt={this.state.recipe.title}></RecipeImage> : console.log('data not loaded')}
+            {this.state.apiData ? <RecipeImage src={`/images/uploaded/${this.state.recipe.img}`} alt={this.state.recipe.title}></RecipeImage> : console.log('data not loaded')}
             <Row>
               <Portions>
                 <PortionButton>-</PortionButton>

@@ -24,7 +24,7 @@ const App = props => {
         <Switch>
           <Route exact path="/" component={StartPage} />
           <Route exact path="/skapa-recept" component={CreateRecipe} />
-          <Route exact path="/recept" component={Recipe} />
+          <Route exact path="/recept/:url" component={Recipe} />
         </Switch>
       </Main>
       <Footer>
