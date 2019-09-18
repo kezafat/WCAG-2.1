@@ -7,7 +7,7 @@ export const StyledCol = styled(Col)`
   }
 `
 export const StyledCard = styled(Card) `
-margin-bottom: 60px;
+margin-bottom: 30px;
 `
 
 export const StyledCardBody = styled(CardBody)`
