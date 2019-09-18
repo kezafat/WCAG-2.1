@@ -1,7 +1,7 @@
 const sliderInputsData = [
   {
     title: 'Personer',
-    name: 'people',
+    name: 'portion',
     min: '2',
     max: '12',
     defaultValue: '2',
