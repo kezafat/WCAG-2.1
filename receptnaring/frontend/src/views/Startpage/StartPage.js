@@ -35,7 +35,7 @@ const StartPage = () => {
     })
     setSearchResult(renderAllRecipes(resultOfSearch))
   }
-  const renderRecipe = (allRecipes, index) => <RandomRecipes key={index} img={`/images/${allRecipes.img} `} title={allRecipes.title} />
+  const renderRecipe = (allRecipes, index) => <RandomRecipes key={index} img={`/images/${allRecipes.img} `} title={allRecipes.title} data={allRecipes.url} />
 
   const renderAllRecipes = (recipes = allRecipes) =>
     recipes ? recipes.map((randomRecipes, index) => renderRecipe(randomRecipes, index))
