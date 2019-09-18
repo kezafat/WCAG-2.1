@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 let nutritionsSchema = new Schema({
     name: { type: String, required: true },
-    type: { type: String, required: true, default: "gr"},
+    type: { type: String, required: true, default: "g"},
     qty: { type: Number, required: true }
 });
 
