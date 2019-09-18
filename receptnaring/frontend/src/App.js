@@ -9,7 +9,7 @@ import CreateRecipe from './views/CreateRecipe';
 import StartPage from './views/Startpage';
 import Recipe from './views/Recipe';
 import Navbar from '../../frontend/src/components/Navbar';
-import ChartComponent from '../../frontend/src/components/Chart'
+
 import {
   Header,
   Main
@@ -25,7 +25,7 @@ const App = props => {
         <Switch>
           <Route exact path="/" component={StartPage} />
           <Route exact path="/skapa-recept" component={CreateRecipe} />
-          <Route path="/chart" component={ChartComponent} />
+          <Route exact path="/recept/:url" component={Recipe} />
         </Switch>
       </Main>
       <Footer>

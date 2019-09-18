@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { RecipeRow, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Text, PortionText,Portions } from './StyledRecipe';
+import Chart from "../../components/Chart"
 
 
 
@@ -104,6 +105,7 @@ class Recipe extends Component {
             <List>
               {this.state.apiData ? this.renderIngredients() : console.log('data not loaded')}
             </List>
+            <Chart/>
           </Ingredient>
           <Instructions>
             <H2Text>Gör så här</H2Text>

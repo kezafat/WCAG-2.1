@@ -2,26 +2,33 @@ import styled from "styled-components";
 import { Doughnut } from "react-chartjs-2";
 
 export const StyledChart = styled(Doughnut)`
-display:flex;
-justify-content:center;
+
 `;
 
+export const StyledWrapper = styled.div`
+margin-top:20px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 
-
+`
 
 export const StyledSpan = styled.div`
-margin-right:5px;
+padding:2px;
+height:20px;
+width:20px;
 display:flex;
 flex-direction:row;
+background-color:${props => props.color};
 border-radius:50%;
-  width:20px;
-  height:20px;
-  background-color: ${props => props.color};
 `;
+
 
 export const StyledLi = styled.li`
 margin:5px;
 display:flex;
 flex-direction:row;
 align-items:center;
+
 `

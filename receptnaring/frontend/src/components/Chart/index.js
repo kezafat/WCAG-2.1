@@ -1,10 +1,12 @@
 import React from "react";
 import axios from "axios";
-import data from "./StaticData";
+import data from "./staticData";
 import {
   StyledChart,
   StyledSpan,
-  StyledLi
+  StyledLi,
+  StyledWrapper
+
 } from "./StyledChart";
 
 class ChartComponent extends React.Component {
@@ -22,7 +24,7 @@ class ChartComponent extends React.Component {
               "#FF6384",
               "#36A2EB",
               "#FFCE56",
-              "#98FB98",
+              "#008000",
               "#CD853F",
               "#FF8C00"
             ]
@@ -31,12 +33,17 @@ class ChartComponent extends React.Component {
         options: {
           lineWidth: 13,
           position: "left",
-          events: null,
           maintainAspectRatio: true,
-          responsive: false,
+          responsive: true,
           legend: {
-            display: false,
-            position: "top"
+            fullWidth:100,
+            padding:10,
+            display: true,
+            position: "bottom",
+            labels:{
+              fontSize:16,
+              boxWidth:30
+            }
           }
         }
       }
@@ -45,10 +52,6 @@ class ChartComponent extends React.Component {
   }
 
   async componentDidMount() {
-    // await axios.get(`http://localhost:3001/api/recipes/first`).then(res => {
-    //   const recept = res.data;
-    //   this.setState({ recept: recept });
-    // });
 
     let { recept, myValues } = this.state;
     let myEntries = [];
@@ -57,7 +60,7 @@ class ChartComponent extends React.Component {
     }
 
     for (let k of Object.values(recept.nutrition)) {
-      myEntries.push(k.name);
+      myEntries.push(k.name + ' '+ k.qty + 'g');
     }
 
     let dataCopy = { ...this.state.data };
@@ -76,8 +79,9 @@ class ChartComponent extends React.Component {
       return (
         
         <StyledLi key={item.qty}>
-          <StyledSpan color={color} />
+          <StyledSpan color={color}/>
           {item.name} {item.qty}{item.type}
+          
         </StyledLi>
       );
     });
@@ -89,15 +93,16 @@ class ChartComponent extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.getLabels()}
+      <StyledWrapper>
+   
+       
         <StyledChart
           data={this.state.data}
           width={250}
           height={250}
           options={this.state.data.options}
         />
-      </div>
+      </StyledWrapper>
     );
   }
 }

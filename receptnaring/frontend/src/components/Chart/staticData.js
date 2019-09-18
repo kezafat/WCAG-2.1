@@ -34,7 +34,7 @@ qty:145
     },
     {
         type:"g",
-        name:"kolhydrater",
+        name:"Kolhydrater",
         qty:245
         }
 ],
