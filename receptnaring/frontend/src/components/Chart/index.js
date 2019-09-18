@@ -56,7 +56,42 @@ class ChartComponent extends React.Component {
     let { recept, myValues } = this.state;
     let myEntries = [];
     for (let i of Object.values(recept.nutrition)) {
-      myValues.push(i.qty);
+      if(i.name==='Salt'){
+        let val = Math.floor(Math.random() * 10) + 1
+        i.qty=val
+        myValues.push(i.qty);
+        
+      }
+
+      if(i.name.includes('Protein')){
+        let val = Math.floor(Math.random() * 60) + 20
+        i.qty=val
+        myValues.push(i.qty);
+      }
+  
+
+      if(i.name.includes('Omättad')){
+        let val = Math.floor(Math.random() * 20) + 1
+        i.qty=val
+        myValues.push(i.qty);
+      }
+      if(i.name.includes('Mättad')){
+        let val = Math.floor(Math.random() * 20) + 1
+        i.qty=val
+        myValues.push(i.qty);
+      }
+
+      if(i.name.includes('Kolhydrater')){
+        let val = Math.floor(Math.random() * 150) + 50
+        i.qty=val
+        myValues.push(i.qty);
+      }
+
+      if(i.name.includes('Fett')){
+        let val = Math.floor(Math.random() * 80) + 10
+        i.qty=val
+        myValues.push(i.qty);
+      }
     }
 
     for (let k of Object.values(recept.nutrition)) {
@@ -68,6 +103,7 @@ class ChartComponent extends React.Component {
     dataCopy.labels = myEntries;
     this.setState({ data: dataCopy });
   }
+
 
   getLabels = () => {
     let { data, recept } = this.state;
