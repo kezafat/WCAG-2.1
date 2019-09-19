@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import { RecipeRow, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Text, PortionText, Portions, Time, RecipeContainer, PortionPicker } from './StyledRecipe';
+import { RecipeRow, Image, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Ingredients, H2Instructions, PortionText, Portions, Time, RecipeContainer, PortionPicker } from './StyledRecipe';
 import Chart from "../../components/Chart"
 
 
@@ -23,11 +23,11 @@ class Recipe extends Component {
         data = response
       });
 
-      for(let recipe of data){
-        if(this.recipeURL === recipe.url){
-          data = recipe;
-        }
+    for (let recipe of data) {
+      if (this.recipeURL === recipe.url) {
+        data = recipe;
       }
+    }
 
     await this.setState({
       recipe: data,
@@ -35,7 +35,7 @@ class Recipe extends Component {
       portions: data.portion,
       ingredients: data.ingredients,
     })
-    
+
     this.time();
 
     let instructions = document.getElementsByClassName('instructions')
@@ -45,11 +45,11 @@ class Recipe extends Component {
     }
   }
 
-  time(){
+  time() {
     let time = this.state.recipe.time;
 
-    if(time > 60){
-      let hours = (time/60)
+    if (time > 60) {
+      let hours = (time / 60)
       let rhours = Math.floor(hours);
       let minutes = (hours - rhours) * 60
       let rminutes = Math.round(minutes)
@@ -58,7 +58,7 @@ class Recipe extends Component {
         hours: rhours + " tim",
         minutes: rminutes + " min"
       })
-    }else{
+    } else {
       this.setState({
         minutes: time + " min"
       })
@@ -78,7 +78,7 @@ class Recipe extends Component {
 
   }
 
-  checkBoxOnText(val){
+  checkBoxOnText(val) {
 
     let box = document.getElementsByClassName(`checkBoxInput${val}`);
     let step = document.getElementsByClassName(`step${val}`);
@@ -93,45 +93,41 @@ class Recipe extends Component {
 
   }
 
-  async addPortion(){
-    if(this.state.portions < 12){
-      await this.setState({portions: this.state.portions+2})
+  async addPortion() {
+    if (this.state.portions < 12) {
+      await this.setState({ portions: this.state.portions + 2 })
       let addedIngredients = []
 
-      for(let ingredient of this.state.recipe.ingredients){
-        let qty = (ingredient.qty/this.state.recipe.portion) * this.state.portions
-        addedIngredients.push({name: ingredient.name, qty: qty, type: ingredient.type})
+      for (let ingredient of this.state.recipe.ingredients) {
+        let qty = (ingredient.qty / this.state.recipe.portion) * this.state.portions
+        addedIngredients.push({ name: ingredient.name, qty: qty, type: ingredient.type })
       }
 
-      this.setState({ingredients: addedIngredients})
+      this.setState({ ingredients: addedIngredients })
     }
   }
 
-  async removePortion(){
-    if(this.state.portions > 2){
-      await this.setState({portions: this.state.portions-2})
+  async removePortion() {
+    if (this.state.portions > 2) {
+      await this.setState({ portions: this.state.portions - 2 })
       let removedIngredients = []
 
-      for(let ingredient of this.state.recipe.ingredients){
-        let qty = (ingredient.qty/this.state.recipe.portion) * this.state.portions
-        removedIngredients.push({name: ingredient.name, qty: qty, type: ingredient.type})
+      for (let ingredient of this.state.recipe.ingredients) {
+        let qty = (ingredient.qty / this.state.recipe.portion) * this.state.portions
+        removedIngredients.push({ name: ingredient.name, qty: qty, type: ingredient.type })
       }
 
-      this.setState({ingredients: removedIngredients})
+      this.setState({ ingredients: removedIngredients })
     }
   }
 
   renderInstructions = () => this.state.recipe.instructions.map((item, i) =>
     <Row key={i}>
-      <Col sm="1">
         <RoundCheckbox className="round">
           <input className={'checkBoxInput' + i} tabIndex="0" type="checkbox" id={'checkbox' + i} />
           <label tabIndex="0" htmlFor={'checkbox' + i} onClick={() => this.chekedCheckbox(i)}></label>
+          <Text className={`step${i} instructions`} onClick={() => this.checkBoxOnText(i)}>{item}</Text>
         </RoundCheckbox>
-      </Col>
-      <Col sm="11">
-        <Text className={`step${i} instructions`} onClick={() => this.checkBoxOnText(i)}>{item}</Text>
-      </Col>
     </Row>
   );
 
@@ -144,35 +140,36 @@ class Recipe extends Component {
     return (
       <RecipeContainer>
         <RecipeRow>
-          <Col lg="5">
+          <Image lg="4">
             {this.state.apiData ? <RecipeImage src={`/images/uploaded/${this.state.recipe.img}`} alt={this.state.recipe.title}></RecipeImage> : console.log('data not loaded')}
-            <Row>
-              <Portions>
-                <PortionPicker>
-                  <PortionButton onClick={this.removePortion.bind(this)}>-</PortionButton>
-                  <PortionText>{this.state.portions} Portioner</PortionText>
-                  <PortionButton onClick={this.addPortion.bind(this)}>+</PortionButton>
-                </PortionPicker>
-              </Portions>
-            </Row>
-          </Col>
+
+            <Ingredient>
+              <H2Ingredients>Ingredienser</H2Ingredients>
+              <Row>
+                <Portions lg="10">
+                  <PortionPicker>
+                    <PortionButton onClick={this.removePortion.bind(this)}>-</PortionButton>
+                    <PortionText>{this.state.portions} Portioner</PortionText>
+                    <PortionButton onClick={this.addPortion.bind(this)}>+</PortionButton>
+                  </PortionPicker>
+                </Portions>
+              </Row>
+              <List>
+                {this.state.apiData ? this.renderIngredients() : console.log('data not loaded')}
+              </List>
+              <Chart />
+            </Ingredient>
+          </Image>
+
           <Col lg="7">
             <RecipeTitle>{this.state.recipe.title}</RecipeTitle>
             <Time>{this.state.hours} {this.state.minutes}</Time>
+
+            <Instructions>
+              <H2Instructions>Gör så här</H2Instructions>
+              {this.state.apiData ? this.renderInstructions() : console.log('data not loaded')}
+            </Instructions>
           </Col>
-        </RecipeRow>
-        <RecipeRow>
-          <Ingredient lg="4">
-            <H2Text>Ingredienser</H2Text>
-            <List>
-              {this.state.apiData ? this.renderIngredients() : console.log('data not loaded')}
-            </List>
-            <Chart/>
-          </Ingredient>
-          <Instructions>
-            <H2Text>Gör så här</H2Text>
-            {this.state.apiData ? this.renderInstructions() : console.log('data not loaded')}
-          </Instructions>
         </RecipeRow>
       </RecipeContainer>
     )

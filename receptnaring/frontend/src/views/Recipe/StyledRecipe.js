@@ -9,9 +9,15 @@ export const RecipeContainer = styled(Container)`
 
 `;
 
+export const Image = styled(Col)`
+
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+
+`;
+
 export const RecipeRow = styled(Row)`
 
-  padding: 0px;
 
 `;
 
@@ -19,6 +25,8 @@ export const RecipeTitle = styled.h1`
 
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet');
 font-family: 'Cabin Sketch', cursive;
+font-size: 50px;
+padding-left: 20px;
 
 `;
 
@@ -28,6 +36,7 @@ export const Time = styled.h3`
   font-family: 'Open Sans', sans-serif;
   color: rgba(0, 0, 0, 0.5);
   font-size: 20px;
+  padding-left: 20px;
 
 `;
 
@@ -46,6 +55,7 @@ export const Text = styled.p`
   font-weight: 200;
   font-size: 20px;
   max-width: 600px;
+  margin-left: 35px;
 
 `;
 
@@ -53,7 +63,7 @@ export const Portions = styled(Col)`
 
   padding: 15px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
 
 `;
@@ -94,11 +104,18 @@ export const PortionText = styled.h2`
 
 `;
 
-export const H2Text = styled.h2`
+export const H2Instructions = styled.h2`
 
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
   font-family: 'Open Sans', sans-serif;
-  padding-bottom: 20px;
+  padding-top: 20px;
+
+`;
+
+export const H2Ingredients = styled.h2`
+
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+  font-family: 'Open Sans', sans-serif;
 
 `;
 
@@ -135,11 +152,14 @@ export const Instructions = styled(Col)`
 
 `;
 
-export const RoundCheckbox = styled.div`
-  
+export const RoundCheckbox = styled(Col)`
+
 position: relative;
 margin: auto;
 margin-top: 2px;
+display:flex;
+padding-left: 0px !important;
+padding-right: 0px !important;
 
 label {
   background-color: #fff;
