@@ -12,16 +12,16 @@ export const RecipeWrapper = styled.div`
 
 export const RecipeSearch = styled.input`
   background: url("/images/searchicon.svg") top left no-repeat;
-  background-color: #fff;
+  background-color:none;
   padding: 12px 0;
   outline: 0;
   border: 1px solid transparent;
-  border-bottom: 2px solid #575756;
+  border-bottom: 1px solid #fff;
   border-radius: 0;
   background-position: 100% center;
   width: 60%;
   height: 50px;
-  box-shadow: 0 0 10px 5px #fff;
+
 
   padding: 6px 12px;
   /*
@@ -31,9 +31,18 @@ export const RecipeSearch = styled.input`
   border: 1px solid black;
   border-radius: 4px; */
   &::placeholder {
-    color: color(#fff a(0.8));
+    color: #fff;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+  
+  }
+
+  &:focus {
+    background-color:#00000085;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
   }
   @media (max-width: 576px) {
     width: 60%;
