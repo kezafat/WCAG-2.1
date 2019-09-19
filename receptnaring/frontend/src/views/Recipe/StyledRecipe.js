@@ -78,7 +78,7 @@ export const PortionPicker = styled.div`
 
 `;
 
-export const PortionButton = styled.div`
+export const PortionButton = styled.button`
 
   border: 1.2px solid white;
   color: white;
@@ -89,6 +89,7 @@ export const PortionButton = styled.div`
   font-size: 25px;
   user-select: none;
   position: relative;
+  background-color: black;
 
   p{
     position: absolute;
