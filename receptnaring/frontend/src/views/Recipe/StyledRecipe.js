@@ -1,10 +1,17 @@
 import styled from 'styled-components';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
+
+export const RecipeContainer = styled(Container)`
+
+  padding: 40px;
+  padding-bottom: 60px;
+  padding-top: 60px;
+
+`;
 
 export const RecipeRow = styled(Row)`
 
-  background-color: #F5F5F5;
-  padding: 20px;
+  padding: 0px;
 
 `;
 
@@ -12,6 +19,15 @@ export const RecipeTitle = styled.h1`
 
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet');
 font-family: 'Cabin Sketch', cursive;
+
+`;
+
+export const Time = styled.h3`
+
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
 
 `;
 
@@ -42,9 +58,20 @@ export const Portions = styled(Col)`
 
 `;
 
+export const PortionPicker = styled.div`
+
+  background-color: black;
+  display: flex;
+  padding: 4px;
+  border-radius: 25px;
+
+
+`;
+
 export const PortionButton = styled.p`
-  
-  background-color: #5CB85C;
+
+  border: 1.2px solid white;
+  color: white;
   height: 30px;
   width: 30px;
   border-radius: 50%;
@@ -52,6 +79,7 @@ export const PortionButton = styled.p`
   font-size: 25px;
   display: flex;
   justify-content: center;
+  user-select: none;
   
 `;
 
@@ -61,6 +89,8 @@ export const PortionText = styled.h2`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
+  padding: 0 10px 0 10px;
+  color: white;
 
 `;
 
