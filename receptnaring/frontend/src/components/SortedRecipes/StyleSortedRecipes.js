@@ -41,6 +41,8 @@ export const StyledSpinner = styled(Spinner)`
 `
 
 export const StyledH3 = styled.h3`
+text-shadow: 2px 2px #000;
+color:white;
   text-align:center;
   font-size: 3rem;
   margin-top:30px;

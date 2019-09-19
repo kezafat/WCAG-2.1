@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 export const StyledNavbar = styled.div`
   display: flex;
   background-color: white;
-  height: 55px;
+  height: 100px;
   background: black;
   justify-content: center;
   align-items: center;
