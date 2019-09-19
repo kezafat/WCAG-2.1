@@ -35,24 +35,32 @@ export const Text = styled.p`
 
 export const Portions = styled(Col)`
 
-  padding: 20px;
+  padding: 15px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
 
 `;
 
-export const PortionButton = styled.span`
+export const PortionButton = styled.p`
   
   background-color: #5CB85C;
-  padding: 7px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
   cursor: pointer;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
   
 `;
 
 export const PortionText = styled.h2`
 
   display: inline-block;
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
 
 `;
 
