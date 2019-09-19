@@ -78,7 +78,7 @@ export const PortionPicker = styled.div`
 
 `;
 
-export const PortionButton = styled.p`
+export const PortionButton = styled.div`
 
   border: 1.2px solid white;
   color: white;
@@ -87,9 +87,16 @@ export const PortionButton = styled.p`
   border-radius: 50%;
   cursor: pointer;
   font-size: 25px;
-  display: flex;
-  justify-content: center;
   user-select: none;
+  position: relative;
+
+  p{
+    position: absolute;
+    top:-7px;
+    right: 0px;
+    width: 27.7px;
+    text-align: center;
+  }
   
 `;
 
@@ -98,7 +105,9 @@ export const PortionText = styled.h2`
   display: inline-block;
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
   font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
   padding: 0 10px 0 10px;
   color: white;
 
@@ -116,6 +125,7 @@ export const H2Ingredients = styled.h2`
 
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
   font-family: 'Open Sans', sans-serif;
+  display: inline-block;
 
 `;
 

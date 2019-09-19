@@ -148,9 +148,9 @@ class Recipe extends Component {
               <Row>
                 <Portions lg="10">
                   <PortionPicker>
-                    <PortionButton onClick={this.removePortion.bind(this)}>-</PortionButton>
+                    <PortionButton onClick={this.removePortion.bind(this)}><p>-</p></PortionButton>
                     <PortionText>{this.state.portions} Portioner</PortionText>
-                    <PortionButton onClick={this.addPortion.bind(this)}>+</PortionButton>
+                    <PortionButton onClick={this.addPortion.bind(this)}><p>+</p></PortionButton>
                   </PortionPicker>
                 </Portions>
               </Row>
