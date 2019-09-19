@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { Spinner, Container } from 'reactstrap';
+import { Spinner } from 'reactstrap';
 
-export const StartPageContainer = styled(Container)`
+export const StartPageContainer = styled.div`
   background-color: #fff;
+  padding: 40px;
 `
 
 export const StyledSpinner = styled(Spinner)`
@@ -18,38 +19,32 @@ export const RecipeWrapper = styled.div`
   justify-content: center;
 `
 
+export const TextWrapper = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const TextBanner = styled.div`
-  width: 250px;
-  height: 130px;
+  width: 120px;
+  height: 28px;
   display: flex;
   align-items: center;
+  top: 212px;
+  z-index: 9999;
+  position: absolute;
   justify-content: center;
-  background-color: #FFFAE2;
+  background-color: #fff;
   border-radius: 4px;
   border: 1px solid #707070;
   @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet');
   font-family: 'Cabin Sketch', cursive;
-  margin-left: 30px;
-  margin-top: -69px;
-  @media (max-width: 380px){
-    width: 100px;
-    height: 80px;
-    margin-top: -45px;
-  }
-  @media (max-width: 576px){
-    width: 150px;
-    height: 80px;
-    margin-top: -45px;
-  }
 `
 
 export const TextInfo = styled.h1`
   text-transform: uppercase;
-  @media (max-width: 380px){
-    font-size: 20px;
-  }
-  @media (max-width: 576px){
-    font-size: 20px;
-  }
-
+  font-size: 18px;
+  text-align: center;
 `

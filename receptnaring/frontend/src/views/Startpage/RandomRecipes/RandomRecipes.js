@@ -4,7 +4,7 @@ import { StyledCard, StyledCardBody, StyledCardImg, StyledCardTitle, StyledCol, 
 const RandomRecipes = ({ title, img, data }) => {
 
   return (
-    <StyledCol lg={3}>
+    <StyledCol lg={4}>
       <StyledCard >
         <StyledCardBody>
           <StyledLink to={"/recept/" + data}>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from "axios";
 import {
   StyledIngredientContainer,
@@ -14,6 +14,7 @@ import {
 import { units } from './staticData';
 
 const IngredientInput = (ctx) => {
+  const inputRef = useRef('inputRef');
   const [get, set] = ctx.s;
   const [ingredientsList, setIngredientsList] = useState({ 'loading': 1, data: [] });
   const [ingredient, setIngredient] = useState({
@@ -42,7 +43,8 @@ const IngredientInput = (ctx) => {
 
   const addIngredient = () => {
     if (!ingredient.name || !ingredient.qty) { return };
-    set(prev => ({ ...prev, 'ingredients': [...get.ingredients, ingredient] }))
+    set(prev => ({ ...prev, 'ingredients': [...get.ingredients, ingredient] }));
+    inputRef.current.focus();
   };
 
   const removeIngredient = e => {
@@ -59,7 +61,7 @@ const IngredientInput = (ctx) => {
   const renderIngredientParagraph = () => get.ingredients.map(({ name, qty, type }, i) =>
     <StyledIngredientText key={i}>
       {`${qty} ${type} ${name}`}
-      <StyledRemoveButton onClick={removeIngredient}>
+      <StyledRemoveButton id={i} onClick={removeIngredient}>
         <StyledImage src="images/remove.svg" />
       </StyledRemoveButton>
     </StyledIngredientText>
@@ -78,6 +80,7 @@ const IngredientInput = (ctx) => {
           primary
           onChange={handleInput}
           className={ingredientsList.loading ? 'spinner-border' : ''}
+          ref={inputRef}
         />
         <datalist id="ingredients">
           {renderIngredients()}

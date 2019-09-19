@@ -1,28 +1,37 @@
 import styled from 'styled-components';
-import { Col, CardBody, Spinner } from 'reactstrap';
+import { Col, Row, CardBody, Spinner, Card } from 'reactstrap';
+
 
 export const StyledCol = styled(Col)`
   &:hover > div > div > a > p{
     text-decoration: underline !important;
   }
 `
+export const StyledRow = styled(Row)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const StyledCard = styled(Card) `
+  margin-bottom: 30px;
+  border:none !important;
+`
 
 export const StyledCardBody = styled(CardBody)`
   padding: 0px !important;
+  display:flex;
 `
 
 export const StyledCardTitle = styled.p`
-  position:absolute;
-  padding-bottom: 1px;
-  padding-left: 4px;
+  height: 65px;
+  padding-top: 15px;
+  font-weight:bold;
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.7em;
-  margin-bottom: 0px !important;
-  color:#fff;
-  text-shadow: 1px 1px 2px black;
-  background-color:#00000082;
-  width:100%;
+  font-size: 1em;
+  color:black;
+  text-align: center;
 `
 
 export const StyledSpinner = styled(Spinner)`
@@ -32,9 +41,11 @@ export const StyledSpinner = styled(Spinner)`
 `
 
 export const StyledH3 = styled.h3`
-  font-size: 45px;
+  text-align:center;
+  font-size: 3rem;
+  margin-top:30px;
   letter-spacing: -3px;
   padding-bottom: 15px;
-  font-family: 'Open Sans', sans-serif;
-
+  @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet');
+  font-family: 'Cabin Sketch', cursive;
 `

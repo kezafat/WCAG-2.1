@@ -11,10 +11,13 @@ const StyledAddStepContainer = styled.form`
 
 const StyledH2 = styled.h2`
   grid-area: title;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
   margin: 2rem 0;
 `;
 
 const StyledInput = styled.input`
+  font-family: 'Open Sans', sans-serif;
   grid-area: input;
   height: 2rem;
   padding: 0 0.25rem;
@@ -22,6 +25,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledAddButton = styled.button`
+  font-family: 'Open Sans', sans-serif;  
   grid-area: add;
   display: flex;
   justify-content: center;
@@ -53,6 +57,7 @@ const StyledListNumberContainer = styled.div`
 `;
 
 const StyledParagraph = styled.p`
+  font-family: 'Open Sans', sans-serif;
   display: inline-block;
   background: ${props => props.primary ? '#ECEEEF' : '#fff'};
   padding: 0.5rem;

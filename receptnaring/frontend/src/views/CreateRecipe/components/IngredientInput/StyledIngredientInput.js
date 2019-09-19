@@ -6,6 +6,8 @@ const StyledIngredientContainer = styled.section`
 `;
 
 const StyledH2 = styled.h2`
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
   margin: 2rem 0;
 `;
 
@@ -16,12 +18,10 @@ const StyledInputContainer = styled.section`
     "ingredient ingredient ingredient" 
     "amount unit add";
   gap: 0.5rem;
-  @media (min-width: 540px) {
-    grid-template-areas: "ingredient ingredient amount unit add";
-  }
 `;
 
 const StyledInput = styled.input`
+  font-family: 'Open Sans', sans-serif;
   width: 100%;
   border: 1px solid #DDDDDD;
   grid-area: ${props => props.primary ? 'ingredient' : 'amount'};
@@ -30,11 +30,13 @@ const StyledInput = styled.input`
 `;
 
 const StyledSelectUnit = styled.select`
+  font-family: 'Open Sans', sans-serif;
   border: 1px solid #DDDDDD;
   grid-area: unit;
 `;
 
 const StyledAddButton = styled.button`
+  font-family: 'Open Sans', sans-serif;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -51,11 +53,13 @@ const StyledImage = styled.img`
 `;
 
 const StyledIngredientText = styled.p`
+  font-family: 'Open Sans', sans-serif;
   text-align: left;
   margin-top: 0.5rem;
 `;
 
 const StyledRemoveButton = styled.button`
+  font-family: 'Open Sans', sans-serif;
   display: inline-flex;
   background: transparent;
   border: none;

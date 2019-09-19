@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { RecipeRow, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Text, PortionText,Portions } from './StyledRecipe';
+import Chart from "../../components/Chart"
 
 
 
@@ -66,7 +67,7 @@ class Recipe extends Component {
       <Col sm="1">
         <RoundCheckbox className="round">
           <input tabIndex="0" type="checkbox" id={'checkbox' + i} />
-          <label tabIndex="0" for={'checkbox' + i} onClick={() => this.chekedCheckbox(i)}></label>
+          <label tabIndex="0" htmlFor={'checkbox' + i} onClick={() => this.chekedCheckbox(i)}></label>
         </RoundCheckbox>
       </Col>
       <Col sm="11">
@@ -104,6 +105,7 @@ class Recipe extends Component {
             <List>
               {this.state.apiData ? this.renderIngredients() : console.log('data not loaded')}
             </List>
+            <Chart/>
           </Ingredient>
           <Instructions>
             <H2Text>Gör så här</H2Text>
