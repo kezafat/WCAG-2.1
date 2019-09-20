@@ -16,8 +16,11 @@ function SortedRecipes() {
         const respons = await fetch(url);
         const data = await respons.json();
         const items = data;
+        //slicing fetched data to get the correct amount and getting only the newest from the data array
         const slicedData = items.slice(-5);
+        //reversing the data to get the last array item first.
         const reverseData = slicedData.reverse();
+        //declaring the useState.
         setData(reverseData);
         setLoading(false);
       };
@@ -40,6 +43,9 @@ function SortedRecipes() {
     </StyledCol>
 
   const renderRecipes = () => data.map((item, index) => renderRecipe(item, index));
+
+  //If the string is longer then (length) it will cut down the string to the value you set and add ... to the end.
+  // If it's not longer it will just return the string.
 
   const trimString = function (string, length) {
     return string.length > length ?
