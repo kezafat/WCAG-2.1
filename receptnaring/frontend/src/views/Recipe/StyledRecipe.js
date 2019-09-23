@@ -9,6 +9,15 @@ export const RecipeContainer = styled(Container)`
 
 `;
 
+export const BackButton = styled.img`
+
+  width: 40px;
+  position: absolute;
+  left: 5%;
+  top: 65px;
+
+`;
+
 export const Image = styled(Col)`
 
   padding-left: 0px !important;

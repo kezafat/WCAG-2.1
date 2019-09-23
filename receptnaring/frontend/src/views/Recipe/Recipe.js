@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import { RecipeRow, Image, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Ingredients, H2Instructions, PortionText, Portions, Time, RecipeContainer, PortionPicker } from './StyledRecipe';
+import { RecipeRow, Image, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Ingredients, H2Instructions, PortionText, Portions, Time, RecipeContainer, PortionPicker, BackButton } from './StyledRecipe';
 import Chart from "../../components/Chart"
 
 
@@ -139,6 +139,7 @@ class Recipe extends Component {
   render() {
     return (
       <RecipeContainer>
+        <BackButton src="/images/backButton.svg" />
         <RecipeRow>
           <Image lg="4">
             {this.state.apiData ? <RecipeImage src={`/images/uploaded/${this.state.recipe.img}`} alt={this.state.recipe.title}></RecipeImage> : console.log('data not loaded')}
