@@ -1,53 +1,54 @@
-import styled from 'styled-components';
-import { Col, Row, CardBody, Spinner, Card } from 'reactstrap';
-
+import styled from "styled-components";
+import { Col, Row, CardBody, Spinner, Card } from "reactstrap";
 
 export const StyledCol = styled(Col)`
-  &:hover > div > div > a > p{
+  &:hover > div > div > a > p {
     text-decoration: underline !important;
   }
-`
+`;
 export const StyledRow = styled(Row)`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+  background: #ffffff25;
+  border-radius: 9px;
+`;
 
-export const StyledCard = styled(Card) `
+export const StyledCard = styled(Card)`
   margin-bottom: 30px;
-  border:none !important;
-`
+  border: none !important;
+`;
 
 export const StyledCardBody = styled(CardBody)`
   padding: 0px !important;
-  display:flex;
-`
+  display: flex;
+`;
 
 export const StyledCardTitle = styled.p`
   height: 65px;
   padding-top: 15px;
-  font-weight:bold;
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
-  color:black;
+  color: black;
   text-align: center;
-`
+`;
 
 export const StyledSpinner = styled(Spinner)`
-  display:flex !important;
+  display: flex !important;
   justify-content: center;
-  color:green;
-`
+  color: green;
+`;
 
 export const StyledH3 = styled.h3`
-text-shadow: 2px 2px #000;
-color:white;
-  text-align:center;
+  text-shadow: 2px 2px #000;
+  color: white;
+  text-align: center;
   font-size: 3rem;
-  margin-top:30px;
+  margin-top: 30px;
   letter-spacing: -3px;
   padding-bottom: 15px;
   @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet');
-  font-family: 'Cabin Sketch', cursive;
-`
+  font-family: "Cabin Sketch", cursive;
+`;
