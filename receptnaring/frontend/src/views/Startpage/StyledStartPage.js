@@ -14,7 +14,7 @@ export const StyledSpinner = styled(Spinner)`
 
 export const RecipeWrapper = styled.div`
   border-radius: 9px;
-  padding: 25px;
+  padding: 0px 25px 19px 25px;
   background-color: #ffffff25;
   height: auto;
   display: flex;

@@ -8,6 +8,11 @@ export const RecipeWrapper = styled.div`
   width: 100%;
   margin-top: 60px;
   margin-bottom: 150px;
+
+  @media (max-width: 576px) {
+    margin-bottom: 80px;
+  }
+
 `;
 
 export const RecipeSearch = styled.input`
@@ -47,5 +52,12 @@ export const RecipeSearch = styled.input`
   @media (max-width: 576px) {
     width: 60%;
     font-size: 9px;
+    background-size: 10% 50%
   }
+  @media (max-width: 380px) {
+    width: 60%;
+    font-size: 7px;
+    background-size: 10% 50%
+  }
+
 `;

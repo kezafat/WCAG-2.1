@@ -12,11 +12,13 @@ export const StyledRow = styled(Row)`
   justify-content: center;
   background: #ffffff25;
   border-radius: 9px;
+  margin: 0 !important;
+  padding: 15px;
 `;
 
 export const StyledCard = styled(Card)`
-  margin-bottom: 30px;
   border: none !important;
+  
 `;
 
 export const StyledCardBody = styled(CardBody)`
@@ -30,7 +32,7 @@ export const StyledCardTitle = styled.p`
   font-weight: bold;
   @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
   font-family: "Open Sans", sans-serif;
-  font-size: 1em;
+  font-size: 13px;
   color: black;
   text-align: center;
 `;
