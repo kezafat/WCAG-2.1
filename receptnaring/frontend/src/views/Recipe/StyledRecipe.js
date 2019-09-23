@@ -43,7 +43,6 @@ export const Time = styled.h3`
 export const RecipeImage = styled.img`
 
   width: 100%;
-  height: 300px;
   object-fit: cover;
 
 `;
