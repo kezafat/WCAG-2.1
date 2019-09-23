@@ -9,16 +9,19 @@ import {
 } from "./StyleNavbar";
 
 const NavbarComponent = () => {
+
   return (
 
     <StyledNavbar>
       <StyledPositionDiv>
-        <StyledLogo src="/images/HAMIDSLOGO.svg"></StyledLogo>
+        <Link to="/">
+          <StyledLogo src="/images/HAMIDSLOGO.svg" />
+        </Link>
       </StyledPositionDiv>
       <StyledButtonWrapper>
-      <Link to="/skapa-recept">
-        <StyledButton>Skapa recept</StyledButton>
-      </Link>
+        <Link to="/skapa-recept">
+          <StyledButton>Skapa recept</StyledButton>
+        </Link>
       </StyledButtonWrapper>
     </StyledNavbar>
 
