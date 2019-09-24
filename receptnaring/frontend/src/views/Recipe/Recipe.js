@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import { RecipeRow, LeftColContent, Header, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Ingredients, H2Instructions, PortionText, Portions, Time, RecipeContainer, PortionPicker, BackButton } from './StyledRecipe';
+import { Row, Col } from 'reactstrap';
+import { RecipeRow, LeftColContent, StyledSpinner, Header, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Ingredients, H2Instructions, PortionText, Portions, Time, RecipeContainer, PortionPicker, BackButton } from './StyledRecipe';
 import Chart from "../../components/Chart"
 
 
@@ -149,7 +149,7 @@ class Recipe extends Component {
         <RecipeRow>
             <Col lg="4">
               <LeftColContent>
-                {this.state.apiData ? <RecipeImage src={`/images/uploaded/${this.state.recipe.img}`} alt={this.state.recipe.title}></RecipeImage> : console.log('data not loaded')}
+                {this.state.apiData ? <RecipeImage src={`/images/uploaded/${this.state.recipe.img}`} alt={this.state.recipe.title}></RecipeImage> : (<StyledSpinner />)}
 
                 <Ingredient>
                   <H2Ingredients>Ingredienser</H2Ingredients>
@@ -163,7 +163,7 @@ class Recipe extends Component {
                     </Portions>
                   </Row>
                   <List>
-                    {this.state.apiData ? this.renderIngredients() : console.log('data not loaded')}
+                    {this.state.apiData ? this.renderIngredients() : (<StyledSpinner />)}
                   </List>
                   <Chart />
                 </Ingredient>
@@ -174,7 +174,7 @@ class Recipe extends Component {
 
               <Instructions>
                 <H2Instructions>Gör så här</H2Instructions>
-                {this.state.apiData ? this.renderInstructions() : console.log('data not loaded')}
+                {this.state.apiData ? this.renderInstructions() : (<StyledSpinner />)}
               </Instructions>
             </Col>
         </RecipeRow>

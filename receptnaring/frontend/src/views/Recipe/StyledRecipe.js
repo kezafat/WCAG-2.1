@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Row, Col, Container } from 'reactstrap';
+import { Row, Col, Container, Spinner } from 'reactstrap';
 
 export const RecipeContainer = styled(Container)`
 
@@ -14,6 +14,10 @@ export const Header = styled.header`
   position: relative;
   margin-bottom: 30px;
   text-align: center;
+
+`;
+
+export const StyledSpinner = styled(Spinner)`
 
 `;
 
