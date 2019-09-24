@@ -65,7 +65,7 @@ const CreateRecipe = () => {
         <React.Fragment>
           <div className="alert alert-success" role="alert">
             <p>Ditt recept är nu publicerat!</p>
-            {state.link && <Link to={state.link}>Se ditt recept här</Link>}
+            {state.link && <Link to={'/recept' + state.link}>Se ditt recept här</Link>}
           </div>
         </React.Fragment>
         :

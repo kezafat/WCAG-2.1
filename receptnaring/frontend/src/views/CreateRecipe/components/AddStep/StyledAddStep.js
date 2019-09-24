@@ -21,7 +21,7 @@ const StyledInput = styled.input`
   grid-area: input;
   height: 2rem;
   padding: 0 0.25rem;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #fff;
 `;
 
 const StyledAddButton = styled.button`
@@ -53,13 +53,13 @@ const StyledListItem = styled.li`
 const StyledListNumberContainer = styled.div`
   display: flex;
   align-items: center;
-  background: #ECEEEF;
+  background: black;
 `;
 
 const StyledParagraph = styled.p`
   font-family: 'Open Sans', sans-serif;
   display: inline-block;
-  background: ${props => props.primary ? '#ECEEEF' : '#fff'};
+  background: ${props => props.primary ? 'black' : '#fff'};
   padding: 0.5rem;
   flex-grow: ${props => !props.primary ? '1' : '0'};
   & > input{
