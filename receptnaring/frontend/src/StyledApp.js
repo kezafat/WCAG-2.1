@@ -10,6 +10,8 @@ export const Main = styled.main`
   background-attachment: fixed;
   background-color:black;
 
+    background-color: white;
+
 `
 
 

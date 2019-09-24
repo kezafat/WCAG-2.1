@@ -5,6 +5,9 @@ export const StyledCol = styled(Col)`
   &:hover > div > div > a > p {
     text-decoration: underline !important;
   }
+  @media (max-width: 1199.98px) {
+    padding-bottom:25px;
+   }
 `;
 export const StyledRow = styled(Row)`
   display: flex;
@@ -18,7 +21,6 @@ export const StyledRow = styled(Row)`
 
 export const StyledCard = styled(Card)`
   border: none !important;
-  
 `;
 
 export const StyledCardBody = styled(CardBody)`
@@ -34,7 +36,8 @@ export const StyledCardTitle = styled.p`
   @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
-  color: black;
+  color: #fff;
+  background-color: black;
   text-align: center;
 `;
 
