@@ -9,5 +9,7 @@ export const Main = styled.main`
   background-repeat: no-repeat;
   background-attachment: fixed;
 
+    background-color: white;
+
 `
 
