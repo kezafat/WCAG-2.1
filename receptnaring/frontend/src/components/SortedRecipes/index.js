@@ -31,10 +31,10 @@ let colors = color.color
   const renderRecipe = (data, index) =>
     <StyledCol lg="2" key={index}>
       <StyledCard>
-        <StyledCardBody text={colors.textcolor} bgcolor={colors.bgcolor}>
+        <StyledCardBody >
           <Link to={"/recept/" + data.url}>
             <CardImg src={`/images/uploaded/${data.img}`} alt={data.title}></CardImg>
-            <StyledCardTitle>{trimString(data.title, 24)}</StyledCardTitle>
+            <StyledCardTitle text={colors.textcolor} bgcolor={colors.divcolor}>{trimString(data.title, 24)}</StyledCardTitle>
           </Link>
         </StyledCardBody>
       </StyledCard>
@@ -52,7 +52,7 @@ let colors = color.color
 
   return (
     <div>
-      <StyledH3>Senaste Recept</StyledH3>
+      <StyledH3 title={colors.title}>Senaste Recept</StyledH3>
       <StyledRow color={colors.bgcolor} >
         {loading ? (<StyledSpinner />) :
           (renderRecipes(data))

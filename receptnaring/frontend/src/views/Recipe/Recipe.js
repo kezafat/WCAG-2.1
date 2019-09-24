@@ -3,14 +3,17 @@ import { Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { RecipeRow, LeftColContent, StyledSpinner, Header, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Ingredients, H2Instructions, PortionText, Portions, Time, RecipeContainer, PortionPicker, BackButton } from './StyledRecipe';
 import Chart from "../../components/Chart"
+import equal from 'fast-deep-equal'
 
 
 
 class Recipe extends Component {
   constructor(props) {
     super(props);
-    this.state = { recipe: {}, apiData: false, portions: 2, hours: '', ingredients: [], };
+    this.state = { recipe: {}, apiData: false, portions: 2, hours: '', ingredients: [], colors:props.color };
     this.recipeURL = this.props.match.params.url
+   
+
   }
 
 
@@ -45,6 +48,15 @@ class Recipe extends Component {
       instruction.style.color = 'rgb(255, 255, 255)'
     }
   }
+
+
+  componentDidUpdate(prevProps) {
+    if(!equal(this.props.color, prevProps.color)) 
+    {
+      this.setState({colors:this.props.color})
+    }
+
+  } 
 
   time() {
     let time = this.state.recipe.time;
@@ -123,43 +135,44 @@ class Recipe extends Component {
   }
 
   renderInstructions = () => this.state.recipe.instructions.map((item, i) =>
-    <Row key={i}>
-      <RoundCheckbox className="round">
+    <Row key={i}text={this.state.colors.textcolor} >
+      <RoundCheckbox border={this.state.colors.border} className="round">
         <input className={'checkBoxInput' + i} tabIndex="0" type="checkbox" id={'checkbox' + i} />
         <label tabIndex="0" htmlFor={'checkbox' + i} onClick={() => this.chekedCheckbox(i)}></label>
-        <Text className={`step${i} instructions`} onClick={() => this.checkBoxOnText(i)}>{item}</Text>
+        <Text text={this.state.colors.textcolor} className={`step${i} instructions`} onClick={() => this.checkBoxOnText(i)}>{item}</Text>
       </RoundCheckbox>
     </Row>
   );
 
   renderIngredients = () => this.state.ingredients.map((item, i) =>
-    <ListItem key={i}>{item.qty} {item.type} {item.name}</ListItem>
+    <ListItem border={this.state.colors.border} text={this.state.colors.textcolor} key={i}>{item.qty} {item.type} {item.name}</ListItem>
   );
 
 
   render() {
+     let {colors}=this.state
     return (
       <RecipeContainer>
         <Header>
           <Link to="/">
             <BackButton tabIndex="0" src="/images/backButton.svg" alt="Tillbaka knapp"/>
           </Link>
-          <RecipeTitle>{this.state.recipe.title}</RecipeTitle>
+          <RecipeTitle text={colors.title} >{this.state.recipe.title}</RecipeTitle>
         </Header>
-        <Time>{this.state.hours} {this.state.minutes}</Time>
-        <RecipeRow>
+        <Time softbg={colors.softbg} text={colors.textcolor}>{this.state.hours} {this.state.minutes}</Time>
+        <RecipeRow bgcolor={colors.softbg} >
             <Col lg="4">
               <LeftColContent>
                 {this.state.apiData ? <RecipeImage src={`/images/uploaded/${this.state.recipe.img}`} alt={this.state.recipe.title}></RecipeImage> : (<StyledSpinner />)}
 
-                <Ingredient>
-                  <H2Ingredients>Ingredienser</H2Ingredients>
+                <Ingredient bgcolor={colors.divcolor}>
+                  <H2Ingredients text={colors.textcolor}>Ingredienser</H2Ingredients>
                   <Row>
-                    <Portions>
-                      <PortionPicker>
-                        <PortionButton tabIndex="0" onClick={this.removePortion.bind(this)}><p>-</p></PortionButton>
-                        <PortionText>{this.state.portions} Portioner</PortionText>
-                        <PortionButton tabIndex="0" onClick={this.addPortion.bind(this)}><p>+</p></PortionButton>
+                    <Portions >
+                      <PortionPicker text={colors.textcolor} border={colors.borderportion}>
+                        <PortionButton border={colors.borderportion} bgcolor={colors.bgcolor} text={colors.textcolor} tabIndex="0" onClick={this.removePortion.bind(this)}><p>-</p></PortionButton>
+                        <PortionText text={colors.textcolor}>{this.state.portions} Portioner</PortionText>
+                        <PortionButton border={colors.borderportion} bgcolor={colors.bgcolor} text={colors.textcolor}tabIndex="0" onClick={this.addPortion.bind(this)}><p>+</p></PortionButton>
                       </PortionPicker>
                     </Portions>
                   </Row>
@@ -174,7 +187,7 @@ class Recipe extends Component {
             <Col lg="7">
 
               <Instructions>
-                <H2Instructions>Gör så här</H2Instructions>
+                <H2Instructions text={colors.textcolor} >Gör så här</H2Instructions>
                 {this.state.apiData ? this.renderInstructions() : (<StyledSpinner />)}
               </Instructions>
             </Col>

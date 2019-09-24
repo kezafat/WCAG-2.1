@@ -5,7 +5,7 @@ export const RecipeContainer = styled(Container)`
 
   padding-bottom: 60px;
   padding-top: 60px;
-  color: white;
+  color: ${props => props.text};
 
 `;
 
@@ -38,6 +38,7 @@ export const RecipeTitle = styled.h1`
   font-size: 50px;
   display: block;
   width: 100%;
+  color:${props => props.text};
 
 `;
 
@@ -48,8 +49,8 @@ export const Time = styled.h3`
   color: rgba(0, 0, 0, 0.5);
   font-size: 20px;
   font-weight: 300;
-  color: white;
-  background-color: #ffffff25;
+  color: ${props => props.text};
+  background-color: ${props => props.softbg};
   border-radius: 9px 9px 0 0;
   padding: 5px 10px 0 10px;
   display: inline;
@@ -65,11 +66,10 @@ export const LeftColContent = styled.div`
 `;
 
 export const RecipeRow = styled(Row)`
-
-  background-color: #ffffff25;
+  background-color: ${props => props.bgcolor};
   border-radius: 0 9px 9px 9px;
   padding: 25px;
-
+  color:${props => props.text};
 `;
 
 export const RecipeImage = styled.img`
@@ -88,6 +88,8 @@ export const Text = styled.p`
   font-size: 20px;
   max-width: 600px;
   margin-left: 35px;
+  color:${props => props.text} !important;
+
 
 `;
 
@@ -102,7 +104,7 @@ export const Portions = styled(Col)`
 
 export const PortionPicker = styled.div`
 
-  border: 1px solid white;
+  border: 1px solid ${props => props.border};
   display: flex;
   padding: 5px;
   border-radius: 25px;
@@ -112,8 +114,8 @@ export const PortionPicker = styled.div`
 
 export const PortionButton = styled.button`
 
-  border: 1px solid white;
-  color: white;
+  border: 1px solid ${props => props.border};
+  color: ${props => props.text};
   height: 30px;
   width: 30px;
   border-radius: 50%;
@@ -121,7 +123,7 @@ export const PortionButton = styled.button`
   font-size: 25px;
   user-select: none;
   position: relative;
-  background-color: #161616;
+  background-color:${props => props.bgcolor};;
 
   p{
     position: absolute;
@@ -142,7 +144,7 @@ export const PortionText = styled.h2`
   display: flex;
   align-items: center;
   padding: 0 10px 0 10px;
-  color: white;
+  color: ${props => props.text};
 
 `;
 
@@ -151,6 +153,7 @@ export const H2Instructions = styled.h2`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
   font-family: 'Open Sans', sans-serif;
   margin-bottom: 10px;
+  color:${props => props.text} !important;
 
 `;
 
@@ -159,6 +162,7 @@ export const H2Ingredients = styled.h2`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
   font-family: 'Open Sans', sans-serif;
   display: inline-block;
+  color:${props => props.text} ;
 
 `;
 
@@ -167,19 +171,20 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
 
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid ${props => props.border};
   padding-bottom: 5px;
   padding: 7px;
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
   font-family: 'Open Sans', sans-serif;
   font-weight: 200;
   font-size: 20px;
+  color:${props => props.text}
 
 `;
 
 export const Ingredient = styled(Col)`
 
-  background-color: #161616;
+  background-color:${props => props.bgcolor};
   border-radius: 0 0 5px 5px;
   padding: 20px;
 
@@ -205,7 +210,7 @@ padding-left: 0px !important;
 padding-right: 0px !important;
 
 label {
-  border: 2px solid #ababab;
+  border: 2px solid ${props => props.border};
   border-radius: 50%;
   cursor: pointer;
   height: 28px;

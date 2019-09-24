@@ -26,6 +26,7 @@ export const RecipeSearch = styled.input`
   background-position: 100% center;
   width: 60%;
   height: 50px;
+  color:${props => props.text};
 
 
   padding: 6px 12px;
@@ -36,15 +37,15 @@ export const RecipeSearch = styled.input`
   border: 1px solid black;
   border-radius: 4px; */
   &::placeholder {
-    color: ${props => props.text};;
+    color: ${props => props.text};
     text-transform: uppercase;
     letter-spacing: 1.5px;
   
   }
 
   &:focus {
-    background-color:#00000085;
-    color: #fff;
+    background-color:${props => props.softbg};
+    color: ${props => props.text};
     text-transform: uppercase;
     letter-spacing: 1.5px;
 

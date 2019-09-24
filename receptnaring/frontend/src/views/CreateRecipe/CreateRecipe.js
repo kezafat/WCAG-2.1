@@ -9,7 +9,8 @@ import IngredientInput from './components/IngredientInput';
 import AddStep from './components/AddStep';
 import axios from "axios";
 
-const CreateRecipe = () => {
+const CreateRecipe = (color) => {
+ let colors = color.color
   const initState = {
     'img': 'upload-image.png',
     'instructions': [],
@@ -83,18 +84,18 @@ const CreateRecipe = () => {
   }
 
   return (
-    <StyledContainer>
+    <StyledContainer text={colors.textcolor}>
             <Link to="/">
         <BackButton tabIndex="0" src="/images/backButton.svg" alt="Tillbaka knapp" />
       </Link>
-      <Wrapper>
+      <Wrapper softbg={colors.softbg}>
         {state.go === "/" && <Redirect to="/"></Redirect>}
         <StyledRow className="text-center">
           <Col md="6" sm="12">
             <UploadImage s={[state, setState]} />
           </Col>
           <Col md="6" sm="12">
-            <TitlePersonTime s={[state, setState]} />
+            <TitlePersonTime  s={[state, setState]} />
           </Col>
         </StyledRow>
         <Row className="text-center">

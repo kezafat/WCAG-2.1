@@ -14,7 +14,6 @@ import {
 
 const StartPage = (Color) => {
 Color = Color.color
-console.log(Color)
   const [searchResult, setSearchResult] = useState(null);
   const useFetch = url => {
     const [allRecipes, setAllRecipes] = useState([]);

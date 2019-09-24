@@ -26,7 +26,6 @@ export const StyledCard = styled(Card)`
 export const StyledCardBody = styled(CardBody)`
   padding: 0px !important;
   display: flex;
-  background-color:${props => props.bgcolor};
 `;
 
 export const StyledCardTitle = styled.p`
@@ -36,8 +35,9 @@ export const StyledCardTitle = styled.p`
   @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
-  color: #fff;
-  background-color: black;
+  color: ${props => props.text};
+  box-shadow:0px 0px 5px 0px #000;
+  background-color: ${props => props.bgcolor};
   text-align: center;
 `;
 
@@ -49,7 +49,7 @@ export const StyledSpinner = styled(Spinner)`
 
 export const StyledH3 = styled.h3`
   text-shadow: 2px 2px #000;
-  color: white;
+  color: ${props => props.title};
   text-align: center;
   font-size: 3rem;
   margin-top: 30px;

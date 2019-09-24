@@ -8,19 +8,20 @@ import {
   StyledButtonWrapper
 } from "./StyleNavbar";
 
-const NavbarComponent = () => {
+const NavbarComponent = (color) => {
+let colors = color.color
 
   return (
 
-    <StyledNavbar>
+    <StyledNavbar color={colors.divcolor}>
       <StyledPositionDiv>
         <Link to="/">
-          <StyledLogo src="/images/HAMIDSLOGO.svg" />
+          <StyledLogo src={colors.logo} />
         </Link>
       </StyledPositionDiv>
       <StyledButtonWrapper>
         <Link to="/skapa-recept">
-          <StyledButton>Skapa recept</StyledButton>
+          <StyledButton color={colors.divcolor} text={colors.textcolor} border={colors.borderportion}>Skapa recept</StyledButton>
         </Link>
       </StyledButtonWrapper>
     </StyledNavbar>
