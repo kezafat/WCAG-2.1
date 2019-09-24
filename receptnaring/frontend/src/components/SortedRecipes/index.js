@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 
 
-function SortedRecipes() {
-
+function SortedRecipes(props) {
+ 
   const useFetch = (url) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -46,6 +46,8 @@ function SortedRecipes() {
       string.substring(0, length) + '...' :
       string;
   };
+
+ 
 
   return (
     <div>

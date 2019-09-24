@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyledCard, StyledCardBody, StyledCardImg, StyledCardTitle, StyledCol, StyledDiv, StyledLink } from './StyledRandomRecipes';
 
-const RandomRecipes = ({ title, img, data }) => {
+const RandomRecipes = ({color, title, img, data}) => {
+
 
   return (
     <StyledCol lg={4}>
@@ -9,8 +10,8 @@ const RandomRecipes = ({ title, img, data }) => {
         <StyledCardBody>
           <StyledLink to={"/recept/" + data}>
             <StyledCardImg src={img}></StyledCardImg>
-            <StyledDiv>
-              <StyledCardTitle>{title}</StyledCardTitle>
+            <StyledDiv color={color.divcolor}>
+              <StyledCardTitle color={color.textcolor}>{title}</StyledCardTitle>
             </StyledDiv>
           </StyledLink>
         </StyledCardBody>

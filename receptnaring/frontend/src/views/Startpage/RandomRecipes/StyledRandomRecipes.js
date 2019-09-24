@@ -8,7 +8,7 @@ export const StyledCol = styled(Col)`
   max-width: 100% !important;
   &:nth-child(even) > div > div > a div {
     order: -1;
-    background-color: #161616;
+    background-color: ${props => props.color};
   }
   &:first-child:nth-last-child(1){
     max-width: 100% !important;
@@ -43,13 +43,13 @@ export const StyledCardTitle = styled.p`
   font-family: 'Open Sans', sans-serif;
   font-size: 19px;
   margin-bottom: 0px !important;
-  color: black;
+  background-color:${props => props.bgcolor};
   font-weight: bold;
-  color:white;
+  color:${props => props.color};
 `
 
 export const StyledDiv = styled.div`
-  background-color: #161616;
+  background-color:${props => props.color};
   width: 100%;
   height: 100px;
   display: flex;
