@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router'
 import { Link } from 'react-router-dom'
 import { Row, Col, Button } from 'reactstrap';
-import { StyledRow, StyledContainer } from './StyledCreateRecipe';
+import { StyledRow, StyledContainer, Wrapper } from './StyledCreateRecipe';
 import UploadImage from './components/UploadImage';
 import TitlePersonTime from './components/TitlePersonTime';
 import IngredientInput from './components/IngredientInput';
@@ -84,6 +84,7 @@ const CreateRecipe = () => {
 
   return (
     <StyledContainer>
+      <Wrapper>
       {state.go === "/" && <Redirect to="/"></Redirect>}
       <StyledRow className="text-center">
         <Col md="6" sm="12">
@@ -110,6 +111,7 @@ const CreateRecipe = () => {
         <Button color="danger" size="lg" onClick={clearForms}>Avbryt</Button>
         <Button color="success" size="lg" onClick={sendForms}> {formStatus.sending ? <Spinner /> : 'Spara'}</Button>
       </Row>
+      </Wrapper>
     </StyledContainer>
   )
 };

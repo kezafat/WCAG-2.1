@@ -29,7 +29,7 @@ const StyledAddButton = styled.button`
   grid-area: add;
   display: flex;
   justify-content: center;
-  background: #72C554;
+  background: black;
   border: 1px solid #DDDDDD;
 `;
 

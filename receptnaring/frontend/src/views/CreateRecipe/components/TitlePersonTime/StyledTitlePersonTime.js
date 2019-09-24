@@ -15,7 +15,7 @@ export const StyledInputGroup = styled.section`
 
 export const StyledH2 = styled.h2`
   font-family: 'Open Sans', sans-serif;
-  color: #707070;
+  color: #fff;
   font-size: 1.6rem;
   margin-right: 1rem;
 `;
@@ -24,14 +24,14 @@ export const StyledTitleInput = styled.input`
   font-family: 'Open Sans', sans-serif;
   border: none;
   border-bottom: 1px solid #707070;
-  padding: 0 0.5rem;
+  padding: 5px 0px 5px 5px;
   width: 100%;
 `;
 
 export const StyledH3 = styled.h3`
   font-family: 'Open Sans', sans-serif;
   font-size: 1.2rem;
-  color: #707070;
+  color: #fff;
 `;
 
 export const StyledSliderInputContainer = styled.div`
@@ -43,7 +43,8 @@ export const StyledSliderInputContainer = styled.div`
 export const StyledSliderInput = styled.input`
   font-family: 'Open Sans', sans-serif;
   appearance: none;
-  background: #eee;
+  background: #fff;
+  padding-left: 5px;
   height: 1rem;
   width: 100%;
   border-radius: 3px;
