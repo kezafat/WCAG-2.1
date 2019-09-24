@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router'
 import { Link } from 'react-router-dom'
 import { Row, Col, Button } from 'reactstrap';
-import { StyledRow, StyledContainer, Wrapper } from './StyledCreateRecipe';
+import { StyledRow, StyledContainer, Wrapper, BackButton } from './StyledCreateRecipe';
 import UploadImage from './components/UploadImage';
 import TitlePersonTime from './components/TitlePersonTime';
 import IngredientInput from './components/IngredientInput';
@@ -84,33 +84,36 @@ const CreateRecipe = () => {
 
   return (
     <StyledContainer>
+            <Link to="/">
+        <BackButton tabIndex="0" src="/images/backButton.svg" alt="Tillbaka knapp" />
+      </Link>
       <Wrapper>
-      {state.go === "/" && <Redirect to="/"></Redirect>}
-      <StyledRow className="text-center">
-        <Col md="6" sm="12">
-          <UploadImage s={[state, setState]} />
-        </Col>
-        <Col md="6" sm="12">
-          <TitlePersonTime s={[state, setState]} />
-        </Col>
-      </StyledRow>
-      <Row className="text-center">
-        <Col md="6" sm="12">
-          <IngredientInput s={[state, setState]} />
-        </Col>
-        <Col md="6" sm="12">
-          <AddStep s={[state, setState]} />
-        </Col>
-      </Row>
-      <Row>
-        <div className={`mx-auto col-6 text-center m-2`}>
-          {formStatus.status != null ? <CrudeFormValidationMessage /> : ''}
-        </div>
-      </Row>
-      <Row className="text-center d-flex justify-content-around mt-4 pb-4">
-        <Button color="danger" size="lg" onClick={clearForms}>Avbryt</Button>
-        <Button color="success" size="lg" onClick={sendForms}> {formStatus.sending ? <Spinner /> : 'Spara'}</Button>
-      </Row>
+        {state.go === "/" && <Redirect to="/"></Redirect>}
+        <StyledRow className="text-center">
+          <Col md="6" sm="12">
+            <UploadImage s={[state, setState]} />
+          </Col>
+          <Col md="6" sm="12">
+            <TitlePersonTime s={[state, setState]} />
+          </Col>
+        </StyledRow>
+        <Row className="text-center">
+          <Col md="6" sm="12">
+            <IngredientInput s={[state, setState]} />
+          </Col>
+          <Col md="6" sm="12">
+            <AddStep s={[state, setState]} />
+          </Col>
+        </Row>
+        <Row>
+          <div className={`mx-auto col-6 text-center m-2`}>
+            {formStatus.status != null ? <CrudeFormValidationMessage /> : ''}
+          </div>
+        </Row>
+        <Row className="text-center d-flex justify-content-around mt-4 pb-4">
+          <Button color="danger" size="lg" onClick={clearForms}>Avbryt</Button>
+          <Button color="success" size="lg" onClick={sendForms}> {formStatus.sending ? <Spinner /> : 'Spara'}</Button>
+        </Row>
       </Wrapper>
     </StyledContainer>
   )
