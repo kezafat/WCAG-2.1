@@ -36,7 +36,8 @@ export const StyledCardTitle = styled.p`
   @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
-  color: black;
+  color: #fff;
+  background-color: black;
   text-align: center;
 `;
 
