@@ -3,9 +3,17 @@ import { Row, Col, Container } from 'reactstrap';
 
 export const RecipeContainer = styled(Container)`
 
-  padding: 40px;
   padding-bottom: 60px;
   padding-top: 60px;
+  color: white;
+
+`;
+
+export const Header = styled.header`
+
+  position: relative;
+  margin-bottom: 30px;
+  text-align: center;
 
 `;
 
@@ -13,29 +21,19 @@ export const BackButton = styled.img`
 
   width: 40px;
   position: absolute;
-  left: 5%;
-  top: 65px;
-
-`;
-
-export const Image = styled(Col)`
-
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-
-`;
-
-export const RecipeRow = styled(Row)`
-
+  top: 8px;
+  left: 0px;
+  cursor: pointer;
 
 `;
 
 export const RecipeTitle = styled.h1`
 
-@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet');
-font-family: 'Cabin Sketch', cursive;
-font-size: 50px;
-padding-left: 20px;
+  @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet');
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 50px;
+  display: block;
+  width: 100%;
 
 `;
 
@@ -45,7 +43,28 @@ export const Time = styled.h3`
   font-family: 'Open Sans', sans-serif;
   color: rgba(0, 0, 0, 0.5);
   font-size: 20px;
-  padding-left: 20px;
+  font-weight: 300;
+  color: white;
+  background-color: #ffffff25;
+  border-radius: 9px 9px 0 0;
+  padding: 5px 10px 0 10px;
+  display: inline;
+  margin-left: -15px;
+
+`;
+
+export const LeftColContent = styled.div`
+
+  box-shadow: 0px 0px 5px 0px #000;
+  border-radius: 5px;
+
+`;
+
+export const RecipeRow = styled(Row)`
+
+  background-color: #ffffff25;
+  border-radius: 0 9px 9px 9px;
+  padding: 25px;
 
 `;
 
@@ -53,6 +72,7 @@ export const RecipeImage = styled.img`
 
   width: 100%;
   object-fit: cover;
+  border-radius: 5px 5px 0 0;
 
 `;
 
@@ -78,9 +98,9 @@ export const Portions = styled(Col)`
 
 export const PortionPicker = styled.div`
 
-  background-color: black;
+  border: 1px solid white;
   display: flex;
-  padding: 4px;
+  padding: 5px;
   border-radius: 25px;
 
 
@@ -88,7 +108,7 @@ export const PortionPicker = styled.div`
 
 export const PortionButton = styled.button`
 
-  border: 1.2px solid white;
+  border: 1px solid white;
   color: white;
   height: 30px;
   width: 30px;
@@ -97,7 +117,7 @@ export const PortionButton = styled.button`
   font-size: 25px;
   user-select: none;
   position: relative;
-  background-color: black;
+  background-color: #161616;
 
   p{
     position: absolute;
@@ -126,7 +146,7 @@ export const H2Instructions = styled.h2`
 
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
   font-family: 'Open Sans', sans-serif;
-  padding-top: 20px;
+  margin-bottom: 10px;
 
 `;
 
@@ -155,15 +175,15 @@ export const ListItem = styled.li`
 
 export const Ingredient = styled(Col)`
 
-  background-color: #FCFAF1;
+  background-color: #161616;
+  border-radius: 0 0 5px 5px;
   padding: 20px;
 
 `;
 
 export const Instructions = styled(Col)`
 
-  background-color: white;
-  padding: 20px;
+  padding-left: 20px;
   
   .row{
     padding: 15px;
@@ -181,8 +201,7 @@ padding-left: 0px !important;
 padding-right: 0px !important;
 
 label {
-  background-color: #fff;
-  border: 1px solid #ccc;
+  border: 2px solid #ababab;
   border-radius: 50%;
   cursor: pointer;
   height: 28px;
