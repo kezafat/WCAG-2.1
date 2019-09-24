@@ -10,7 +10,7 @@ export const StyledRow = styled(Row)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff25;
+  background: ${props => props.color};
   border-radius: 9px;
   margin: 0 !important;
   padding: 15px;
@@ -24,6 +24,7 @@ export const StyledCard = styled(Card)`
 export const StyledCardBody = styled(CardBody)`
   padding: 0px !important;
   display: flex;
+  background-color:${props => props.bgcolor};
 `;
 
 export const StyledCardTitle = styled.p`

@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom'
 
 
 
-function SortedRecipes(props) {
- 
+function SortedRecipes(color) {
+let colors = color.color
+
   const useFetch = (url) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -30,7 +31,7 @@ function SortedRecipes(props) {
   const renderRecipe = (data, index) =>
     <StyledCol lg="2" key={index}>
       <StyledCard>
-        <StyledCardBody>
+        <StyledCardBody text={colors.textcolor} bgcolor={colors.bgcolor}>
           <Link to={"/recept/" + data.url}>
             <CardImg src={`/images/uploaded/${data.img}`} alt={data.title}></CardImg>
             <StyledCardTitle>{trimString(data.title, 24)}</StyledCardTitle>
@@ -52,7 +53,7 @@ function SortedRecipes(props) {
   return (
     <div>
       <StyledH3>Senaste Recept</StyledH3>
-      <StyledRow>
+      <StyledRow color={colors.bgcolor} >
         {loading ? (<StyledSpinner />) :
           (renderRecipes(data))
         }

@@ -9,14 +9,12 @@ import {
   TextInfo,
   StyledSpinner,
   StartPageContainer,
-  TextWrapper,
-  WcagDiv,
-  Wcagcontrastboxyellow,
-  Wcagcontrastboxstandard,
-  Wcagcontrastboxwhite
+  TextWrapper
 } from "./StyledStartPage";
 
-const StartPage = () => {
+const StartPage = (Color) => {
+Color = Color.color
+console.log(Color)
   const [searchResult, setSearchResult] = useState(null);
   const useFetch = url => {
     const [allRecipes, setAllRecipes] = useState([]);
@@ -35,21 +33,6 @@ const StartPage = () => {
   const { allRecipes, loading } = useFetch("http://localhost:3001/api/recipes");
 
  
-  const [Color, setColor] = useState({bgcolor:"#ffffff25" , textcolor:"white", divcolor:"black", inputbg:"none",searchicon:"/images/searchicon.svg"});
-  const ChangeColors = (input)=> {
-
-    if(input==="standard"){
-      setColor({bgcolor:"#ffffff25" , textcolor:"white", divcolor:"black", inputbg:"none",searchicon:"/images/searchicon.svg"});
-    }
-
-    if(input==="yellow"){
-      setColor({bgcolor:"yellow" , textcolor:"black",  divcolor:"yellow", inputbg:"#ffff00",searchicon:"/images/searchiconblack.svg"} );
-    }
-    
-    if(input==="white"){
-      setColor({bgcolor:"white" , textcolor:"black", divcolor:"white",inputbg:"#fff",searchicon:"/images/searchiconblack.svg"});
-    } 
-    }
   
 
   const searchRecipe = searchTerm => {
@@ -80,13 +63,7 @@ const StartPage = () => {
       : null;
 
   return (
-    <div>
-    <WcagDiv>
-    <p>Kontrast: </p>
-    <Wcagcontrastboxstandard tabindex="0" onClick={() => ChangeColors('standard')} />
-    <Wcagcontrastboxyellow tabindex="0" onClick={() => ChangeColors('yellow')} />
-    <Wcagcontrastboxwhite  tabindex="0" onClick={() => ChangeColors('white')}/>
-  </WcagDiv>
+
     <StartPageContainer>
     
       <RecipeInput color={Color} callback={searchRecipe} />
@@ -100,9 +77,9 @@ const StartPage = () => {
           {loading ? <StyledSpinner /> : searchResult || renderAllRecipes()}
         </Row>
       </RecipeWrapper>
-      {searchResult === null ? <SortedRecipes /> : null}
+      {searchResult === null ? <SortedRecipes color={Color} /> : null}
     </StartPageContainer>
-    </div>
+ 
   );
 };
 
