@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { RecipeRow, LeftColContent, StyledSpinner, Header, PortionButton, Ingredient, List, ListItem, Instructions, RoundCheckbox, RecipeTitle, RecipeImage, Text, H2Ingredients, H2Instructions, PortionText, Portions, Time, RecipeContainer, PortionPicker, BackButton } from './StyledRecipe';
 import Chart from "../../components/Chart"
 
@@ -140,9 +141,9 @@ class Recipe extends Component {
     return (
       <RecipeContainer>
         <Header>
-          <a href="/">
+          <Link to="/">
             <BackButton tabIndex="0" src="/images/backButton.svg" alt="Tillbaka knapp"/>
-          </a>
+          </Link>
           <RecipeTitle>{this.state.recipe.title}</RecipeTitle>
         </Header>
         <Time>{this.state.hours} {this.state.minutes}</Time>
