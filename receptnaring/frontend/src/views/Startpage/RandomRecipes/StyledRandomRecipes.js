@@ -8,6 +8,7 @@ export const StyledCol = styled(Col)`
   max-width: 100% !important;
   &:nth-child(even) > div > div > a div {
     order: -1;
+    background-color: ${props => props.color};
   }
   &:first-child:nth-last-child(1){
     max-width: 100% !important;
@@ -17,6 +18,7 @@ export const StyledCol = styled(Col)`
 
 export const StyledCard = styled(Card)`
   margin-bottom: 10px;
+  border:none !important;
   a:hover {
         text-decoration: underline !important;
     }
@@ -24,6 +26,7 @@ export const StyledCard = styled(Card)`
 
 export const StyledCardBody = styled(CardBody)`
   padding: 0px !important;
+  box-shadow: 0px 0px 5px 0px #000;
 `
 
 export const StyledCardImg = styled(CardImg)`
@@ -38,16 +41,17 @@ display: flex;
 export const StyledCardTitle = styled.p`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-size: 19px;
   margin-bottom: 0px !important;
-  color: black;
+  background-color:${props => props.bgcolor};
   font-weight: bold;
+  color:${props => props.color};
 `
 
 export const StyledDiv = styled.div`
-  background-color: #fff;
+  background-color:${props => props.color};
   width: 100%;
-  height: 180px;
+  height: 100px;
   display: flex;
   justify-content: center;
   text-align: center;

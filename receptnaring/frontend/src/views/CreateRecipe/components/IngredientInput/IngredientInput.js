@@ -79,7 +79,8 @@ const IngredientInput = (ctx) => {
           placeholder={ingredientsList.loading ? '' : 'Ingredienser'}
           primary
           onChange={handleInput}
-          className={ingredientsList.loading ? 'spinner-border' : ''}
+          className={ingredientsList.loading ? 'spinner-border'  : ''}
+          style={ingredientsList.loading ? {backgroundColor: "rgba(0, 0, 0, 0)" } : {backgroundColor: "#fff" }}
           ref={inputRef}
         />
         <datalist id="ingredients">

@@ -21,6 +21,7 @@ export const StyledUploadLabel = styled.label`
   padding: 0.2rem 0;
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin-bottom: 1.25rem;
   
   &:hover {
     cursor: pointer;

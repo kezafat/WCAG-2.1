@@ -1,55 +1,56 @@
 import styled from 'styled-components';
-import {
-  Button,
-  Navbar,
-  Nav,
-  NavItem,
-  Container
-} from 'reactstrap';
+import { Button } from 'reactstrap';
 
-export const NavbarContainer = styled(Container)`
-  padding: 0px !important;
-`
-
-export const StyledLogo = styled.img`
-  width: 300px;
-`
-
-export const StyledNavbar = styled(Navbar)`
+export const StyledNavbar = styled.div`
   display: flex;
   background-color: white;
-  height: auto;
-  padding: 0px 15px 0px 15px;
-  background: #fff;
+  height: 100px;
+  background: ${props => props.color};
+  justify-content: center;
+  align-items: center;
 `;
 
-export const StyledNav = styled(Nav)`
-  color: black;
-  flex:1;
+export const StyledLogo = styled.img`
+  width: 100%;
+  height: 100%;
+`
+export const StyledPositionDiv = styled.div`
+  flex: 1;
+  justify-content: flex-start;
+  margin-left: 10px;
+  align-items: center;
   display: flex;
-  background: #fff;
-`;
-
-
-export const StyledNavItem = styled(NavItem)`
-  list-style-type:none;
-  margin:0;
-  align-self: flex-end;
-`;
+`
+export const StyledButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 export const StyledButton = styled(Button)`
  font-family: 'Oswald', sans-serif;
- background-color: #72C554 !important;
+ width: 180px;
+ margin-right: 10px;
+ background-color: ${props => props.color} !important;
+ border: 1px solid ${props => props.border} !important;
  font-size:1.5rem;
- color:white;
+ color:${props => props.text} !important;
  text-decoration:none;
- width:auto;
  border-radius:10px;
  cursor:pointer;
  border: none;
  @import url('https://fonts.googleapis.com/css?family=Oswald:400,500,700&display=swap');
  @media (max-width: 380px){
   font-size:0.85rem;
+  margin-left: 11px;
+}
+@media (max-width: 567px){
+  margin-left: 11px;
+  width: 115px;
+}
+&:hover {
+  color: black !important;
+  background-color: white !important;
 }
 
 `;

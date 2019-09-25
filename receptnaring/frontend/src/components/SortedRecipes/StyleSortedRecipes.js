@@ -1,46 +1,60 @@
-import styled from 'styled-components';
-import { Col, CardBody, Spinner, Card } from 'reactstrap';
+import styled from "styled-components";
+import { Col, Row, CardBody, Spinner, Card } from "reactstrap";
 
 export const StyledCol = styled(Col)`
-  &:hover > div > div > a > p{
+  &:hover > div > div > a > p {
     text-decoration: underline !important;
   }
-`
-export const StyledCard = styled(Card) `
-margin-bottom: 30px;
-`
+  @media (max-width: 1199.98px) {
+    padding-bottom:25px;
+   }
+`;
+export const StyledRow = styled(Row)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${props => props.color};
+  border-radius: 9px;
+  margin: 0 !important;
+  padding: 15px;
+`;
+
+export const StyledCard = styled(Card)`
+  border: none !important;
+`;
 
 export const StyledCardBody = styled(CardBody)`
   padding: 0px !important;
-  display:flex;
-`
+  display: flex;
+`;
 
 export const StyledCardTitle = styled.p`
-  padding-bottom: 1px;
-  padding-left: 4px;
-  height: 45px;
-  margin-top: -45px;
-  position: relative;
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.7em;
-  margin-bottom: 0px !important;
-  color:#fff;
-  text-shadow: 1px 1px 2px black;
-  background-color:#00000082;
-  width:100%;
-`
+  height: 65px;
+  padding-top: 15px;
+  font-weight: bold;
+  @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  color: ${props => props.text};
+  box-shadow:0px 0px 5px 0px #000;
+  background-color: ${props => props.bgcolor};
+  text-align: center;
+`;
 
 export const StyledSpinner = styled(Spinner)`
-  display:flex !important;
+  display: flex !important;
   justify-content: center;
-  color:green;
-`
+  color: black;
+`;
 
 export const StyledH3 = styled.h3`
-  font-size: 45px;
+  text-shadow: 2px 2px #000;
+  color: ${props => props.title};
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 30px;
   letter-spacing: -3px;
   padding-bottom: 15px;
-  font-family: 'Open Sans', sans-serif;
-
-`
+  @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet');
+  font-family: "Cabin Sketch", cursive;
+`;

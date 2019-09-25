@@ -2,31 +2,30 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import {
   StyledNavbar,
-  StyledLogo,
   StyledButton,
-  StyledNavItem,
-  StyledNav,
-  NavbarContainer
+  StyledLogo,
+  StyledPositionDiv,
+  StyledButtonWrapper
 } from "./StyleNavbar";
 
-const NavbarComponent = () => {
+const NavbarComponent = (color) => {
+let colors = color.color
+
   return (
-    <NavbarContainer>
-      <StyledNavbar>
-        <StyledNav>
-          <a href="/">
-            <StyledLogo src={"./images/LogoRN.png"} />
-          </a>
-        </StyledNav>
-        <StyledNav navbar>
-          <StyledNavItem>
-            <Link to="/skapa-recept">
-              <StyledButton>Skapa recept</StyledButton>
-            </Link>
-          </StyledNavItem>
-        </StyledNav>
-      </StyledNavbar>
-    </NavbarContainer>
+
+    <StyledNavbar color={colors.divcolor}>
+      <StyledPositionDiv>
+        <Link to="/">
+          <StyledLogo src={colors.logo} />
+        </Link>
+      </StyledPositionDiv>
+      <StyledButtonWrapper>
+        <Link to="/skapa-recept">
+          <StyledButton color={colors.divcolor} text={colors.textcolor} border={colors.borderportion}>Skapa recept</StyledButton>
+        </Link>
+      </StyledButtonWrapper>
+    </StyledNavbar>
+
   );
 };
 

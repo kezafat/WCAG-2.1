@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router'
 import { Link } from 'react-router-dom'
 import { Row, Col, Button } from 'reactstrap';
-import { StyledRow, StyledContainer } from './StyledCreateRecipe';
+import { StyledRow, StyledContainer, Wrapper, BackButton } from './StyledCreateRecipe';
 import UploadImage from './components/UploadImage';
 import TitlePersonTime from './components/TitlePersonTime';
 import IngredientInput from './components/IngredientInput';
 import AddStep from './components/AddStep';
 import axios from "axios";
 
-const CreateRecipe = () => {
+const CreateRecipe = (color) => {
+  let colors = color.color
   const initState = {
     'img': 'upload-image.png',
     'instructions': [],
@@ -27,6 +28,10 @@ const CreateRecipe = () => {
     setState({ ...initState, });
     setFormStatus(initFormState);
   }
+
+  useEffect(() => {
+    document.title = "Skapa recept | Recepterian";
+  });
 
   const sendForms = async () => {
     // Fulvalidation
@@ -65,7 +70,7 @@ const CreateRecipe = () => {
         <React.Fragment>
           <div className="alert alert-success" role="alert">
             <p>Ditt recept är nu publicerat!</p>
-            {state.link && <Link to={state.link}>Se ditt recept här</Link>}
+            {state.link && <Link to={'/recept' + state.link}>Se ditt recept här</Link>}
           </div>
         </React.Fragment>
         :
@@ -83,33 +88,38 @@ const CreateRecipe = () => {
   }
 
   return (
-    <StyledContainer>
-      {state.go === "/" && <Redirect to="/"></Redirect>}
-      <StyledRow className="text-center">
-        <Col md="6" sm="12">
-          <UploadImage s={[state, setState]} />
-        </Col>
-        <Col md="6" sm="12">
-          <TitlePersonTime s={[state, setState]} />
-        </Col>
-      </StyledRow>
-      <Row className="text-center">
-        <Col md="6" sm="12">
-          <IngredientInput s={[state, setState]} />
-        </Col>
-        <Col md="6" sm="12">
-          <AddStep s={[state, setState]} />
-        </Col>
-      </Row>
-      <Row>
-        <div className={`mx-auto col-6 text-center m-2`}>
-          {formStatus.status != null ? <CrudeFormValidationMessage /> : ''}
-        </div>
-      </Row>
-      <Row className="text-center d-flex justify-content-around mt-4 pb-4">
-        <Button color="danger" size="lg" onClick={clearForms}>Avbryt</Button>
-        <Button color="success" size="lg" onClick={sendForms}> {formStatus.sending ? <Spinner /> : 'Spara'}</Button>
-      </Row>
+    <StyledContainer text={colors.textcolor}>
+      <Link to="/">
+        <BackButton tabIndex="0" src="/images/backButton.svg" alt="Tillbaka knapp" />
+      </Link>
+      <Wrapper softbg={colors.softbg}>
+        {state.go === "/" && <Redirect to="/"></Redirect>}
+        <StyledRow className="text-center">
+          <Col md="6" sm="12">
+            <UploadImage s={[state, setState]} />
+          </Col>
+          <Col md="6" sm="12">
+            <TitlePersonTime s={[state, setState]} />
+          </Col>
+        </StyledRow>
+        <Row className="text-center">
+          <Col md="6" sm="12">
+            <IngredientInput s={[state, setState]} />
+          </Col>
+          <Col md="6" sm="12">
+            <AddStep s={[state, setState]} />
+          </Col>
+        </Row>
+        <Row>
+          <div className={`mx-auto col-6 text-center m-2`}>
+            {formStatus.status != null ? <CrudeFormValidationMessage /> : ''}
+          </div>
+        </Row>
+        <Row className="text-center d-flex justify-content-around mt-4 pb-4">
+          <Button color="danger" size="lg" onClick={clearForms}>Avbryt</Button>
+          <Button color="success" size="lg" onClick={sendForms}> {formStatus.sending ? <Spinner /> : 'Spara'}</Button>
+        </Row>
+      </Wrapper>
     </StyledContainer>
   )
 };

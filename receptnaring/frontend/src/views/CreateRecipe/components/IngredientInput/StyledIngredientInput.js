@@ -40,7 +40,7 @@ const StyledAddButton = styled.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background: #72C554;
+  background: black;
   width: 2rem;
   border: none;
   border-radius: 50%;

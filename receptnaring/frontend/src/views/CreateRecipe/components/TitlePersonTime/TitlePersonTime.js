@@ -11,6 +11,8 @@ import {
   StyledInput
 } from './StyledTitlePersonTime';
 
+
+
 const TitlePersonTime = (ctx) => {
   const [get, set] = ctx.s;
   const [inputValues, setInputValues] = useState({
@@ -18,6 +20,7 @@ const TitlePersonTime = (ctx) => {
     portion: 2,
     time: 0
   });
+
 
   const renderSliders = () => sliderInputsData.map(({ title, name, min, max, id }) =>
     <StyledInputGroup key={id}>
@@ -32,6 +35,7 @@ const TitlePersonTime = (ctx) => {
           max={max}
           defaultValue={inputValues[name]}
           onChange={onSliderChange}
+
         />
       </StyledSliderInputContainer>
       <StyledInput
@@ -54,7 +58,7 @@ const TitlePersonTime = (ctx) => {
     e.persist();
     set(prev => ({ ...prev, 'title': e.target.value }))
   }
-
+  
   return (
     <StyledContainer>
       <StyledInputGroup>
