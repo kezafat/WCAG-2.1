@@ -23,6 +23,10 @@ color:white;
 margin:0 auto;
 height:50px;
 width:20%;
+@media (max-width: 650px) {
+    width: 100%;
+  }
+
 
 `;
 
