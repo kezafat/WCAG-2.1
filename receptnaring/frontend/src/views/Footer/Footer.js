@@ -5,10 +5,10 @@ import { Row } from 'reactstrap'
 
 class Footer extends Component {
 
-  renderIcons = () => footerIconList.map(({ name, src, id }) =>
+  renderIcons = () => footerIconList.map(({ name, src, id, alt }) =>
     <StyledCol key={id} lg="4">
       <IconText href="/">
-        <StyledImage src={src} /><br />
+        <StyledImage src={src} alt={alt}/><br />
         <span className="text-muted">{name}</span>
       </IconText>
     </StyledCol>
@@ -22,7 +22,7 @@ class Footer extends Component {
             {this.renderIcons()}
           </Row>
           <Row>
-            <ContactText className="d-block mx-auto mt-3 mb-3 font-weight-bold" href="mailto:info@receptnaring.se">info@receptnaring.se</ContactText>
+            <ContactText className="d-block mx-auto mt-3 mb-3 font-weight-bold" href="mailto:info@receptnaring.se" alt="Email">info@receptnaring.se</ContactText>
           </Row>
         </div>
       </FooterRow>
