@@ -6,7 +6,7 @@ export const StartPageContainer = styled(Container)`
 `;
 
 export const StyledSpinner = styled(Spinner)`
-  color: #72c554;
+  color: black;
   width: 150px !important;
   height: 150px !important;
   justify-content: center;

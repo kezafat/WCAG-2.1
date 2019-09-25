@@ -44,7 +44,7 @@ export const StyledCardTitle = styled.p`
 export const StyledSpinner = styled(Spinner)`
   display: flex !important;
   justify-content: center;
-  color: green;
+  color: black;
 `;
 
 export const StyledH3 = styled.h3`
