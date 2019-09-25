@@ -195,7 +195,10 @@ export const Instructions = styled(Col)`
   padding-left: 20px;
   
   .row{
-    padding: 15px;
+    padding:15px;
+    p{
+      cursor: pointer;
+    }
   }
 
 `;
