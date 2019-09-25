@@ -42,6 +42,7 @@ class Recipe extends Component {
 
     this.time();
 
+    document.title = this.state.recipe.title + ' | Recepterian';
   
   }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router'
 import { Link } from 'react-router-dom'
 import { Row, Col, Button } from 'reactstrap';
@@ -10,7 +10,7 @@ import AddStep from './components/AddStep';
 import axios from "axios";
 
 const CreateRecipe = (color) => {
- let colors = color.color
+  let colors = color.color
   const initState = {
     'img': 'upload-image.png',
     'instructions': [],
@@ -28,6 +28,10 @@ const CreateRecipe = (color) => {
     setState({ ...initState, });
     setFormStatus(initFormState);
   }
+
+  useEffect(() => {
+    document.title = "Skapa recept | Recepterian";
+  });
 
   const sendForms = async () => {
     // Fulvalidation
@@ -85,7 +89,7 @@ const CreateRecipe = (color) => {
 
   return (
     <StyledContainer text={colors.textcolor}>
-            <Link to="/">
+      <Link to="/">
         <BackButton tabIndex="0" src="/images/backButton.svg" alt="Tillbaka knapp" />
       </Link>
       <Wrapper softbg={colors.softbg}>
@@ -95,7 +99,7 @@ const CreateRecipe = (color) => {
             <UploadImage s={[state, setState]} />
           </Col>
           <Col md="6" sm="12">
-            <TitlePersonTime  s={[state, setState]} />
+            <TitlePersonTime s={[state, setState]} />
           </Col>
         </StyledRow>
         <Row className="text-center">

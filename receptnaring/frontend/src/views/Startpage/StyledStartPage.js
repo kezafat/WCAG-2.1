@@ -20,6 +20,11 @@ export const RecipeWrapper = styled.div`
   height: auto;
   display: flex;
   justify-content: center;
+  .error{
+    color: white;
+    padding: 20px;
+    font-size: 1.5rem;
+  }
 `;
 
 export const TextWrapper = styled.div`
