@@ -47,12 +47,7 @@ class Footer extends Component {
         <div className="container">
           <Row className="d-flex">{this.renderIcons()}</Row>
           <Row>
-            <ContactText
-              className="d-block mx-auto mt-3 mb-3 font-weight-bold"
-              href="mailto:info@receptnaring.se"
-            >
-              info@receptnaring.se
-            </ContactText>
+            <ContactText className="d-block mx-auto mt-3 mb-3 font-weight-bold" href="mailto:info@receptnaring.se" alt="Email">info@receptnaring.se</ContactText>
           </Row>
         </div>
       </FooterRow>
