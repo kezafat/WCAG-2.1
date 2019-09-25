@@ -67,7 +67,7 @@ Color = Color.color
     
       <RecipeInput color={Color} callback={searchRecipe} />
       <TextWrapper >
-        <TextBanner color={Color.bgcolor} >
+        <TextBanner color={Color.divcolor} >
           <TextInfo color={Color.textcolor} >Recept</TextInfo>
         </TextBanner>
       </TextWrapper>

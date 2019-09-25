@@ -175,9 +175,9 @@ class Recipe extends Component {
                   <Row>
                     <Portions >
                       <PortionPicker text={colors.textcolor} border={colors.borderportion}>
-                        <PortionButton border={colors.borderportion} bgcolor={colors.bgcolor} text={colors.textcolor} tabIndex="0" onClick={this.removePortion.bind(this)}><p>-</p></PortionButton>
+                        <PortionButton border={colors.borderportion} bgcolor={colors.divcolor} text={colors.textcolor} tabIndex="0" onClick={this.removePortion.bind(this)}><p>-</p></PortionButton>
                         <PortionText text={colors.textcolor}>{this.state.portions} Portioner</PortionText>
-                        <PortionButton border={colors.borderportion} bgcolor={colors.bgcolor} text={colors.textcolor}tabIndex="0" onClick={this.addPortion.bind(this)}><p>+</p></PortionButton>
+                        <PortionButton border={colors.borderportion} bgcolor={colors.divcolor} text={colors.textcolor}tabIndex="0" onClick={this.addPortion.bind(this)}><p>+</p></PortionButton>
                       </PortionPicker>
                     </Portions>
                   </Row>

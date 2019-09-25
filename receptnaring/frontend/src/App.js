@@ -50,7 +50,7 @@ const App = props => {
 
     if (input === "yellow") {
       setColor({
-        bgcolor: "#FFFF4D",
+        bgcolor: "#191912",
         textcolor: "rgb(0,0,0)",
         divcolor: "#FFFF4D",
         inputbg: "#FDFD96",
