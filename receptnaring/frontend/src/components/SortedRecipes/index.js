@@ -33,7 +33,7 @@ let colors = color.color
       <StyledCard>
         <StyledCardBody >
           <Link to={"/recept/" + data.url}>
-            <CardImg src={`/images/uploaded/${data.img}`} alt={data.title}></CardImg>
+            <CardImg src={`/images/uploaded/${data.img}`} alt={'Bild på '+data.title}></CardImg>
             <StyledCardTitle text={colors.textcolor} bgcolor={colors.divcolor}>{trimString(data.title, 24)}</StyledCardTitle>
           </Link>
         </StyledCardBody>

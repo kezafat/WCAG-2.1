@@ -56,6 +56,7 @@ const StartPage = (Color) => {
       key={index}
       img={`/images/uploaded/${allRecipes.img} `}
       title={allRecipes.title}
+      alt={'Bild på '+allRecipes.title}
       data={allRecipes.url}
       color={Color}
     />

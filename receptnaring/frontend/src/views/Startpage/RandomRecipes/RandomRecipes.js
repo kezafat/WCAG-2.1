@@ -9,7 +9,7 @@ const RandomRecipes = ({color, title, img, data}) => {
       <StyledCard >
         <StyledCardBody>
           <StyledLink to={"/recept/" + data}>
-            <StyledCardImg src={img}></StyledCardImg>
+            <StyledCardImg src={img} alt={'Bild på ' + title}></StyledCardImg>
             <StyledDiv color={color.divcolor}>
               <StyledCardTitle color={color.textcolor}>{title}</StyledCardTitle>
             </StyledDiv>
