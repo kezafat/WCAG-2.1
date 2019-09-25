@@ -42,11 +42,7 @@ class Recipe extends Component {
 
     this.time();
 
-    let instructions = document.getElementsByClassName('instructions')
-
-    for (let instruction of instructions) {
-      instruction.style.color = 'rgb(255, 255, 255)'
-    }
+  
   }
 
 
@@ -55,6 +51,16 @@ class Recipe extends Component {
     {
       this.setState({colors:this.props.color})
     }
+
+  
+
+    let instructions = document.getElementsByClassName('instructions')
+
+    for (let instruction of instructions) {
+      if(instruction.style.color != 'rgb(127, 127, 127)')
+      instruction.style.color = `${this.state.colors.checkedinstruction}`
+    }
+
 
   } 
 
@@ -80,13 +86,12 @@ class Recipe extends Component {
 
 
   chekedCheckbox(val) {
-
     let step = document.getElementsByClassName(`step${val}`);
 
-    if (step[0].style.color === 'rgb(255, 255, 255)') {
+    if (step[0].style.color === this.state.colors.checkedinstruction) {
       step[0].style.color = 'rgb(127, 127, 127)'
     } else {
-      step[0].style.color = 'rgb(255, 255, 255)'
+      step[0].style.color = this.state.colors.checkedinstruction
     }
 
   }
@@ -101,7 +106,7 @@ class Recipe extends Component {
       step[0].style.color = 'rgb(127, 127, 127)'
     } else {
       box[0].checked = false
-      step[0].style.color = 'rgb(255, 255, 255)'
+      step[0].style.color = this.state.colors.checkedinstruction
     }
 
   }

@@ -18,7 +18,7 @@ import {
 const App = props => {
   const [Color, setColor] = useState({
     bgcolor: "#ffffff25",
-    textcolor: "white",
+    textcolor: "rgb(255, 255, 255)",
     divcolor: "black",
     inputbg: "none",
     title:"white",
@@ -27,13 +27,14 @@ const App = props => {
     borderportion:"white",
     ingredients:"lightgrey",
     softbg:"#ffffff25",
-    logo:"/images/HAMIDSLOGO.svg"
+    logo:"/images/HAMIDSLOGO.svg",
+    checkedinstruction:'rgb(255, 255, 255)'
   });
   const ChangeColors = input => {
     if (input === "standard") {
       setColor({
         bgcolor: "#ffffff25",
-        textcolor: "white",
+        textcolor: "rgb(255, 255, 255)",
         divcolor: "black",
         inputbg: "none",
         title:"white",
@@ -42,14 +43,15 @@ const App = props => {
         borderportion:"white",
         ingredients:"lightgrey",
         softbg:"#ffffff25",
-        logo:"/images/HAMIDSLOGO.svg"
+        logo:"/images/HAMIDSLOGO.svg",
+        checkedinstruction:'rgb(255, 255, 255)'
       });
     }
 
     if (input === "yellow") {
       setColor({
         bgcolor: "#FFEF00",
-        textcolor: "black",
+        textcolor: "rgb(0,0,0)",
         divcolor: "#FFEF00",
         inputbg: "#FDFD96",
         title:"#FFEF00",
@@ -58,14 +60,15 @@ const App = props => {
         borderportion:"black",
         ingredients:"black",
         softbg:"#FDFD96",
-        logo:"/images/logoblack.svg"
+        logo:"/images/logoblack.svg",
+        checkedinstruction:"rgb(0, 0, 0)"
       });
     }
 
     if (input === "white") {
       setColor({
         bgcolor: "white",
-        textcolor: "black",
+        textcolor: "rgb(0,0,0)",
         divcolor: "white",
         inputbg: "#fff",
         title:"white",
@@ -74,7 +77,8 @@ const App = props => {
         border:"grey",
         ingredients:"black",
         softbg:"#FFFAFA",
-        logo:"/images/logoblack.svg"
+        logo:"/images/logoblack.svg",
+        checkedinstruction:"rgb(0, 0, 0)"
       });
     }
   };

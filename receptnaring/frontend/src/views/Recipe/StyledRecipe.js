@@ -88,7 +88,7 @@ export const Text = styled.p`
   font-size: 20px;
   max-width: 600px;
   margin-left: 35px;
-  color:${props => props.text} !important;
+  color:${props => props.text} ;
 
 
 `;
