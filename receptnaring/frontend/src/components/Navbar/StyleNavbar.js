@@ -5,7 +5,7 @@ export const StyledNavbar = styled.div`
   display: flex;
   background-color: white;
   height: 100px;
-  background: black;
+  background: ${props => props.color};
   justify-content: center;
   align-items: center;
 `;
@@ -31,10 +31,10 @@ export const StyledButton = styled(Button)`
  font-family: 'Oswald', sans-serif;
  width: 180px;
  margin-right: 10px;
- background-color: black !important;
- border: 1px solid #fff !important;
+ background-color: ${props => props.color} !important;
+ border: 1px solid ${props => props.border} !important;
  font-size:1.5rem;
- color:white;
+ color:${props => props.text} !important;
  text-decoration:none;
  border-radius:10px;
  cursor:pointer;

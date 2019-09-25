@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import { Col } from 'reactstrap'
 
 export const TommyStyle = styled.span`
-  color: #fff;
+  color: ${props => props.text};
 `
 export const FooterRow = styled.footer`
-    background-color: #000;
+    background-color: ${props => props.bgcolor};
     padding-top: 30px;
     
 `;
@@ -25,6 +25,8 @@ export const StyledCol = styled(Col)`
 
 export const StyledImage = styled.img`
   height: 36px;
+  background-color:black;
+  border-radius:50%;
 `;
 
 export const ContactText = styled.a`

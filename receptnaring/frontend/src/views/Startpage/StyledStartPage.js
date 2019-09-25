@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Spinner, Container } from "reactstrap";
 
+
 export const StartPageContainer = styled(Container)`
   padding: 40px;
 `;
@@ -15,7 +16,7 @@ export const StyledSpinner = styled(Spinner)`
 export const RecipeWrapper = styled.div`
   border-radius: 9px;
   padding: 0px 25px 19px 25px;
-  background-color: #ffffff25;
+  background-color: ${props => props.color};
   height: auto;
   display: flex;
   justify-content: center;
@@ -34,7 +35,7 @@ export const TextBanner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff25;
+  background-color: ${props => props.color};
   height: 50px;
   border: none !important;
   width: 200px;
@@ -48,6 +49,8 @@ export const TextInfo = styled.h1`
   text-transform: uppercase;
   font-size: 36px;
   text-align: center;
-  color: white;
+  color: ${props => props.color};
   text-shadow: 2px 2px #000;
 `;
+
+
