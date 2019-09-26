@@ -155,7 +155,7 @@ class Recipe extends Component {
   );
 
 
-  render() {
+render() {
      let {colors}=this.state
     return (
       <RecipeContainer>
@@ -185,7 +185,7 @@ class Recipe extends Component {
                   <List>
                     {this.state.apiData ? this.renderIngredients() : (<StyledSpinner />)}
                   </List>
-                  <Chart />
+                  {this.state.apiData ? <Chart color={colors} ingredient={this.state.ingredients} /> : (<StyledSpinner />)}
                 </Ingredient>
               </LeftColContent>
             </Col>
