@@ -156,7 +156,7 @@ for(let i of this.state.ingredients){
       let color = colors[i];
       let qty = myEntries[i]
       return (
-        <StyledLi key={item} text={this.state.colorText.textcolor}>
+        <StyledLi key={qty} text={this.state.colorText.textcolor}>
           <StyledSpan color={color} />
           {qty}{'  '}{item}
         </StyledLi>
