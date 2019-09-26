@@ -10,7 +10,7 @@ margin-top:20px;
 display:flex;
 flex-direction:column;
 justify-content:center;
-align-items:center;
+align-items:flex-start;
 
 `
 
@@ -22,6 +22,8 @@ display:flex;
 flex-direction:row;
 background-color:${props => props.color};
 border-radius:50%;
+margin-right:5px;
+
 `;
 
 
@@ -29,6 +31,11 @@ export const StyledLi = styled.li`
 margin:5px;
 display:flex;
 flex-direction:row;
-align-items:center;
+color:white;
+`
 
+
+export const StyledP = styled.p`
+margin:5px;
+color:white;
 `

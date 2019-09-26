@@ -43,7 +43,7 @@ router.get('/db/ingredient/id/:id', (req, res) => {
 // Get textual stringmatch of ingredient
 // EX: localhost:3001/api/ingredient/search/olja
 router.get('/api/ingredient/search/:name', (req, res) => {
-  DBing.find({ "Namn": new RegExp(req.params.name, 'i') },
+  DBing.findOne({ "Namn": new RegExp("^"+req.params.name+"$", 'i') },
     function (err, result) {
       res.json(err || result)
     }
