@@ -1,5 +1,4 @@
 import React from "react";
-import data from "./staticData";
 import {
   StyledChart,
   StyledSpan,
@@ -7,19 +6,19 @@ import {
   StyledWrapper,
   StyledP
 } from "./StyledChart";
-
+import equal from 'fast-deep-equal'
 
 class ChartComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      recept: data[0],
       ingredients: props.ingredient,
       dataingredient:{},
       myEntries:[],
       convertToGram:[],
       myValues: [],
       matchColors: [],
+      colorText:props.color,
       data: {
         labels: [],
         datasets: [
@@ -52,10 +51,13 @@ class ChartComponent extends React.Component {
         }
       }
     };
+
+ 
   }
 
   async componentDidMount() {
-    let ingredient;
+  
+
     let data = [];
     for (let ingredient of this.state.ingredients) {
      await fetch(`http://localhost:3001/api/ingredient/search/${encodeURI(ingredient.name)}`)
@@ -72,7 +74,7 @@ for(let i of this.state.ingredients){
  await this.converter(i.name, i.qty, i.type)
 }
   
-    let { recept, myValues,myEntries } = this.state;
+    let {  myValues,myEntries } = this.state;
    
     let salt=[]
     let fleromattad=[]
@@ -154,7 +156,7 @@ for(let i of this.state.ingredients){
       let color = colors[i];
       let qty = myEntries[i]
       return (
-        <StyledLi key={item}>
+        <StyledLi key={item} text={this.state.colorText.textcolor}>
           <StyledSpan color={color} />
           {qty}{'  '}{item}
         </StyledLi>
@@ -163,6 +165,17 @@ for(let i of this.state.ingredients){
 
     return myLabels;
   };
+
+  componentDidUpdate(prevProps) {
+    if(!equal(this.props.color, prevProps.color)) 
+    {
+      this.setState({colorText:this.props.color})
+    }
+
+
+
+  } 
+
 
   render() {
     return (
@@ -173,7 +186,7 @@ for(let i of this.state.ingredients){
           height={250}
           options={this.state.data.options}
         />
-        <StyledP>Näringsinnehåll per 100g</StyledP>
+        <StyledP text={this.state.colorText.textcolor}>Näringsinnehåll per 100g</StyledP>
         {this.getLabels()}
    
 

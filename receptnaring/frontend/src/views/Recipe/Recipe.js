@@ -185,7 +185,7 @@ render() {
                   <List>
                     {this.state.apiData ? this.renderIngredients() : (<StyledSpinner />)}
                   </List>
-                  {this.state.apiData ? <Chart ingredient={this.state.ingredients} /> : (<StyledSpinner />)}
+                  {this.state.apiData ? <Chart color={colors} ingredient={this.state.ingredients} /> : (<StyledSpinner />)}
                 </Ingredient>
               </LeftColContent>
             </Col>

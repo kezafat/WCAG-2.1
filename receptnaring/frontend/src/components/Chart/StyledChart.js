@@ -31,11 +31,11 @@ export const StyledLi = styled.li`
 margin:5px;
 display:flex;
 flex-direction:row;
-color:white;
+color:${props=>props.text};
 `
 
 
 export const StyledP = styled.p`
 margin:5px;
-color:white;
+color:${props=>props.text};
 `
